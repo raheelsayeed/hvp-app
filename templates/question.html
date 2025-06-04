@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    :root {
+        color-scheme: light dark;
+    }
+
+    .question-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        font-weight: normal;
+    }
+
+    .survey-header p {
+        margin: 0.3rem 0;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .progress-container {
+        margin: 1rem 0;
+    }
+
+    .progress-container progress {
+        width: 100%;
+        height: 20px;
+        appearance: none;
+    }
+
+    .instruction {
+        background-color: #f0f4ff; /* Light informative blue */
+        color: #1a1a1a;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        font-size: 1rem;
+        line-height: 1.5;
+        position: relative;
+    }
+
+    .instruction::before {
+        content: "🩺 ";
+        font-size: 1.2rem;
+        margin-right: 0.25rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .question-container {
+            background: #1f1f1f;
+            color: #eaeaea;
+        }
+
+        .instruction {
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        .option {
+            background-color: #2b2b2b;
+            border-color: #444;
+        }
+
+        .btn.secondary {
+            background-color: #555;
+            color: #eee;
+        }
+
+        .btn.primary {
+            background-color: #a51c30;
+            color: white;
+        }
+
+        .btn.primary:hover {
+            background-color: #8e1728;
+        }
+    }
+
+    .question-text p {
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 1.6;
+        margin-top: 1rem;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .option {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: background 0.2s ease-in-out;
+    }
+
+    .option:hover {
+        background: #efefef;
+    }
+
+    .option input[type="radio"] {
+        margin-right: 0.6rem;
+    }
+
+    .nav-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .nav-buttons .btn {
+        width: 50%;
+        max-width: 240px;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .btn.primary {
+        background-color: var(--hms-red);
+        color: #fff;
+    }
+
+    .btn.primary:hover {
+        background-color: #8e1728;
+    }
+
+    .btn.secondary {
+        background-color: #ccc;
+        color: #000;
+    }
+
+    .save-later {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .save-later a {
+        font-size: 0.95rem;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="question-container">
+    <div class="progress-container">
+        <progress value="{{ question_number + 1 }}" max="{{ total_questions }}"></progress>
+    </div>
+
+    <div class="survey-header">
+        <!-- <p><strong>Survey ID:</strong> {{ session['survey_id'] }}</p> -->
+        <p><strong>Scenario {{ question_number + 1 }} of {{ total_questions }}</strong></p>
+        <p><strong>Decision {{ answer_set_index + 1 }} of {{ total_answer_sets }}</strong></p>
+    </div>
+
+    <div class="instruction">
+        <p>{{ question.instruct_human }}</p>
+    </div>
+
+    <div class="question-text">
+        <p>{{ question.text | markdown | safe }}</p>
+    </div>
+
+    <form method="POST" class="answer-form">
+        <fieldset class="answer-block">
+            <!-- <legend>{{ current_answer_set.identifier | title }}</legend> -->
+
+            {% for option in current_answer_set.options %}
+            <div class="option">
+                <input type="radio"
+                       id="option-{{ current_answer_set.identifier }}-{{ loop.index }}"
+                       name="answer_{{ current_answer_set.identifier }}"
+                       value="{{ option.value }}"
+                       required>
+                <label for="option-{{ current_answer_set.identifier }}-{{ loop.index }}">{{ option.text }}</label>
+            </div>
+            {% endfor %}
+        </fieldset>
+
+        <div class="nav-buttons">
+            {% if answer_set_index > 0 or question_number > 0 %}
+                <!-- <a href="{{ url_for('answer_question', question_number=question_number, answer_set_index=answer_set_index - 1) }}" class="btn secondary">Previous</a> -->
+            {% endif %}
+            <button type="submit" class="btn primary">Next</button>
+        </div>
+    </form>
+    <!-- <div class="save-later">
+        <a href="{{ url_for('logout') }}" class="btn">Save &amp; Continue Later</a>
+    </div> -->
+</div>
+{% endblock %}

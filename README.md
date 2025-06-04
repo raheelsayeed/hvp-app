@@ -1,5 +1,15 @@
 Human Values Project 
 ====================
 
+Participant-facing app + website 
 
-Participant facing survey app
+
+##### Setup 
+
+Designed for AWS
+
+
+
+
+
+

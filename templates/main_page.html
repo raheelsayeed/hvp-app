@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+.dashboard-container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+h2 {
+    margin-bottom: 0.25rem;
+}
+
+.intro {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.task-card {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.task-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.task-card p {
+    margin-bottom: 1rem;
+}
+
+.btn.primary {
+    background-color: var(--hms-red);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn.full-width {
+    display: block;
+    width: 90%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn.primary:hover {
+    background-color: #8e1728;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.survey-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.survey-table th,
+.survey-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.survey-table th {
+    background-color: var(--hms-light);
+    font-weight: 600;
+}
+</style>
+
+<div class="dashboard-container">
+    <h2>Welcome, {{ user.name }}</h2>
+    <p class="intro">Thank you for participating in the Human Values Project.</p>
+
+    <div class="task-list">
+        <div class="task-card">
+            <h3>{{ status.title }}</h3>
+            <p>{{ status.text }}</p>
+            {% if due_survey_item %}
+            <a class="btn primary full-width" href="/survey/start">Start Survey</a>
+            {% endif %}
+        </div>
+
+
+        {% if not due_survey_item and survey_list %}
+        <div class="task-card">
+            <h3>🗂️ Completed</h3>
+            <div class="table-wrapper">
+                <table class="survey-table">
+                    <thead>
+                        <tr>
+                            <th>Survey ID</th>
+                            <th>Status</th>
+                            <th>Assigned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for survey in survey_list %}
+                        <tr>
+                            <td><a href="{{ url_for('view_survey_responses', survey_id=survey.survey_id) }}">{{ survey.survey_id }}</a></td>
+                            <td>{{ survey.status | capitalize }}</td>
+                            <td>{{ survey.created_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+                
+    </div>
+</div>
+{% endblock %}

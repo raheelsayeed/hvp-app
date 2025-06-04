@@ -1,0 +1,8 @@
+config/development.py
+
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+*.log
