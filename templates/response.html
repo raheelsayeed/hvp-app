@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="dashboard-container">
+
+<div class="content-card">
     <h2>📊 Survey Response</h2>
-    <div class="response-markdown">
-        {{ markdown_text | markdown | safe }}
+  <div class="card-text">
+        <p>{{ markdown_text | markdown | safe }}</p>
     </div>
 </div>
+
 {% endblock %}

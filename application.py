@@ -1,4 +1,5 @@
-from flask import Flask, render_template, redirect, session, request, url_for, g
+from flask import Flask, render_template, redirect, session, request, url_for, g, current_app
+from flask import request, redirect
 import requests, os, json
 import urllib.parse
 from rich.console import Console
@@ -36,13 +37,53 @@ else:
 
 application.secret_key = application.config['CLIENT_ID']
 
+
+
+
+# def enforce_https_in_production():
+#     if current_app.debug:
+#         return  # Do nothing if in debug mode (i.e., local dev)
+    
+#     if not request.is_secure:
+#         return redirect(request.url.replace("http://", "https://", 1), code=301)
+
+# @application.before_request    
+# def before_request():
+#     response = enforce_https_in_production()
+#     if response:
+#         return response
+
 DUE_SURVEY_ID = 'due_survey_id'
 DUE_SURVEY_METADATA = 'due_survey_metadata'
 
 @application.template_filter('markdown')
 def render_markdown(text):
     return markdown.markdown(text)
-def pkg(text, title, survey_list=None, due_item=None, show_resume=None):
+
+@application.template_filter('format_date')
+def format_date(value, fmt="%B %d, %Y"):
+    """
+    Jinja filter to format ISO 8601 datetime strings or datetime objects.
+    Usage: {{ metadata.created_at | format_date }}
+    """
+    if not value:
+        return "Unknown date"
+
+    # If it's a string, try to parse
+    if isinstance(value, str):
+        try:
+            value = datetime.fromisoformat(value)
+        except ValueError:
+            return "Invalid date"
+
+    # If it's a datetime object
+    if isinstance(value, datetime):
+        return value.strftime(fmt)
+
+    return "Invalid date"
+
+
+def pkg(text=None, title=None, survey_list=None, due_item=None, show_resume=None):
     return {
         "user": session.get('user', None),
         "status": {"title": title, "text": text},
@@ -54,9 +95,25 @@ def rt(template, title=None, text=None):
     return render_template(template, **pkg(text, title))
 
 
+@application.route('/governance')
+def governance():
+    return render_template('about.html', **pkg())
+
+@application.route('/components')
+def components():
+    return render_template('about.html', **pkg())
+
+@application.route('/contact')
+def contact():
+    return render_template('about.html', **pkg())
+
 
 @application.before_request
 def load_survey():
+    if request.endpoint in ('logout',):  # or check request.path == '/logout'
+        return
+    
+    log.debug("Loading survey for current session")
     survey_id = session.get(DUE_SURVEY_ID)
     if survey_id:
         participant_id = session.get('user', {}).get('email', None)
@@ -75,7 +132,7 @@ def index():
 
     participant = AppParticipant.load(session.get('user', {}).get('email'))
 
-    if not participant.has_demographics:
+    if participant and not participant.has_demographics:
         log.debug("Participant profile not in record")
         session['participant_id'] = participant.identifier
         return redirect(url_for('complete_profile'))
@@ -86,6 +143,7 @@ def index():
 
     if due_survey_item:
         session[DUE_SURVEY_ID] = due_survey_item.survey.identifier
+        return redirect(url_for('survey_start'))
         return render_template('main_page.html', **pkg(
             "You have a survey due and takes only XXX mins to complete",
             "📝 Survey is due",
@@ -136,7 +194,17 @@ def complete_profile():
 
         return redirect(url_for('index'))
 
-    return rt("profile.html")
+    # no profile found, needs completion
+    from hvp.core.enums import CountryEnum, ProviderTypeEnum, GeoContext, ClinicalField, SubjectType
+    return render_template(
+        "profile.html",
+        user=session.get('user'),
+        country_options=CountryEnum,
+        subject_types=SubjectType,
+        provider_type_options=ProviderTypeEnum,
+        field_options=ClinicalField,
+        practice_context_options=GeoContext
+    )
 
 
 @application.route('/login')
@@ -179,7 +247,7 @@ def update_survey_status(status: str):
 
     if status == "complete":
         metadata = mark_survey_complete(participant_id, survey_id)
-        session[DUE_SURVEY_METADATA] = metadata
+        # session[DUE_SURVEY_METADATA] = metadata
         session.pop(DUE_SURVEY_ID, None)
         return metadata
 
@@ -195,6 +263,7 @@ def survey_start():
 @application.route("/survey/question/<int:question_number>/set/<int:answer_set_index>", methods=["GET", "POST"])
 @login_required
 def answer_question(question_number, answer_set_index):
+    # --- Authentication Check ---
     if 'user' not in session or DUE_SURVEY_ID not in session:
         return redirect(url_for('index'))
 
@@ -207,6 +276,7 @@ def answer_question(question_number, answer_set_index):
     questions = g.survey.questions
     total_questions = len(questions)
 
+    # --- End of Survey ---
     if question_number >= total_questions:
         update_survey_status("complete")
         return redirect(url_for('survey_complete'))
@@ -215,17 +285,22 @@ def answer_question(question_number, answer_set_index):
     answer_sets = current_question.answers
     total_answer_sets = len(answer_sets)
 
-    # If out of bounds for answer set index, go to next question
+    # --- Skip already answered sets safely ---
+    while answer_set_index < total_answer_sets and response_exists_in_s3(
+        participant_id,
+        survey_id,
+        current_question.identifier,
+        answer_sets[answer_set_index].identifier
+    ):
+        answer_set_index += 1
+
+    # --- Move to next question if all sets answered ---
     if answer_set_index >= total_answer_sets:
         return redirect(url_for('answer_question', question_number=question_number + 1, answer_set_index=0))
 
     current_answer_set = answer_sets[answer_set_index]
 
-    # Check if already answered
-    if response_exists_in_s3(participant_id, survey_id, current_question.identifier, current_answer_set.identifier):
-        return redirect(url_for('answer_question', question_number=question_number, answer_set_index=answer_set_index + 1))
-
-    # Save selected answer
+    # --- Handle submitted answer ---
     if request.method == "POST":
         field_name = f"answer_{current_answer_set.identifier}"
         selected = request.form.get(field_name)
@@ -239,6 +314,7 @@ def answer_question(question_number, answer_set_index):
             )
         return redirect(url_for('answer_question', question_number=question_number, answer_set_index=answer_set_index + 1))
 
+    # --- Render the question ---
     return render_template(
         "question.html",
         user=session['user'],
@@ -292,7 +368,7 @@ def view_survey_responses(survey_id):
                 QuestionResponse(
                     question_identifier=response_data['question_id'],
                     answer_set_identifier=response_data['answer_set_id'],
-                    prompt=None,
+                    prompt='',
                     response=response_data
                 )
             )
@@ -307,6 +383,7 @@ def view_survey_responses(survey_id):
         return render_template(
             'response.html', 
             markdown_text=to_markdown2(survey_response),
+            html_text='',
             user=session['user']
         )
 
@@ -315,14 +392,66 @@ def view_survey_responses(survey_id):
         return f"Internal error: {e}", 500
 
 
+def to_html_response(sr) -> str:
+    """Convert survey response object to styled HTML for rendering."""
+
+    html = f"""
+    <div class="card glass">
+        <h3 class="card-title">📝 Survey: {sr.survey.identifier}</h3>
+    """
+
+    for i, question in enumerate(sr.survey.questions):
+        html += f"""
+        <div class="card-text" style="margin-top: 2rem;">
+            <h4 class="component-title">Question {i+1}: {question.identifier}</h4>
+            <div class="instruction-block">
+                <p class="instruction"><strong>Instruction:</strong> {question.instruct_human}</p>
+            </div>
+            <div class="question-block">
+                <p class="question-text">{question.text}</p>
+            </div>
+        """
+
+        for answer_set in question.answers:
+            question_response = next(
+                (r for r in sr.responses if r.answer_set_identifier == answer_set.identifier),
+                None
+            )
+
+            if question_response:
+                selected_option = next(
+                    (o for o in answer_set.options if o.value == question_response.response['answer_value']),
+                    None
+                )
+
+                if selected_option:
+                    answer_html = "<blockquote>"
+                    for line in selected_option.text.splitlines():
+                        answer_html += f"<p>{line}</p>"
+                    answer_html += "</blockquote>"
+
+                    html += f"""
+                    <div class="answer-block">
+                        <strong>Answer:</strong>
+                        {answer_html}
+                    </div>
+                    """
+
+        html += "<hr /></div>"
+
+    html += "</div>"  # Close outer card
+
+    return html
+
+
 
 def to_markdown2(sr) -> str:
         # Convert survey_response to Markdown for rendering in template
         md = f"##### Survey: {sr.survey.identifier}\n\n"
 
         for i, question in enumerate(sr.survey.questions):
-            md += f"#### Question {i+1}: {question.identifier}\n"
-            md += f"##### Instruction: {question.instruct_human}\n"
+            md += f"### Question {i+1}: {question.identifier}\n"
+            md += f"> Instruction: {question.instruct_human}\n\n"
             md += f"{question.text}\n\n"
             for answer_set in question.answers:
 

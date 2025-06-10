@@ -1,125 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Values Project</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        :root {
-            --hms-red: #a51c30;
-            --hms-dark: #2c2c2c;
-            --hms-light: #f9f9f9;
-            --hms-accent: #d4c19c;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--hms-light);
-            color: var(--hms-dark);
-        }
-
-        header {
-            background-color: var(--hms-red);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            margin: 0;
-        }
-
-        header h1 a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .subtitle {
-            font-size: 1rem;
-            opacity: 0.85;
-            margin-top: 0.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .login-status {
-            font-size: 0.95rem;
-            margin-top: 0.25rem;
-        }
-
-        .login-status a {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .user-nav {
-            margin-top: 0.5rem;
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
-        }
-
-        .user-nav a {
-            background-color: #fff;
-            color: var(--hms-red);
-            padding: 0.35rem 0.8rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.2s;
-        }
-
-        .user-nav a:hover {
-            background-color: #f0f0f0;
-        }
-
-        main {
-            padding: 2rem 1.5rem;
-        }
-
-        footer {
-            background-color: var(--hms-dark);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.875rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Values Project</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
-    <header>
-        <h1><a href="{{ url_for('index') }}">Clinical Decision Dynamics Study</a></h1>
-        <div class="subtitle">Human Values Project</div>
+  <header>
+    <div class="header-container">
+      <!-- Branding Section -->
+      <div class="branding">
+        <h1 class="brand-title">
+          <a href="{{ url_for('index') }}" style="text-decoration: none; color: var(--text-primary);">Clinical Decision Dynamics Study</a>
+        </h1>
+        <div class="brand-subtitle">Human Values Project</div>
+      </div>
 
-        <a href="{{ url_for('about') }}">About</a>
+      <!-- Navigation Section -->
+      <div class="nav-wrapper">
+        <nav class="primary-nav">
+          <a href="{{ url_for('governance') }}" class="nav-link">Governance</a>
+          <a href="{{ url_for('about') }}" class="nav-link">About</a>
+          <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
 
-        <div class="login-status">
-            {% if user %}
-                Logged in as {{ user.email }}
-            {% else %}
-                <a href="{{ url_for('login') }}">Login & Participate</a>
-            {% endif %}
-        </div>
+          {% if user %}
+            <a href="{{ url_for('index') }}" class="nav-link">My Study</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+          {% else %}
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Login & Participate</a>
+          {% endif %}
+        </nav>
 
         {% if user %}
-        <div class="user-nav">
-            <a href="{{ url_for('logout') }}">Logout</a>
+        <div class="user-status">
+          <span class="user-avatar">{{ user.email[0]|upper }}</span>
+          <span>Logged in as {{ user.email }}</span>
         </div>
         {% endif %}
-    </header>
+      </div>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+      <!-- Mobile menu toggle (if needed) -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </span>
+      </button>
+    </div>
 
-    <footer>
-        &copy; {{ 2025 }} Harvard Medical School
-    </footer>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+      <div class="mobile-nav-links">
+        <a href="{{ url_for('governance') }}" class="nav-link">Governance</a>
+        <a href="{{ url_for('about') }}" class="nav-link">About</a>
+        <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+
+        {% if user %}
+          <a href="{{ url_for('index') }}" class="nav-link">My Study</a>
+          <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        {% else %}
+          <a href="{{ url_for('login') }}" class="btn btn-primary">Login & Participate</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    &copy; {{ 2025 }} Harvard Medical School
+  </footer>
+
+  <!-- Mobile menu JS -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

@@ -1,115 +1,70 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-    .about-container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 2rem;
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-        line-height: 1.6;
-    }
+<section class="content-card">
 
-    .about-container h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #333;
-    }
+  <h2 class="page-title">Human Values Project</h2>
 
-    .about-container h3 {
-        font-size: 1.4rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        color: #a51c30;
-    }
-
-    .about-container ul {
-        padding-left: 1.5rem;
-    }
-
-    .about-container li {
-        margin-bottom: 0.5rem;
-    }
-
-    .icon-section {
-        margin-top: 2rem;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .icon-card {
-        border-left: 4px solid #a51c30;
-        padding: 1rem 1.5rem;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-    }
-
-    .icon-card h4 {
-        margin-bottom: 0.5rem;
-    }
-
-    @media (min-width: 768px) {
-        .icon-section {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-</style>
-
-<div class="about-container">
-    <h2>About the Human Values Project</h2>
+  <div class="card-text">
     <p>
-        The Human Values Project (HVP) is an emerging international research initiative examining the alignment between artificial intelligence systems and human values in medical decision-making.
-        Led by <strong>Dr. Isaac Kohane</strong> at Harvard Medical School, this work is currently in its foundational phase.
+      The <strong>Human Values Project (HVP)</strong> is an international research initiative exploring how artificial intelligence systems can align with human values in medical decision-making. Led by <strong>Dr. Isaac Kohane</strong> at Harvard Medical School, this effort is currently in its foundational phase.
     </p>
     <p>
-        As AI increasingly influences clinical decisions, understanding and implementing proper value alignment becomes crucial for patient care and safety.
-        Our initial focus is on developing systematic approaches to studying clinical decision-making across diverse healthcare contexts.
+      As AI becomes more integrated into clinical workflows, ensuring its alignment with patient values is crucial. HVP's initial focus is on designing systematic methods to study real-world decision-making across diverse clinical environments.
     </p>
+  </div>
 
-    <h3>Key Publications</h3>
-    <ul>
-        <li><em>Medical Artificial Intelligence and Human Values</em> (NEJM, 2024)</li>
-        <li><em>Compared with What? Measuring AI against the Health Care We Have</em> (NEJM, 2024)</li>
-    </ul>
+  <h3 class="card-title">Key Publications</h3>
+  <ul class="component-list">
+    <li><em>Medical Artificial Intelligence and Human Values</em> (NEJM, 2024)</li>
+    <li><em>Compared with What? Measuring AI against the Health Care We Have</em> (NEJM, 2024)</li>
+  </ul>
+</section>
 
-    <h3>Current Status</h3>
-    <p>
-        The Human Values Project is currently in its initial phase. We are developing our research frameworks and will be announcing several key initiatives in the coming months.
-        Updates will be posted here as they become available.
-    </p>
-
-    <h3>Key Components</h3>
-    <div class="icon-section">
-        <div class="icon-card">
-            <h4>🧠 Clinical Decision Dynamics Study</h4>
-            <ul>
-                <li>Diverse healthcare contexts</li>
-                <li>Multiple clinical specialties</li>
-                <li>Various patient populations</li>
-                <li>Different healthcare systems</li>
-            </ul>
-        </div>
-        <div class="icon-card">
-            <h4>📊 LLM Alignment Benchmarking</h4>
-            <ul>
-                <li>Concordance with clinical decisions</li>
-                <li>Alignment with patient values</li>
-                <li>Consistency in decision-making</li>
-                <li>Robustness across contexts</li>
-            </ul>
-        </div>
-        <div class="icon-card">
-            <h4>📜 Normative Decision Guidance</h4>
-            <ul>
-                <li>Stakeholder engagement</li>
-                <li>Value framework development</li>
-                <li>Implementation guidelines</li>
-                <li>Ongoing evaluation processes</li>
-            </ul>
-        </div>
+<section class="content-card">
+  <div class="two-pane-cta" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div class="pane-left" style="flex: 1;">
+      <h3 class="card-title">Are you a healthcare provider?</h3>
+      <p>We are actively enrolling clinicians, nurse practitioners, and patients.</p>
     </div>
-</div>
+    <div class="pane-right" style="flex-shrink: 0;">
+      <a href="{{ url_for('login') }}" class="btn btn-primary">JOIN</a>
+    </div>
+  </div>
+</section>
+
+<section class="content-card">
+  <h3 class="card-title">Key Components</h3>
+  <div class="component-grid">
+    <div class="component-card">
+      <h4 class="component-title">🧠 Clinical Decision Dynamics Study</h4>
+      <ul class="component-list">
+        <li>Diverse healthcare contexts</li>
+        <li>Multiple clinical specialties</li>
+        <li>Various patient populations</li>
+        <li>Different healthcare systems</li>
+      </ul>
+    </div>
+
+    <div class="component-card">
+      <h4 class="component-title">📊 LLM Alignment Benchmarking</h4>
+      <ul class="component-list">
+        <li>Concordance with clinical decisions</li>
+        <li>Alignment with patient values</li>
+        <li>Consistency in decision-making</li>
+        <li>Robustness across contexts</li>
+      </ul>
+    </div>
+
+    <div class="component-card">
+      <h4 class="component-title">📜 Normative Decision Guidance</h4>
+      <ul class="component-list">
+        <li>Stakeholder engagement</li>
+        <li>Value framework development</li>
+        <li>Implementation guidelines</li>
+        <li>Ongoing evaluation processes</li>
+      </ul>
+    </div>
+  </div>
+</section>
 {% endblock %}

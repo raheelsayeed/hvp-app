@@ -3,9 +3,8 @@ from hvp.core.survey import Survey
 from utils.survey_item import SurveyItem
 from utils.s3 import * 
 import logging 
-from boto3.dynamodb.conditions import Key 
-from botocore.exceptions import ClientError
 from datetime import timezone, datetime 
+from botocore.exceptions import ClientError
 
 
 log = logging.getLogger(__name__)
@@ -119,7 +118,7 @@ class AppParticipant(Participant):
             survey_id = new_survey.identifier
             key = f"surveys/{self.identifier}/{survey_id}.json"
             upload_survey(data=new_survey.model_dump_json(), key=key)
-            dispatch_email_notification(self.email, f"http://localhost:3000/survey/start")
+            # dispatch_email_notification(self.email, f"https://dev.hvp.global/survey/start")
             s_metadata = register_survey_metadata(
                 participant_id=self.identifier,
                 survey_id=survey_id,

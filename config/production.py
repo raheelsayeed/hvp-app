@@ -1,8 +1,6 @@
 import os, json 
-import boto3
-from botocore.exceptions import ClientError
-from .base import Config
-from flask import url_for
+from config.base import Config
+from utils.aws_session import get_boto3_session
 
 
 class ProductionConfig(Config):
@@ -14,11 +12,10 @@ class ProductionConfig(Config):
     def __init__(self):
         secret_name = os.getenv("AWS_SECRETS_NAME")
         region_name = os.getenv("AWS_REGION")
-        profile_name = os.environ.get("AWS_LOGIN_PROFILE_NAME")
-        self.load_secrets(secret_name, region_name, profile_name)
+        self.load_secrets(secret_name, region_name)
 
-    def load_secrets(self, secret_name, region_name, profile_name):
-        session = boto3.Session(profile_name=profile_name)
+    def load_secrets(self, secret_name, region_name):
+        session = get_boto3_session()
         client = session.client("secretsmanager", region_name=region_name)
         get_secret_value_response = client.get_secret_value(SecretId=secret_name)
         secret = json.loads(get_secret_value_response['SecretString'])

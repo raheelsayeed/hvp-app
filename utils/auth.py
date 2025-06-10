@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 import logging
 from jose import jwt
 from jose.exceptions import JWTError, JWTClaimsError
-from .appparticipant import AppParticipant
+from utils.appparticipant import AppParticipant
 
 log = logging.getLogger(__name__)
 
@@ -62,14 +62,14 @@ def login_required(f):
 
         if not id_token or not auth_time_str or not expires_in:
             log.debug("Missing auth session data. Redirecting to login.")
-            return render_template('login.html')
+            return render_template('about.html')
             return redirect(url_for('login'))
 
         try:
             auth_time = datetime.fromisoformat(auth_time_str)
         except ValueError as e:
             log.debug(f"Invalid auth_time format: {e}. Redirecting to login.")
-            return render_template('login.html')
+            return render_template('about.html')
             return redirect(url_for('login'))
 
         now = datetime.now(timezone.utc)
@@ -79,7 +79,7 @@ def login_required(f):
             log.debug("Session expired. Attempting to refresh tokens...")
             if not refresh_tokens():
                 log.debug("Token refresh failed. Redirecting to login.")
-                return render_template('login.html')
+                return render_template('about.html')
                 return redirect(url_for('login'))
             else:
                 log.debug("Token refresh successful.")

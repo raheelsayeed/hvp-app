@@ -1,13 +1,15 @@
-import boto3, json, os
+import json
 from boto3.dynamodb.conditions import Key, Attr
 from datetime import datetime, timezone
-import logging 
+from utils.aws_session import get_boto3_session
+import logging
+
 
 log = logging.getLogger(__name__)
 
 BUCKET_NAME_SURVEYS = "human-values-project-surveys"
 BUCKET_NAME_RESPONSES = "human-values-project-responses"
-session = boto3.Session(profile_name=os.environ.get("AWS_LOGIN_PROFILE_NAME"))
+session = get_boto3_session()
 s3 = session.client("s3", region_name="us-east-2")
 dynamodb = session.resource("dynamodb", region_name="us-east-2")
 SURVEY_TABLE = dynamodb.Table("hvp-survey-registry")
