@@ -319,6 +319,7 @@ header.scrolled {
   background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
   color: white;
   box-shadow: var(--shadow-sm);
+  text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -331,6 +332,7 @@ header.scrolled {
   background: linear-gradient(135deg, var(--danger-500), var(--danger-600));
   color: white;
   box-shadow: var(--shadow-sm);
+  text-decoration: none;
 }
 
 .btn-danger:hover {
