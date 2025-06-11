@@ -1,3 +1,4 @@
+from typing import Optional
 from hvp.core.participant import Participant, ParticipantType
 from hvp.core.survey import Survey
 from utils.survey_item import SurveyItem
@@ -5,11 +6,16 @@ from utils.s3 import *
 import logging 
 from datetime import timezone, datetime 
 from botocore.exceptions import ClientError
-
+from hvp.core.enums import SubjectType, ProviderTypeEnum, GeoContext, ClinicalField
 
 log = logging.getLogger(__name__)
 
 class AppParticipant(Participant):
+
+    subject_type: Optional[SubjectType] = None 
+    provider_type: Optional[ProviderTypeEnum] = None
+    geo_context: Optional[GeoContext] = None
+    clinical_field: Optional[ClinicalField] = None
 
     @staticmethod
     def initial_entry(email, fn, ln):
@@ -50,6 +56,14 @@ class AppParticipant(Participant):
                     "email": self.email,
                     "city": getattr(self, "city", None),
                     "country": getattr(self, "country", None),
+                    "geo_context": self.geo_context.value if self.geo_context else None,
+                    "healthcare_system": self.healthcare_system.value if self.healthcare_system else None,
+                    "subject_type": self.subject_type.value if self.subject_type else None,
+                    "provider_type": self.provider_type.value if self.provider_type else None,
+                    "clinical_field": self.clinical_field.value if self.clinical_field else None,
+                    "status": self.status.value,
+                    "lat": getattr(self, "lat", None),
+                    "long": getattr(self, "long", None),
                     "created_at": datetime.now(timezone.utc).isoformat(),
                 }
             )

@@ -134,10 +134,10 @@
                         </select>
                     </td>
                 </tr>
-                <tr id="field-row" style="display: none;">
+                <tr id="clinical-field-row" style="display: none;">
                     <td><label for="field">Field</label></td>
                     <td>
-                        <select name="field" id="field">
+                        <select name="clinical-field" id="clinical-field">
                             <option value="">-- Select Field --</option>
                             {% for field in field_options %}
                             <option value="{{ field.value }}">{{ field.value | capitalize}}</option>
@@ -161,7 +161,7 @@
                 <td>
                     <label style="display: flex; align-items: center; gap: 0.5rem;">
                         <input type="checkbox" name="accept_terms" id="accept_terms" required>
-                        I have read and agree to the <a href="{{ url_for('about') }}" target="_blank">terms and Conditions of
+                        I have read and agree to the <a href="{{ url_for('about') }}" target="_blank">terms and conditions of
                             participation</a>
                     </label>
                 </td>
@@ -176,15 +176,47 @@
 
 <script>
     function toggleProviderField(value) {
-        const block = document.getElementById('provider_type_block');
-        block.style.display = (value === 'healthcare provider') ? 'table-row' : 'none';
+        const provider_type_block = document.getElementById('provider_type_block');
+        const fieldRow = document.getElementById('clinical-field-row');
+        const practiceContextRow = document.getElementById('practice-context-row');
+
+
+        const providerType = document.getElementById('provider_type');
+        const field = document.getElementById('clinical-field');
+        const practiceContext = document.getElementById('practice-context');
+
+        const isProvider = (value === 'healthcare provider');
+
+        providerType.required = isProvider;
+        field.required = isProvider;
+        practiceContext.required = isProvider;
+
+        provider_type_block.style.display = isProvider ? 'table-row' : 'none';
+        fieldRow.style.display = isProvider ? 'table-row' : 'none';
+        practiceContextRow.style.display = isProvider ? 'table-row' : 'none';
+
+        // If not a provider, also hide dependent rows and reset their values
+        if (!isProvider) {
+            providerType.selectedIndex = 0;
+            field.selectedIndex = 0;
+            practiceContext.selectedIndex = 0;
+        }
     }
+
     function toggleFieldDropdown() {
-        const provider_type = document.getElementById("provider_type").value;
-        const fieldRow = document.getElementById("field-row");
-        const practicecontext = document.getElementById("practice-context-row");
-        fieldRow.style.display = (provider_type === "Doctor") ? "table-row" : "none";
-        practicecontext.style.display = (provider_type === "Doctor") ? "table-row" : "none";
+        // const providerType = document.getElementById("provider_type").value;
+        // const fieldRow = document.getElementById("clinical-field-row");
+        // const practiceContextRow = document.getElementById("practice-context-row");
+
+        // // const shouldShow = (providerType === "Doctor");
+        // // fieldRow.style.display = shouldShow ? "table-row" : "none";
+        // // practiceContextRow.style.display = shouldShow ? "table-row" : "none";
+
+        // // If not Doctor, reset dependent fields
+        // if (!shouldShow) {
+        //     document.getElementById('clinical-field').selectedIndex = 0;
+        //     document.getElementById('practice-context').selectedIndex = 0;
+        // }
     }
 </script>
 

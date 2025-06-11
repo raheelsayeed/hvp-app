@@ -166,33 +166,47 @@ def index():
 @application.route('/complete-profile', methods=['GET', 'POST'])
 @login_required
 def complete_profile():
+
     if request.method == 'POST':
+        from hvp.core.enums import SubjectType, ClinicalField, ProviderTypeEnum, GeoContext 
+
         participant_id = session.get('user', {}).get('email', None)
         if not participant_id:
             return "Participant not found in session", 400
 
-        participant = AppParticipant.load(participant_id)
-        if not participant:
-            return f"Participant {participant_id} not found in DB", 404
+        try:
+            participant = AppParticipant.load(participant_id)
+            if not participant:
+                return f"Participant {participant_id} not found in DB", 404
 
-        log.debug(f'Form submitted = {request.form}')
-        participant.age = request.form.get('age')
-        participant.gender = request.form.get('gender')
-        participant.race_ethnicity = request.form.get('race_ethnicity')
-        # participant.country = request.form.get('country')
-        # participant.city = request.form.get('city')
+            log.debug(f'Form submitted = {request.form}')
+        
+            participant.age = request.form.get('age')
+            participant.gender = request.form.get('gender')
+            participant.race_ethnicity = request.form.get('race_ethnicity')
+            participant.country = request.form.get('country')
+            participant.city = request.form.get('city')
+            participant.subject_type = SubjectType(request.form.get('subject_type', None))
 
-        # Optional: Collect geolocation if available
-        latitude = request.form.get('latitude')
-        longitude = request.form.get('longitude')
-        if latitude and longitude:
-            # participant.latitude = latitude
-            # participant.longitude = longitude
-            log.debug(f"Captured geolocation: ({latitude}, {longitude})")
+            participant.lat = request.form.get('latitude', None)
+            participant.long = request.form.get('longitude', None)
 
-        participant.persist()
 
-        return redirect(url_for('index'))
+            if participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
+                
+                    participant.provider_type = ProviderTypeEnum(request.form.get('provider_type', None))
+                    participant.clinical_field = ClinicalField(request.form.get('clinical-field', None))
+                    participant.geo_context = GeoContext(request.form.get('practice-context', None))
+
+            
+            
+            participant.persist()
+            return redirect(url_for('index'))
+
+        except Exception as e:
+            log.error(f"Error setting participant fields: {e}")
+
+
 
     # no profile found, needs completion
     from hvp.core.enums import CountryEnum, ProviderTypeEnum, GeoContext, ClinicalField, SubjectType
@@ -247,7 +261,6 @@ def update_survey_status(status: str):
 
     if status == "complete":
         metadata = mark_survey_complete(participant_id, survey_id)
-        # session[DUE_SURVEY_METADATA] = metadata
         session.pop(DUE_SURVEY_ID, None)
         return metadata
 
