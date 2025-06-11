@@ -21,6 +21,7 @@
   </ul>
 </section>
 
+{% if not user %}
 <section class="content-card">
   <div class="two-pane-cta" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
     <div class="pane-left" style="flex: 1;">
@@ -32,6 +33,8 @@
     </div>
   </div>
 </section>
+{% endif %}
+
 
 <section class="content-card">
   <h3 class="card-title">Key Components</h3>
