@@ -365,6 +365,7 @@ def view_survey_responses(survey_id):
         response_prefix = f"responses/{participant_id}/{survey_id}/"
         response_keys = list_response_keys(response_prefix)
 
+
         # 3. Download and parse all responses
         question_responses = []
         from hvp.core.response import SurveyResponse, QuestionResponse
@@ -386,11 +387,15 @@ def view_survey_responses(survey_id):
                 )
             )
 
+
         # 4. Create survey response
         survey_response = SurveyResponse(
             survey=survey, 
             responses=question_responses
         )
+
+        p(survey_response)
+
 
         # 5. Render result (or return dict for API)
         return render_template(
@@ -468,7 +473,7 @@ def to_markdown2(sr) -> str:
             md += f"{question.text}\n\n"
             for answer_set in question.answers:
 
-                question_response = next(filter(lambda r: r.answer_set_identifier == answer_set.identifier, sr.responses), None)
+                question_response = next(filter(lambda r: r.answer_set_identifier == answer_set.identifier and r.question_identifier == question.identifier, sr.responses), None)
 
 
                 if question_response:
