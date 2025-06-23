@@ -148,6 +148,7 @@ class AppParticipant(Participant):
 
 
 
+
     def create_new_survey(self):
         
         from hvp.generator.generator import SurveyGenerator
@@ -155,7 +156,7 @@ class AppParticipant(Participant):
         from hvp.core.question import QuestionTypes
         from demo import Demo
 
-        questions = Demo.Questions()
+        questions = Demo.QuestionsV2()
 
         QSet = QuestionSet(
                 title="Triage and Diagnositic Questions",
@@ -164,7 +165,7 @@ class AppParticipant(Participant):
             )
         
         survey = SurveyGenerator().create_and_assign(
-            num_questions=5,
+            num_questions=3,
             question_set=QSet,
             participant=self,
             filter_func=lambda q, p: q.type in 

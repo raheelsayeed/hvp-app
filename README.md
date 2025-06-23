@@ -14,6 +14,8 @@ Designed for AWS
 
 ```
 eb setenv SERVER_NAME=dev.hvp.global
+export AWS_LOGIN_PROFILE_NAME=<hms-hvp>
+export FLASK_ENV=<dev/production>
 ```
 
 
@@ -64,10 +66,14 @@ User[WebApp]->Bucket: Persist SurveyResponse-Participant-1.json
 - [x] Previous question editing
 - [x] BUG: user_name on Apple sign-in 
 - [x] Profile Form selections should be populated from ENUMs
-- [ ] App-Participant attributes in HVP and then App 
+- [x] App-Participant attributes in HVP and then App 
 - [x] Replace Question -> Scenario
 - [x] Replace AnswerSet -> Decision
 - [ ] terms and conditions page
+- [ ] !!! Check idToken status on load
+- [ ] !! downloadable survey_item
+- [ ] !! jupyter notebook dataframe of "survey_items" 
+
 
 
 

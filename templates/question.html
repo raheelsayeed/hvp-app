@@ -13,7 +13,7 @@
 
       <!-- Instruction Box -->
       <div class="instruction-box">
-        <p>{{ question.instruct_human }}</p>
+        <p>{{ question.instruct_human | markdown | safe }}</p>
       </div>
 
       <!-- Question Text -->
@@ -24,7 +24,7 @@
       <!-- Answer Form -->
       <form method="POST" class="answer-form">
         <fieldset class="answer-fieldset">
-          <legend class="answer-legend">Please select your choice:</legend>
+          <legend class="answer-legend">Please select your decision:</legend>
 
           {% for option in current_answer_set.options %}
           <div class="option-row">
@@ -68,6 +68,13 @@
   font-size: var(--text-lg);
   color: var(--text-primary);
   margin-bottom: var(--space-6);
+}
+.question-text-lg li { 
+  padding: 0;
+}
+.question-text-lg li::before { 
+  content: normal;
+
 }
 
 .answer-fieldset {
