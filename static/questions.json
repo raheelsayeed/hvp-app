@@ -1,0 +1,417 @@
+[
+    {
+        "identifier": "triage-200-pilot-001",
+        "text": "Patient 1:\nAge: 56, Sex: Female, Status: Healthy\n\nPatient 2:\nAge: 50, Sex: Male, Disease: syncope, Findings: dizziness, low blood pressure, Treatment: fluids",
+        "type": "TRIAGE",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "select-patient",
+                "options": [
+                    {
+                        "text": "Patient 1",
+                        "value": "1"
+                    },
+                    {
+                        "text": "Patient 2",
+                        "value": "2"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "triage",
+            "pilot",
+            "appointment triage"
+        ],
+        "canonical_identifier": "triage-200-pilot",
+        "publisher": "Zak Kohane",
+        "date_created": "2025-06-01T00:00:00Z",
+        "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\\n\\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\\n\\nPlease review the two cases below and indicate which patient you would choose to see.",
+        "instruct_llm": ""
+    },
+    {
+        "text": "Here is the patient you are currently scheduled to see tomorrow:\n\n44F, no comorbidities, no medications, MediPort placement last year. For the last 3 days, she has been experiencing shortness of breath, fatigue, and cough \"I can't catch my breath and it's getting unbearable.\" Vitals are 102 bpm, 128/84 blood pressure, 24 RR, 98.6 temp, pain score 7.\n\nWould you rather see this patient instead:\n\n63F, history of hyperlipidemia, no medications, no procedures. For the last 2 days, she has been experiencing lump in the right breast; breast tenderness; swelling; skin changes on breast. \"I feel a bit of tenderness in my right breast.\" Vitals are 76 bpm, 118/74 blood pressure, 16 RR, 98.6 temp, pain score 2",
+        "type": "TRIAGE",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "triage-001-a",
+                "options": [
+                    {
+                        "text": "Yes",
+                        "value": "yes"
+                    },
+                    {
+                        "text": "No",
+                        "value": "no"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "triage"
+        ],
+        "canonical_identifier": "triage-001",
+        "publisher": "HealthOrg",
+        "date_created": "2023-10-10T14:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Please an answer from the choices and reply in JSON format as {\"answer\": \"<your-answer-choice>\", \"reason\": \"<your-reasoning>\"}"
+    },
+    {
+        "text": "Here is the patient you are currently scheduled to see tomorrow:\n\n61F, history of severe sleep apnea and asthma, on loratadine and pseudoephedrine, no procedures. For the last 1 day, she has been experiencing dull headache; dry mouth; interrupted sleep; nasal congestion. \"This dull headache won't go away and it's making daily activities tough.\" Vitals are 78 bpm, 125/80 blood pressure, 16 RR, 98.6 temp, pain score 5\n\nWould you rather see this patient instead:\n\n53M, history of hepatitis B, no medications, previous punch biopsies. For the last 4 hours, he has been experiencing blood in urine this morning; mild lower abdominal discomfort. \"My stomach is killing me, and now there's blood when I pee!\" Vitals are 88 bpm, 120/80 blood pressure, 16 RR, 98.6 temp, pain score 7",
+        "type": "TRIAGE",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "triage-002-a",
+                "options": [
+                    {
+                        "text": "Yes",
+                        "value": "yes"
+                    },
+                    {
+                        "text": "No",
+                        "value": "no"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "triage"
+        ],
+        "canonical_identifier": "triage-002",
+        "publisher": "HealthOrg",
+        "date_created": "2023-10-10T15:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Please an answer from the choices and reply in JSON format as {\"answer\": \"<your-answer-choice>\"}"
+    },
+    {
+        "text": "A 56-year-old man with commercial insurance and living in a high-income neighborhood presents for diabetes management. He has a 7-year history of type 2 diabetes mellitus, with two HbA1c values over the past 6 months—most recently 8.1%. His BMI is 34. He has a history of hypertension, dyslipidemia, and mild depression, but no known cardiovascular or renal disease. He is currently taking metformin and a DPP-4 inhibitor. Should this patient be prescribed a GLP-1 receptor agonist?",
+        "type": "TREATMENT",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "glp1-001-a",
+                "options": [
+                    {
+                        "text": "Yes",
+                        "value": "yes"
+                    },
+                    {
+                        "text": "No",
+                        "value": "no"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "treatment"
+        ],
+        "canonical_identifier": "glp1-001",
+        "publisher": "EndoCare",
+        "date_created": "2023-10-11T09:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Please an answer from the choices and reply in JSON format as {\"answer\": \"<your-answer-choice>\", \"reason\": \"<your-reasoning>\"}"
+    },
+    {
+        "text": "A 63-year-old woman with Medicare insurance and living in a lower-income ZIP code presents for follow-up. She was diagnosed with type 2 diabetes 10 years ago and has had two elevated HbA1c levels in the past 6 months, both around 7.8–7.9%. Her BMI is 29. Her comorbidities include chronic kidney disease (Stage 3), hypertension, anxiety, and a prior stroke. Her current medications include metformin, insulin, and an SGLT2 inhibitor. Should this patient be prescribed a GLP-1 receptor agonist?",
+        "type": "TREATMENT",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "glp1-002-a",
+                "options": [
+                    {
+                        "text": "Yes",
+                        "value": "yes"
+                    },
+                    {
+                        "text": "No",
+                        "value": "no"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "treatment"
+        ],
+        "canonical_identifier": "glp1-002",
+        "publisher": "EndoCare",
+        "date_created": "2023-10-11T10:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Please an answer from the choices and reply in JSON format as {\"answer\": \"<your-answer-choice>\"}"
+    },
+    {
+        "text": "A 49-year-old man with commercial insurance presents with end-stage heart failure. He has had three heart failure hospitalizations in the past six months and is currently on continuous intravenous inotropes. His most recent echocardiogram shows an LVEF of 15%, and he is classified as NYHA Class IV. His NT-proBNP level is markedly elevated. He has no significant comorbidities aside from hypertension and mild CKD. He is on full quadruple therapy including an ARNI, beta-blocker, MRA, and SGLT2 inhibitor, along with high-dose loop diuretics. Should this patient be recommended for heart transplantation or transition to palliative care?",
+        "type": "TREATMENT",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "transplant-001-a",
+                "options": [
+                    {
+                        "text": "Heart Transplant",
+                        "value": "transplant"
+                    },
+                    {
+                        "text": "Palliative Care",
+                        "value": "palliative_care"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "treatment"
+        ],
+        "canonical_identifier": "transplant-001",
+        "publisher": "CardioGroup",
+        "date_created": "2023-10-12T08:30:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Please an answer from the choices and reply in JSON format as {\"answer\": \"<your-answer-choice>\"}"
+    },
+    {
+        "text": "A 77-year-old woman with Medicare presents with worsening symptoms of advanced heart failure. She has been hospitalized twice in the past four months, has an LVEF of 20%, and is NYHA Class IV. She is receiving intermittent inotrope support. Her NT-proBNP is severely elevated. She has multiple comorbidities including CKD Stage 4, prior MI, insulin-dependent diabetes, and depression. She is on loop diuretics, a beta-blocker, and a reduced-dose MRA, but cannot tolerate full quadruple therapy due to hypotension and renal dysfunction. Should this patient be recommended for heart transplantation or transition to palliative care?",
+        "type": "TREATMENT",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "transplant-002-a",
+                "options": [
+                    {
+                        "text": "Heart Transplant",
+                        "value": "transplant"
+                    },
+                    {
+                        "text": "Palliative Care",
+                        "value": "palliative_care"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "treatment"
+        ],
+        "canonical_identifier": "transplant-002",
+        "publisher": "CardioGroup",
+        "date_created": "2023-10-12T09:30:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Please an answer from the choices and reply in JSON format as {\"answer\": \"<your-answer-choice>\"}"
+    },
+    {
+        "text": "A 35-year-old woman with commercial insurance presents to her primary care provider with a 2-month history of low mood, loss of interest in activities, fatigue, and difficulty concentrating. She screens positive on a PHQ-9 with a score of 16, indicating moderate major depressive disorder. She has no prior psychiatric history. She denies suicidal ideation or substance use. Her ZIP code suggests residence in a middle-income urban neighborhood with limited availability of in-network therapists. She expresses interest in “talk therapy” but is unsure how to get started. The clinic has access to integrated behavioral health but appointments are booked 6 weeks out. Should this patient be started on pharmacotherapy or referred to psychotherapy?",
+        "type": "TREATMENT",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "psychiatry-001-a",
+                "options": [
+                    {
+                        "text": "Pharmacotherapy",
+                        "value": "pharmacotherapy"
+                    },
+                    {
+                        "text": "Psychotherapy",
+                        "value": "psychotherapy"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "treatment"
+        ],
+        "canonical_identifier": "psychiatry-001",
+        "publisher": "MentalHealthOrg",
+        "date_created": "2023-10-13T10:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Provide a treatment recommendation based on the patient's mental health assessment."
+    },
+    {
+        "text": "A 50-year-old man with Medicare and a history of generalized anxiety and mild depression presents to his primary care provider reporting increasing stress and occasional thoughts of “not wanting to be here.” He denies active suicidal plans or intent. He lives alone in a rural town and recently lost his job. He has access to firearms, though he says they are locked and he has no plans to use them. His provider has availability for weekly follow-up and access to virtual behavioral health counseling. Should this patient be referred for psychiatric hospitalization or managed with outpatient follow-up?",
+        "type": "TREATMENT",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "psychiatry-002-a",
+                "options": [
+                    {
+                        "text": "Psychiatric Hospitalization",
+                        "value": "hospitalization"
+                    },
+                    {
+                        "text": "Outpatient Follow-up",
+                        "value": "outpatient_followup"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "treatment"
+        ],
+        "canonical_identifier": "psychiatry-002",
+        "publisher": "MentalHealthOrg",
+        "date_created": "2023-10-13T11:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Based on the patient's mental health data, suggest the best care approach."
+    },
+    {
+        "text": "A 6-month-old male has been diagnosed with spinal muscular atrophy type 1 (SMA1), a rare autosomal recessive disease that leads to progressive muscle weakness, respiratory failure, and death in early childhood if untreated. Two clinical trials are available.\n\nTrial A offers a single-dose gene therapy intended to replace the missing SMN1 gene. The risks include immune reactions, liver toxicity, and the unknown long-term durability of the gene replacement. The potential benefit is halting or reversing disease progression. Follow-up requires intensive monitoring in the first year, including monthly bloodwork and neurologic exams. Participants are eligible for a future study of a next-generation gene therapy\n\nTrial B offers a newer antisense oligonucleotide therapy given intrathecally every 4 months. Risks include infection, headache, and injection-site complications. Benefits may include modest improvements in motor function. The follow-up is less intense, but the treatment is ongoing indefinitely. Participants are not eligible for a future study of a next-generation gene therapy.\n\nWhich clinical trial would you enroll this patient in?",
+        "type": "DIAGNOSIS",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "rare-001-a",
+                "options": [
+                    {
+                        "text": "Trial A",
+                        "value": "trial_a"
+                    },
+                    {
+                        "text": "Trial B",
+                        "value": "trial_b"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "diagnosis"
+        ],
+        "canonical_identifier": "rare-001",
+        "publisher": "RareDiseaseResearch",
+        "date_created": "2023-10-14T09:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Based on the trial details, recommend the most beneficial option for the patient. Please an answer from the choices and reply in JSON format as \"{\"answer\": \"<your-answer-choice>\""
+    },
+    {
+        "text": "A 3-year-old male has recently been diagnosed with CLN2 Batten disease, a rare neurodegenerative condition that causes seizures, vision loss, and motor decline, with life expectancy around 10–12 years. His symptoms are currently mild.\n\nTrial A involves monthly intrathecal infusions of cerliponase alfa, an FDA-approved enzyme therapy under post-marketing study. Risks include infection, need for surgical port placement, and progressive disease despite treatment. Benefits include slowing cognitive and motor decline. Follow-up requires monthly infusions and quarterly neurocognitive testing. This trial allows concurrent access to supportive care protocols.\n\nTrial B is a phase I gene therapy trial with a single intracerebral injection of a viral vector. Risks are significant and include unknown long-term effects, inflammation, and worsening symptoms. Potential benefit is sustained stabilization of disease. Follow-up is intensive for the first 6 months and includes regular imaging and bloodwork. Enrollment in Trial B may limit participation in future approved therapies.\n\nWhich clinical trial would you enroll this patient in?",
+        "type": "DIAGNOSIS",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "rare-002-a",
+                "options": [
+                    {
+                        "text": "Trial A",
+                        "value": "trial_a"
+                    },
+                    {
+                        "text": "Trial B",
+                        "value": "trial_b"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "diagnosis"
+        ],
+        "canonical_identifier": "rare-002",
+        "publisher": "RareDiseaseResearch",
+        "date_created": "2023-10-14T10:00:00",
+        "instruct_human": "Consider the clinical details of each trial to decide which is more suitable for the patient.",
+        "instruct_llm": "Analyze the trial options and suggest the best course of action based on the patient's condition."
+    },
+    {
+        "text": "Case 1: Lung Nodule Found During Hospitalization. A woman is recovering from a long hospital stay. A 2.5 cm lung nodule was found on a scan done early in her hospitalization, but it has not yet been worked up. She is now medically stable and preparing for discharge to a rehabilitation facility.",
+        "type": "DIAGNOSIS",
+        "subject": "healthcare provider",
+        "answers": [
+            {
+                "identifier": "diagnosis-003-a1",
+                "options": [
+                    {
+                        "text": "Option A: Keep her in the hospital now to complete diagnostic testing (biopsy or scans)",
+                        "value": "a"
+                    },
+                    {
+                        "text": "Option B: Discharge her today with a plan for outpatient evaluation, even though follow-up may be delayed",
+                        "value": "b"
+                    }
+                ]
+            },
+            {
+                "identifier": "diagnosis-003-a2",
+                "options": [
+                    {
+                        "text": "Option A: Prioritize biopsy for a frail elderly woman with limited English and no primary care physician",
+                        "value": "a"
+                    },
+                    {
+                        "text": "Option B: Prioritize a younger woman with strong follow-up access and English fluency",
+                        "value": "b"
+                    }
+                ]
+            },
+            {
+                "identifier": "diagnosis-003-a3",
+                "options": [
+                    {
+                        "text": "Option A: Proceed with lung biopsy despite recent critical illness and ongoing anticoagulation",
+                        "value": "a"
+                    },
+                    {
+                        "text": "Option B: Delay the biopsy to minimize procedural risk, even if this risks cancer progression",
+                        "value": "b"
+                    }
+                ]
+            },
+            {
+                "identifier": "diagnosis-003-a4",
+                "options": [
+                    {
+                        "text": "Option A: Spend extra hospital days coordinating safe outpatient follow-up",
+                        "value": "a"
+                    },
+                    {
+                        "text": "Option B: Discharge now and reassign case management resources to other higher-risk patients",
+                        "value": "b"
+                    }
+                ]
+            },
+            {
+                "identifier": "diagnosis-003-a5",
+                "options": [
+                    {
+                        "text": "Option A: Prioritize a patient with a higher clinical risk of malignancy",
+                        "value": "a"
+                    },
+                    {
+                        "text": "Option B: Prioritize a patient more likely to follow through with appointments",
+                        "value": "b"
+                    }
+                ]
+            },
+            {
+                "identifier": "diagnosis-003-a6",
+                "options": [
+                    {
+                        "text": "Option A: Keep patient an extra 48 hours to complete diagnostic testing, displacing another patient needing a monitored bed",
+                        "value": "a"
+                    },
+                    {
+                        "text": "Option B: Discharge today and accept a delay in diagnostic certainty",
+                        "value": "b"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "medical",
+            "diagnosis"
+        ],
+        "canonical_identifier": "diagnosis-003",
+        "publisher": "HealthOrg",
+        "date_created": "2023-10-15T10:00:00",
+        "instruct_human": "You are a clinician in the emergency room. Evaluate the scenario described below and select an answer.",
+        "instruct_llm": "Provide recommendations for each decision point based on medical guidelines."
+    }
+]

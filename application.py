@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, session, request, url_for, g, current_app
+from flask import Flask, flash, render_template, redirect, session, request, url_for, g, current_app
 from flask import request, redirect
 import requests, os, json
 import urllib.parse
@@ -11,6 +11,7 @@ import logging
 from rich.logging import RichHandler
 from utils.auth import *
 from hvp.core.survey import Survey
+from utils.question_extension import *
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -23,6 +24,40 @@ log = logging.getLogger(__name__)
 p = Console().print
 
 application = Flask(__name__)
+
+TOTAL_QUESTIONS = { 
+    "TRIAGE": 200,
+    "MANAGEMENT": 8
+}
+
+MINIMUM_QUESTIONS_PER_TYPE = {
+    "TRIAGE": 4,
+    "MANAGEMENT": 6
+}
+
+
+def require_profile_complete(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        user_email = session.get('user', {}).get('email')
+        if not user_email:
+            log.warning("No user email found in session")
+            return redirect(url_for('login'))
+
+        participant = AppParticipant.load(user_email)
+        if not participant:
+            log.warning("Participant record not found")
+            return redirect(url_for('complete_profile'))
+        
+        g.participant = participant  # attach to global context for downstream use
+
+        if not participant.has_demographics:
+            log.debug("Participant profile incomplete, redirecting to profile form")
+            session['participant_id'] = participant.identifier
+            return redirect(url_for('complete_profile'))
+
+        return f(*args, **kwargs)
+    return decorated_function
 
 if os.getenv("FLASK_ENV") == "production":
     from config.production import ProductionConfig
@@ -110,56 +145,60 @@ def contact():
 
 @application.before_request
 def load_survey():
-    if request.endpoint in ('logout',):  # or check request.path == '/logout'
-        return
+    pass
+    # if request.endpoint in ('logout',):  # or check request.path == '/logout'
+    #     return
     
-    log.debug("Loading survey for current session")
-    survey_id = session.get(DUE_SURVEY_ID)
-    if survey_id:
-        participant_id = session.get('user', {}).get('email', None)
-        s3_file = f"surveys/{participant_id}/{survey_id}.json"
-        if s3_file:
-            survey_dict = download_survey(key=s3_file)
-            survey = Survey(**survey_dict)
-            g.survey = survey
-    else:
-        g.survey = None
+    # log.debug("Loading survey for current session")
+    # survey_id = session.get(DUE_SURVEY_ID)
+    # if survey_id:
+    #     participant_id = session.get('user', {}).get('email', None)
+    #     s3_file = f"surveys/{participant_id}/{survey_id}.json"
+    #     if s3_file:
+    #         survey_dict = download_survey(key=s3_file)
+    #         survey = Survey(**survey_dict)
+    #         g.survey = survey
+    # else:
+    #     g.survey = None
+
+
+def build_question_progress(progress: dict, total_questions: dict, minimum_required: int) -> dict:
+    merged = {}
+    for qtype in total_questions:
+        merged[qtype] = {
+            "total": total_questions[qtype],
+            "answered": int(progress.get(qtype, 0)),
+            "minimum": minimum_required
+        }
+    return merged
 
 
 @application.route('/')
 @login_required
+@require_profile_complete
 def index():
 
-    participant = AppParticipant.load(session.get('user', {}).get('email'))
+    participant = g.participant
 
-    if participant and not participant.has_demographics:
-        log.debug("Participant profile not in record")
-        session['participant_id'] = participant.identifier
-        return redirect(url_for('complete_profile'))
+    # Define the question types assigned to this participant
+    from utils.profile import get_assigned_question_types_with_progress 
 
-    survey_items = participant.get_due_surveys()
-    due_survey_item = next(filter(lambda x: x.metadata['status'] == "pending", survey_items), None)
-    survey_list = [s.metadata for s in survey_items]
+    progress_arr = get_assigned_question_types_with_progress(
+        participant_id=participant.identifier,
+        total_questions_dict=TOTAL_QUESTIONS,
+        threshold_for_type_dict=MINIMUM_QUESTIONS_PER_TYPE
+    )
+    
 
-    if due_survey_item:
-        session[DUE_SURVEY_ID] = due_survey_item.survey.identifier
-        return redirect(url_for('survey_start'))
-        return render_template('main_page.html', **pkg(
-            "You have a survey due and takes only XXX mins to complete",
-            "📝 Survey is due",
-            survey_list,
-            due_survey_item,
-            False
-        ))
-    else:
-        session.pop(DUE_SURVEY_ID, None)
-        return render_template('main_page.html', **pkg(
-            "",
-            "You will be notified when a new survey is assigned",
-            survey_list,
-            None,
-            False
-        ))
+    log.debug(f"New: Participant progress: {progress_arr}")
+
+    if not progress_arr:
+        log.warning(f"No question types assigned for participant: {participant.identifier}")
+        return render_template("study_page.html", progress=[], user=session.get('user', None))
+
+    # return progress_dict
+    has_due_block = any(item.get("answered", 0) < item.get("minimum", 0) for item in progress_arr)
+    return render_template("study_page.html", progress=progress_arr, user=session.get('user', None), has_due_block=has_due_block)
 
 
 
@@ -168,7 +207,7 @@ def index():
 def complete_profile():
 
     if request.method == 'POST':
-        from hvp.core.enums import SubjectType, ClinicalField, ProviderTypeEnum, GeoContext 
+        from hvp.core.enums import SubjectType, ProviderTypeEnum, GeoContext 
 
         participant_id = session.get('user', {}).get('email', None)
         if not participant_id:
@@ -188,19 +227,35 @@ def complete_profile():
             participant.city = request.form.get('city')
             participant.subject_type = SubjectType(request.form.get('subject_type', None))
 
+
             participant.lat = request.form.get('latitude', None)
             participant.long = request.form.get('longitude', None)
 
 
-            if participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
+            # if participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
                 
-                    participant.provider_type = ProviderTypeEnum(request.form.get('provider_type', None))
-                    participant.clinical_field = ClinicalField(request.form.get('clinical-field', None))
-                    participant.geo_context = GeoContext(request.form.get('practice-context', None))
+            # Ensure form returns plain string values
+            subject_type_value = request.form.get('subject_type', None)
+            provider_type_value = request.form.get('provider_type', None)
+            clinical_field_values = request.form.getlist('clinical-field') or None
+            geo_context_value = request.form.get('practice-context', None)
+
+            participant.subject_type = SubjectType(subject_type_value)
+
+            if participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
+                if provider_type_value:
+                    participant.provider_type = ProviderTypeEnum(provider_type_value)
+                if clinical_field_values:
+                    participant.clinical_field = clinical_field_values
+                if geo_context_value:
+                    participant.geo_context = GeoContext(geo_context_value)
 
             
-            
             participant.persist()
+            from utils.profile import assign_question_types
+            assign_question_types(participant)
+
+
             return redirect(url_for('index'))
 
         except Exception as e:
@@ -209,14 +264,21 @@ def complete_profile():
 
 
     # no profile found, needs completion
-    from hvp.core.enums import CountryEnum, ProviderTypeEnum, GeoContext, ClinicalField, SubjectType
+    import pycountry
+    countries = list(pycountry.countries)
+    countries_sorted = sorted([c for c in countries if c.alpha_2 != "US"], key=lambda c: c.name)
+    us = next(c for c in countries if c.alpha_2 == "US")
+    countries_sorted = [us] + countries_sorted
+
+
+    from hvp.core.enums import ProviderTypeEnum, GeoContext, SubjectType
     return render_template(
         "profile.html",
         user=session.get('user'),
-        country_options=CountryEnum,
+        country_options=countries_sorted,
         subject_types=SubjectType,
         provider_type_options=ProviderTypeEnum,
-        field_options=ClinicalField,
+        field_options='',
         practice_context_options=GeoContext
     )
 
@@ -264,86 +326,258 @@ def update_survey_status(status: str):
         session.pop(DUE_SURVEY_ID, None)
         return metadata
 
+
+
+
+@application.route('/survey/start/<question_type>/<cmode>', methods=['GET', 'POST'])
+@login_required
+@require_profile_complete
+def survey_start(question_type, cmode=None):
+
+    session['current_question_type'] = question_type
+    participant = g.participant
+    # random_question = get_unanswered_questions(participant_id=participant.identifier, question_type=question_type, number_of_questions=1)
+
+    from utils.register import get_participant_registry 
+    participant_registry = get_participant_registry(participant_id=participant.identifier)
     
-@application.route("/survey/start")
+    random_question = get_random_unanswered_question(participant_data=participant_registry, question_type=question_type)
+
+    if not random_question:
+        log.warning(f"No unanswered questions found for type '{question_type}' for participant {participant.identifier}")
+        return redirect(url_for('index'))
+
+    return redirect(url_for('answer_question', question_id=random_question.identifier, answer_set_index=0, cmode=cmode))
+
+
+
+@application.route('/survey/question/<question_id>/set/<answer_set_index>/<cmode>', methods=['GET', 'POST'])
 @login_required
-def survey_start():
-    if DUE_SURVEY_ID not in session:
-        return redirect(url_for('index'))
-    return redirect("/survey/question/0/set/0")
+@require_profile_complete 
+def answer_question(question_id, answer_set_index, cmode=None):
+
+    participant = g.participant
+
+    if request.method == "POST":
+        
+        form_answerset_id = request.form.get('answer_set_identifier', None)
+        form_question_id = request.form.get('question_identifier', None)
+        form_question_type = request.form.get('question_type', None)
+        form_answerset_index = int(request.form.get('answer_set_index'))
+        form_answerset_count = int(request.form.get('answer_set_count'))
+
+        selected_answer = request.form.get('selected_answer', None)
+        cmode = request.form.get('cmode')
+
+        # Save flag if submitted
+        if request.form.get("flag_question") == "on":
+            comment = request.form.get("flag_comment", "").strip()
+            save_flag_to_s3(
+                participant_id=g.participant.identifier,
+                question_type=form_question_type,
+                question_id=form_question_id,
+                answer_set_id=form_answerset_id,
+                comment=comment
+            )
+        
+        if selected_answer:
+            logging.debug(f"Saving response for participant {participant.identifier}, question {form_question_id}, answer set {form_answerset_id}, value: {selected_answer}")
+            save_response_to_s3(
+                participant_id=participant.identifier,
+                question_type=form_question_type,
+                question_id=form_question_id,
+                answer_set_id=form_answerset_id,
+                answer_value=selected_answer
+            )
+
+            answer_count = increment_question_progress(
+                    participant_id=participant.identifier,
+                    question_type=form_question_type,
+                    question_id=form_question_id
+                )
+            has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[form_question_type]
+            print(has_answered_minimum) 
+            print(answer_count) 
+            print(MINIMUM_QUESTIONS_PER_TYPE[form_question_type])
+            print(f'cmode={cmode}, type={type(cmode)}')
+            
+
+            retline =  str(has_answered_minimum) + '\n' + str(cmode) + '\n' + str(form_question_type) + '\n' + str(answer_count) + '\n' + str(MINIMUM_QUESTIONS_PER_TYPE[form_question_type]) + '\n' + str(participant.identifier) + '\n' + str(form_question_id) + '\n' + str(form_answerset_id)
+
+            was_last_answer_set = form_answerset_index + 1 >= form_answerset_count
+
+            if was_last_answer_set:
+                if has_answered_minimum:
+                    if cmode == 'False':
+                        flash(f"You have completed answering {form_question_type} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
+                        return redirect(url_for('index'))
+                    else: 
+                        if answer_count < TOTAL_QUESTIONS[form_question_type]:
+                            flash(f"{form_question_type} Question #{answer_count+1} ", "success") 
+                            return redirect(url_for('survey_start', question_type=form_question_type, cmode=cmode))
+                        else:
+                            flash(f"You have completed answering all {form_question_type} questions", "success") 
+                            return redirect(url_for('index'))
+            else:
+                # If not the last answer set, redirect to next one
+                return redirect(url_for('answer_question', question_id=form_question_id, answer_set_index=form_answerset_index + 1, cmode=cmode))
+            
+    
 
 
-@application.route("/survey/question/<int:question_number>/set/<int:answer_set_index>", methods=["GET", "POST"])
-@login_required
-def answer_question(question_number, answer_set_index):
-    # --- Authentication Check ---
-    if 'user' not in session or DUE_SURVEY_ID not in session:
-        return redirect(url_for('index'))
 
-    load_survey()
-    if not g.survey:
-        return redirect(url_for('index'))
 
-    participant_id = session['user']['email']
-    survey_id = g.survey.identifier
-    questions = g.survey.questions
-    total_questions = len(questions)
 
-    # --- End of Survey ---
-    if question_number >= total_questions:
-        update_survey_status("complete")
-        return redirect(url_for('survey_complete'))
-
-    current_question = questions[question_number]
-    answer_sets = current_question.answers
+    question = get_question_by_id(question_id)
+    if not question:
+        print(f"Question with ID {question_id} not found.")
+        log.error(f"Question with ID {question_id} not found.")
+        # raise ValueError(f"Question with ID {question_id} not found.")
+        return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
+    
+    answer_sets = question.answers
     total_answer_sets = len(answer_sets)
 
-    # --- Skip already answered sets safely ---
-    while answer_set_index < total_answer_sets and response_exists_in_s3(
-        participant_id,
-        survey_id,
-        current_question.identifier,
-        answer_sets[answer_set_index].identifier
-    ):
+    answer_set_index = int(answer_set_index)
+
+    print(f'in answer_question, question_id={question_id}, answer_set_index={answer_set_index}, cmode={cmode}')
+
+    # --- Check if answer_set_index is valid ---
+    if answer_set_index >= total_answer_sets:
+        print(f"Invalid answer_set_index {answer_set_index} for question {question_id}. Total sets: {total_answer_sets}")
+        # raise ValueError(f"Invalid answer_set_index {answer_set_index} for question {question_id}. Total sets: {total_answer_sets}")
+        return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
+    
+    # # --- Skip already answered sets safely ---
+    while answer_set_index < total_answer_sets:
+        try: 
+            if not response_exists_in_s3(
+                    participant_id=participant.identifier,
+                    question_type=question.type,
+                    question_id=question.identifier,
+                    answer_set_id=answer_sets[answer_set_index].identifier
+            ):
+                break 
+        except Exception as e:
+            raise e 
         answer_set_index += 1
 
     # --- Move to next question if all sets answered ---
     if answer_set_index >= total_answer_sets:
-        return redirect(url_for('answer_question', question_number=question_number + 1, answer_set_index=0))
-
-    current_answer_set = answer_sets[answer_set_index]
-
-    # --- Handle submitted answer ---
-    if request.method == "POST":
-        field_name = f"answer_{current_answer_set.identifier}"
-        selected = request.form.get(field_name)
-        if selected:
-            save_response_to_s3(
-                participant_id=participant_id,
-                survey_id=survey_id,
-                question_id=current_question.identifier,
-                answer_set_id=current_answer_set.identifier,
-                answer_value=selected
-            )
-        return redirect(url_for('answer_question', question_number=question_number, answer_set_index=answer_set_index + 1))
-
-    # --- Render the question ---
+        log.debug(f"All answer sets for question {question_id} answered. Redirecting to survey start.")
+        return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
+    
+    g.current_question = question 
+    current_answer_set = answer_sets[answer_set_index]  
+    
     return render_template(
         "question.html",
         user=session['user'],
-        question=current_question,
+        question=question,
         current_answer_set=current_answer_set,
         answer_set_index=answer_set_index,
-        total_answer_sets=total_answer_sets,
-        question_number=question_number,
-        total_questions=total_questions
+        total_answer_sets=len(answer_sets),
+        cmode=cmode
     )
+
+# def answer_question(question_id, answer_set_index, cmode=None): 
+
+#     participant = g.participant
+#     question = get_question_by_id(question_id)
+
+#     if not question:
+#         log.error(f"Question with ID {question_id} not found.")
+#         return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
+    
+#     answer_sets = question.answers
+#     total_answer_sets = len(answer_sets)
+
+#     answer_set_index = int(answer_set_index)
+
+#     if answer_set_index >= total_answer_sets:
+#         return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
+    
+#     # --- Skip already answered sets safely ---
+#     while answer_set_index < total_answer_sets and response_exists_in_s3(
+#         participant_id=participant.identifier,
+#         question_id=question.identifier,
+#         answer_set_id=answer_sets[answer_set_index].identifier
+#     ):
+#         answer_set_index += 1
+
+#     # --- Move to next question if all sets answered ---
+#     if answer_set_index >= total_answer_sets:
+#         return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
+    
+#     g.current_question = question 
+#     current_answer_set = answer_sets[answer_set_index]  
+
+#     if request.method == "POST":
+#         field_name = f"answer_{current_answer_set.identifier}"
+#         selected = request.form.get(field_name)
+        
+#         cmode = request.form.get('cmode')
+#         print(cmode)
+
+#             # Save flag if submitted
+#         if request.form.get("flag_question") == "on":
+#             comment = request.form.get("flag_comment", "").strip()
+#             save_flag_to_s3(
+#                 participant_id=g.participant.identifier,
+#                 question_id=question.identifier,
+#                 answer_set_id=current_answer_set.identifier,
+#                 comment=comment
+#             )
+        
+
+#         if selected:
+#             logging.debug(f"Saving response for participant {participant.identifier}, question {question.identifier}, answer set {current_answer_set.identifier}, value: {selected}")
+#             save_response_to_s3(
+#                 participant_id=participant.identifier,
+#                 question_id=question.identifier,
+#                 answer_set_id=current_answer_set.identifier,
+#                 answer_value=selected
+#             )
+
+#             from utils.question_extension import increment_question_progress 
+#             answer_count = increment_question_progress(participant_id=participant.identifier, question_type=question.type)
+#             has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[question.type]
+#             print(has_answered_minimum) 
+#             print(answer_count) 
+#             print(MINIMUM_QUESTIONS_PER_TYPE[question.type])
+#             print(f'cmode={cmode}')
+
+
+# #             if has_answered_minimum:
+# #                 if cmode == False:
+# #                     return redirect(url_for('index', user=session['user'])
+# # )
+# #                 else: 
+# #                     return redirect(url_for('answer_question', question_id=question_id, answer_set_index=answer_set_index + 1, cmode=cmode))
+
+
+#                 # flash(f"You have completed answering {session.get('current_question_type', None)} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
+#                 # else:
+
+#         return redirect(url_for('answer_question', question_id=question_id, answer_set_index=answer_set_index + 1, cmode=cmode))
+    
+#     # --- Render the question ---
+#     return render_template(
+#         "question2.html",
+#         user=session['user'],
+#         question=question,
+#         current_answer_set=current_answer_set,
+#         answer_set_index=answer_set_index,
+#         total_answer_sets=len(answer_sets),
+#         cmode=cmode
+#     )
+
 
 
 
 @application.route("/survey/complete")
 def survey_complete():
-    return redirect(url_for('index')) 
+    return redirect(url_for('index'))
 
 
 @application.route("/response/survey/<survey_id>")
@@ -490,3 +724,13 @@ def to_markdown2(sr) -> str:
 
 if __name__ == '__main__':
     application.run(port=3000, debug=True)
+
+
+  
+
+
+
+
+
+
+

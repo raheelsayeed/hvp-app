@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from hvp.core.participant import Participant, ParticipantType
 from hvp.core.survey import Survey
 from utils.survey_item import SurveyItem
@@ -6,7 +6,7 @@ from utils.s3 import *
 import logging 
 from datetime import timezone, datetime 
 from botocore.exceptions import ClientError
-from hvp.core.enums import SubjectType, ProviderTypeEnum, GeoContext, ClinicalField
+from hvp.core.enums import SubjectType, ProviderTypeEnum, GeoContext
 
 log = logging.getLogger(__name__)
 
@@ -15,7 +15,7 @@ class AppParticipant(Participant):
     subject_type: Optional[SubjectType] = None 
     provider_type: Optional[ProviderTypeEnum] = None
     geo_context: Optional[GeoContext] = None
-    clinical_field: Optional[ClinicalField] = None
+    clinical_field: Optional[List[str]] = None
 
     @staticmethod
     def initial_entry(email, fn, ln):
@@ -60,7 +60,7 @@ class AppParticipant(Participant):
                     "healthcare_system": self.healthcare_system.value if self.healthcare_system else None,
                     "subject_type": self.subject_type.value if self.subject_type else None,
                     "provider_type": self.provider_type.value if self.provider_type else None,
-                    "clinical_field": self.clinical_field.value if self.clinical_field else None,
+                    "clinical_field": self.clinical_field,
                     "status": self.status.value,
                     "lat": getattr(self, "lat", None),
                     "long": getattr(self, "long", None),
@@ -81,6 +81,14 @@ class AppParticipant(Participant):
             self.gender = data.get("gender", None) 
             self.race_ethnicity = data.get("race_ethnicity", None)
             self.profession = data.get("profession", None)
+            self.subject_type = SubjectType(data.get("subject_type")) if data.get("subject_type") else None 
+            self.provider_type = ProviderTypeEnum(data.get("provider_type")) if data.get("provider_type") else None
+            self.geo_context = GeoContext(data.get("geo_context")) if data.get("geo_context") else None
+            self.clinical_field =  data.get("clinical_field", None)
+            self.city = data.get("city", None)
+            self.country = data.get("country", None)
+            self.lat = data.get("lat", None)
+            self.long = data.get("long", None)
     
     def populate_from_dynamo(self):
         data = get_participant_demographics(self.identifier)
@@ -143,37 +151,37 @@ class AppParticipant(Participant):
             due_surveys.append(survey_item)
 
         return due_surveys
+    
+
+    from utils.question_extension import get_unanswered_questions 
+   
+   
 
 
 
+    def create_new_survey(self, num_questions: int = 12) -> Survey:
 
+        # get 10 ananswered questions
+        from utils.question_extension import get_unanswered_questions
 
-
-    def create_new_survey(self):
-        
-        from hvp.generator.generator import SurveyGenerator
-        from hvp.core.question import QuestionSet
-        from hvp.core.question import QuestionTypes
-        from demo import Demo
-
-        questions = Demo.QuestionsV2()
-
-        QSet = QuestionSet(
-                title="Triage and Diagnositic Questions",
-                questions=questions,
-                version="2.1"
-            )
-        
-        survey = SurveyGenerator().create_and_assign(
-            num_questions=3,
-            question_set=QSet,
-            participant=self,
-            filter_func=lambda q, p: q.type in 
-                [QuestionTypes.TRIAGE, QuestionTypes.DIAGNOSIS]
+        # make sure they are new/unanswered 
+        # make sure they belong to the right type
+        questions = get_unanswered_questions(
+            participant_id=self.identifier,
+            question_type='TRIAGE',
+            number_of_questions=num_questions
         )
 
+        if questions is None or len(questions) == 0:
+            raise ValueError("No unanswered questions available for the participant.")
+
+        # create a Survey with these questions 
+        survey = Survey(
+            metadata={"question_type": "TRIAGE"},
+            questions=questions,
+            participant=self
+        )
+
+        # return the Survey object
         return survey
-
-
-
-
+        

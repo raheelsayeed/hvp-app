@@ -1,10 +1,12 @@
 import json
+from random import random
 from boto3.dynamodb.conditions import Key, Attr
 from datetime import datetime, timezone
 from utils.aws_session import get_boto3_session
 import logging
-
-
+from hvp.core.participant import Participant
+from hvp.core.question import Question
+from typing import List
 log = logging.getLogger(__name__)
 
 BUCKET_NAME_SURVEYS = "human-values-project-surveys"
@@ -15,22 +17,30 @@ dynamodb = session.resource("dynamodb", region_name="us-east-2")
 SURVEY_TABLE = dynamodb.Table("hvp-survey-registry")
 PARTICIPANT_TABLE = dynamodb.Table("hvp-participants")
 
+def response_key(question_id, answer_set_id):
+    return f"{question_id}/{answer_set_id}"
 
-def response_exists_in_s3(participant_id, survey_id, question_id, answer_set_id):
-    key = f"responses/{participant_id}/{survey_id}/{question_id}/{answer_set_id}/answer.json"
+def response_path(participant_id: str, question_type: str, question_id: str, answer_set_id: str) -> str:
+    return f"responses/{participant_id}/{question_type}/{response_key(question_id, answer_set_id)}/answer.json"
+
+def response_exists_in_s3(participant_id, question_type, question_id, answer_set_id):
+    key = response_path(participant_id, question_type, question_id, answer_set_id)
     try:
-        s3.head_object(Bucket=BUCKET_NAME_RESPONSES, Key=key)
-        return True
-    except s3.exceptions.ClientError as e:
-        if e.response['Error']['Code'] == '404':
-            return False
-        raise
+        # check if file exists in S3 
+        resp = s3.list_objects_v2(Bucket=BUCKET_NAME_RESPONSES, Prefix=key)
+        if 'Contents' not in resp or len(resp['Contents']) == 0:
+            return False 
+        else:
+            return True 
+        
+        # resp = s3.head_object(Bucket=BUCKET_NAME_RESPONSES, Key=key)
+    except Exception as e:
+        raise e 
 
-def save_response_to_s3(participant_id, survey_id, question_id, answer_set_id, answer_value):
-    key = f"responses/{participant_id}/{survey_id}/{question_id}/{answer_set_id}/answer.json"
+def save_response_to_s3(participant_id, question_type, question_id, answer_set_id, answer_value):
+    key = response_path(participant_id, question_type, question_id, answer_set_id)
     payload = {
         "participant_id": participant_id,
-        "survey_id": survey_id,
         "question_id": question_id,
         "answer_set_id": answer_set_id,
         "answer_value": answer_value,
@@ -196,3 +206,27 @@ def dispatch_email_notification(recipient_email, link):
         }
     )
     return response
+
+
+def save_flag_to_s3(participant_id, question_type, question_id, answer_set_id, comment):
+    session = get_boto3_session()
+    s3 = session.client('s3')
+
+    payload = {
+        "participant_id": participant_id,
+        "question_id": question_id,
+        "answer_set_id": answer_set_id,
+        "comment": comment,
+        "timestamp": datetime.now(timezone.utc).isoformat()
+    }
+
+    key = f"flags/{participant_id}/{question_type}/{question_id}/{answer_set_id}/flag.json"
+    s3.put_object(
+        Bucket=BUCKET_NAME_RESPONSES,
+        Key=key,
+        Body=json.dumps(payload),
+        ContentType="application/json"
+    )
+
+    logging.info(f"[Flag] Saved flag for {participant_id} on {question_id}/{answer_set_id}")
+    

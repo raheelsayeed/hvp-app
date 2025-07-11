@@ -677,3 +677,11 @@ footer {
 .loading {
   animation: pulse 2s ease-in-out infinite;
 }
+
+.alert-success {
+  background: var(--accent-500);
+  color: white;
+  padding: 1rem;
+  
+  margin-bottom: 1rem;
+}

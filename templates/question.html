@@ -7,9 +7,12 @@
     <div class="card">
 
       <!-- Survey Header -->
-      <div class="survey-header">
-        <p class="text-sm text-secondary">Decision {{ answer_set_index + 1 }} <em>of</em> Scenario {{ question_number + 1 }}</p>
-      </div>
+
+    <div class="survey-header text-sm text-secondary">
+    {% if total_answer_sets > 1 %}
+        <p>Decision {{ answer_set_index + 1 }}</p>
+    {% endif %}
+    </div>
 
       <!-- Instruction Box -->
       <div class="instruction-box">
@@ -23,25 +26,61 @@
 
       <!-- Answer Form -->
       <form method="POST" class="answer-form">
-        <fieldset class="answer-fieldset">
-          <legend class="answer-legend">Please select your decision:</legend>
+            <input type="hidden" name="question_identifier" value="{{ question.identifier }}">
+            <input type="hidden" name="question_type" value="{{ question.type }}">
+            <input type="hidden" name="answer_set_identifier" value="{{ current_answer_set.identifier }}">
+            <input type="hidden" name="answer_set_index" value="{{ answer_set_index }}">
+            <input type="hidden" name="answer_set_count" value="{{ total_answer_sets }}">
 
-          {% for option in current_answer_set.options %}
-          <div class="option-row">
-            <input
-              type="radio"
-              id="option-{{ current_answer_set.identifier }}-{{ loop.index }}"
-              name="answer_{{ current_answer_set.identifier }}"
-              value="{{ option.value }}"
-              required
-              class="option-input"
-            />
-            <label for="option-{{ current_answer_set.identifier }}-{{ loop.index }}" class="option-label">
-              {{ option.text }}
-            </label>
-          </div>
-          {% endfor %}
+
+            
+            {% if cmode %}
+            <input type="hidden" name="cmode" value="{{ cmode }}">
+            {% endif %}
+            <fieldset class="answer-fieldset">
+            <legend class="answer-legend">Please select your decision:</legend>
+
+            {% for option in current_answer_set.options %}
+            <div class="option-row">
+                <input
+                type="radio"
+                id="option-{{ current_answer_set.identifier }}-{{ loop.index }}"
+                name="selected_answer"
+                value="{{ option.value }}"
+                required
+                class="option-input"
+                />
+                <label for="option-{{ current_answer_set.identifier }}-{{ loop.index }}" class="option-label">
+                {{ option.text }}
+                </label>
+            </div>
+            {% endfor %}
+            </fieldset>
+
+
+
+        <!-- Flag Section -->
+        <fieldset class="answer-fieldset">
+        <legend class="answer-legend">Flag this question</legend>
+
+        <div style="margin-bottom: 1rem;">
+            <input type="checkbox" id="flag_question" name="flag_question" onchange="toggleFlagComment()" />
+            <label for="flag_question">I’d like to flag this question for review</label>
+        </div>
+
+        <div id="flag_comment_container" style="display: none;">
+            <label for="flag_comment">Your comments (sent to the study authors):</label><br />
+            <textarea id="flag_comment" name="flag_comment" rows="4" style="width: 100%; margin-top: 0.5rem;"></textarea>
+        </div>
         </fieldset>
+
+        <script>
+        function toggleFlagComment() {
+        const isChecked = document.getElementById('flag_question').checked;
+        const commentBox = document.getElementById('flag_comment_container');
+        commentBox.style.display = isChecked ? 'block' : 'none';
+        }
+        </script>
 
         <!-- Submit -->
         <div class="form-footer">

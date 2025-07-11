@@ -72,6 +72,8 @@
                             <option value="">-- Select Gender --</option>
                             <option value="Female">Female</option>
                             <option value="Male">Male</option>
+                            <option value="Other">Other</option>
+                            <option value="PNS">Prefer not to say</option>
                         </select>
                     </td>
                 </tr>
@@ -94,7 +96,7 @@
                         <select name="country" id="country" required>
                             <option value="">-- Select Country --</option>
                             {% for country in country_options %}
-                            <option value="{{ country.value }}">{{ country.value | capitalize}}</option>
+                            <option value="{{ country.name }}">{{ country.name }}</option>
                             {% endfor %}
                         </select>
                     </td>
@@ -134,14 +136,227 @@
                         </select>
                     </td>
                 </tr>
+
+
+
+
+
+
+
+
+
                 <tr id="clinical-field-row" style="display: none;">
-                    <td><label for="field">Field</label></td>
                     <td>
-                        <select name="clinical-field" id="clinical-field">
-                            <option value="">-- Select Field --</option>
+                        <label for="field">Field</label>
+                        <div style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary);">
+                        Hold down <strong>Ctrl (Windows)</strong> or <strong>Cmd ⌘ (Mac)</strong> to select multiple options. <br/>On mobile, tap to select multiple entries.
+                        </div>
+                        <div id="field-count" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            0 selected
+                        </div>
+                    </td>
+                    <td>
+
+                        <select name="clinical-field" id="clinical-field" multiple size="20" onchange="updateFieldCount()">
+                            <!-- <option value="">-- Select Field --</option> -->
                             {% for field in field_options %}
-                            <option value="{{ field.value }}">{{ field.value | capitalize}}</option>
+                            <!-- <option value="{{ field.value }}">{{ field.value | capitalize}}</option> -->
                             {% endfor %}
+
+
+                                    <!-- <select id="subspecialties" name="subspecialties" multiple size="10"> -->
+                            <optgroup label="Anesthesiology">
+                                <option value="Adult Cardiac Anesthesiology">Adult Cardiac Anesthesiology</option>
+                                <option value="Critical Care Medicine">Critical Care Medicine</option>
+                                <option value="Health Care Administration, Leadership, and Management">Health Care Administration, Leadership, and Management</option>
+                                <option value="Hospice and Palliative Medicine">Hospice and Palliative Medicine</option>
+                                <option value="Neurocritical Care">Neurocritical Care</option>
+                                <option value="Pain Medicine">Pain Medicine</option>
+                                <option value="Pediatric Anesthesiology">Pediatric Anesthesiology</option>
+                                <option value="Sleep Medicine">Sleep Medicine</option>
+                            </optgroup>
+                            
+                            <optgroup label="Dermatology">
+                                <option value="Dermatopathology">Dermatopathology</option>
+                                <option value="Micrographic Dermatologic Surgery">Micrographic Dermatologic Surgery</option>
+                                <option value="Pediatric Dermatology">Pediatric Dermatology</option>
+                            </optgroup>
+                            
+                            <optgroup label="Emergency Medicine">
+                                <option value="Anesthesiology Critical Care Medicine">Anesthesiology Critical Care Medicine</option>
+                                <option value="Emergency Medical Services">Emergency Medical Services</option>
+                                <option value="Health Care Administration, Leadership, and Management">Health Care Administration, Leadership, and Management</option>
+                                <option value="Hospice and Palliative Medicine">Hospice and Palliative Medicine</option>
+                                <option value="Internal Medicine–Critical Care Medicine">Internal Medicine–Critical Care Medicine</option>
+                                <option value="Medical Toxicology">Medical Toxicology</option>
+                                <option value="Neurocritical Care">Neurocritical Care</option>
+                                <option value="Pain Medicine">Pain Medicine</option>
+                                <option value="Pediatric Emergency Medicine">Pediatric Emergency Medicine</option>
+                                <option value="Sports Medicine">Sports Medicine</option>
+                                <option value="Undersea and Hyperbaric Medicine">Undersea and Hyperbaric Medicine</option>
+                            </optgroup>
+                            
+                            <optgroup label="Family Medicine">
+                                <option value="Adolescent Medicine">Adolescent Medicine</option>
+                                <option value="Geriatric Medicine">Geriatric Medicine</option>
+                                <option value="Health Care Administration, Leadership, and Management">Health Care Administration, Leadership, and Management</option>
+                                <option value="Hospice and Palliative Medicine">Hospice and Palliative Medicine</option>
+                                <option value="Pain Medicine">Pain Medicine</option>
+                                <option value="Sleep Medicine">Sleep Medicine</option>
+                                <option value="Sports Medicine">Sports Medicine</option>
+                            </optgroup>
+                            
+                            <optgroup label="Internal Medicine">
+                                <option value="Adolescent Medicine">Adolescent Medicine</option>
+                                <option value="Adult Congenital Heart Disease">Adult Congenital Heart Disease</option>
+                                <option value="Advanced Heart Failure and Transplant Cardiology">Advanced Heart Failure and Transplant Cardiology</option>
+                                <option value="Cardiovascular Disease">Cardiovascular Disease</option>
+                                <option value="Clinical Cardiac Electrophysiology">Clinical Cardiac Electrophysiology</option>
+                                <option value="Critical Care Medicine">Critical Care Medicine</option>
+                                <option value="Endocrinology, Diabetes and Metabolism">Endocrinology, Diabetes and Metabolism</option>
+                                <option value="Gastroenterology">Gastroenterology</option>
+                                <option value="Geriatric Medicine">Geriatric Medicine</option>
+                                <option value="Hematology">Hematology</option>
+                                <option value="Hospice and Palliative Medicine">Hospice and Palliative Medicine</option>
+                                <option value="Infectious Disease">Infectious Disease</option>
+                                <option value="Interventional Cardiology">Interventional Cardiology</option>
+                                <option value="Medical Oncology">Medical Oncology</option>
+                                <option value="Nephrology">Nephrology</option>
+                                <option value="Neurocritical Care">Neurocritical Care</option>
+                                <option value="Pulmonary Disease">Pulmonary Disease</option>
+                                <option value="Rheumatology">Rheumatology</option>
+                                <option value="Sleep Medicine">Sleep Medicine</option>
+                                <option value="Transplant Hepatology">Transplant Hepatology</option>
+                            </optgroup>
+                            
+                            <optgroup label="Medical Genetics and Genomics">
+                                <option value="Medical Biochemical Genetics">Medical Biochemical Genetics</option>
+                                <option value="Molecular Genetic Pathology">Molecular Genetic Pathology</option>
+                            </optgroup>
+                            
+                            <optgroup label="Neurological Surgery">
+                                <option value="Neurocritical Care">Neurocritical Care</option>
+                            </optgroup>
+                            
+                            <optgroup label="Obstetrics and Gynecology">
+                                <option value="Complex Family Planning">Complex Family Planning</option>
+                                <option value="Critical Care Medicine">Critical Care Medicine</option>
+                                <option value="Gynecologic Oncology">Gynecologic Oncology</option>
+                                <option value="Maternal–Fetal Medicine">Maternal–Fetal Medicine</option>
+                                <option value="Reproductive Endocrinology and Infertility">Reproductive Endocrinology and Infertility</option>
+                                <option value="Urogynecology and Reconstructive Pelvic Surgery">Urogynecology and Reconstructive Pelvic Surgery</option>
+                            </optgroup>
+                            
+                            <optgroup label="Orthopaedic Surgery">
+                                <option value="Orthopaedic Sports Medicine">Orthopaedic Sports Medicine</option>
+                                <option value="Surgery of the Hand">Surgery of the Hand</option>
+                            </optgroup>
+                            
+                            <optgroup label="Otolaryngology–Head and Neck Surgery">
+                                <option value="Complex Pediatric Otolaryngology">Complex Pediatric Otolaryngology</option>
+                                <option value="Neurotology">Neurotology</option>
+                                <option value="Plastic Surgery within the Head and Neck">Plastic Surgery within the Head and Neck</option>
+                                <option value="Sleep Medicine">Sleep Medicine</option>
+                            </optgroup>
+                            
+                            <optgroup label="Pathology">
+                                <option value="Blood Banking/Transfusion Medicine">Blood Banking/Transfusion Medicine</option>
+                                <option value="Clinical Informatics">Clinical Informatics</option>
+                                <option value="Cytopathology">Cytopathology</option>
+                                <option value="Dermatopathology">Dermatopathology</option>
+                                <option value="Hematopathology">Hematopathology</option>
+                                <option value="Neuropathology">Neuropathology</option>
+                                <option value="Pathology–Chemical">Pathology–Chemical</option>
+                                <option value="Pathology–Forensic">Pathology–Forensic</option>
+                                <option value="Pathology–Medical Microbiology">Pathology–Medical Microbiology</option>
+                                <option value="Pathology–Molecular Genetic">Pathology–Molecular Genetic</option>
+                                <option value="Pathology–Pediatric">Pathology–Pediatric</option>
+                            </optgroup>
+                            
+                            <optgroup label="Pediatrics">
+                                <option value="Adolescent Medicine">Adolescent Medicine</option>
+                                <option value="Child Abuse Pediatrics">Child Abuse Pediatrics</option>
+                                <option value="Developmental–Behavioral Pediatrics">Developmental–Behavioral Pediatrics</option>
+                                <option value="Hospice and Palliative Medicine">Hospice and Palliative Medicine</option>
+                                <option value="Medical Toxicology">Medical Toxicology</option>
+                                <option value="Neonatal–Perinatal Medicine">Neonatal–Perinatal Medicine</option>
+                                <option value="Pediatric Cardiology">Pediatric Cardiology</option>
+                                <option value="Pediatric Critical Care Medicine">Pediatric Critical Care Medicine</option>
+                                <option value="Pediatric Emergency Medicine">Pediatric Emergency Medicine</option>
+                                <option value="Pediatric Endocrinology">Pediatric Endocrinology</option>
+                                <option value="Pediatric Gastroenterology">Pediatric Gastroenterology</option>
+                                <option value="Pediatric Hematology–Oncology">Pediatric Hematology–Oncology</option>
+                                <option value="Pediatric Hospital Medicine">Pediatric Hospital Medicine</option>
+                                <option value="Pediatric Infectious Diseases">Pediatric Infectious Diseases</option>
+                                <option value="Pediatric Nephrology">Pediatric Nephrology</option>
+                                <option value="Pediatric Pulmonology">Pediatric Pulmonology</option>
+                                <option value="Pediatric Rheumatology">Pediatric Rheumatology</option>
+                                <option value="Pediatric Transplant Hepatology">Pediatric Transplant Hepatology</option>
+                                <option value="Sleep Medicine">Sleep Medicine</option>
+                                <option value="Sports Medicine">Sports Medicine</option>
+                            </optgroup>
+                            
+                            <optgroup label="Physical Medicine and Rehabilitation">
+                                <option value="Brain Injury Medicine">Brain Injury Medicine</option>
+                                <option value="Neuromuscular Medicine">Neuromuscular Medicine</option>
+                                <option value="Pain Medicine">Pain Medicine</option>
+                                <option value="Pediatric Rehabilitation Medicine">Pediatric Rehabilitation Medicine</option>
+                                <option value="Spinal Cord Injury Medicine">Spinal Cord Injury Medicine</option>
+                                <option value="Sports Medicine">Sports Medicine</option>
+                            </optgroup>
+                            
+                            <optgroup label="Plastic Surgery">
+                                <option value="Plastic Surgery within the Head and Neck">Plastic Surgery within the Head and Neck</option>
+                                <option value="Surgery of the Hand">Surgery of the Hand</option>
+                            </optgroup>
+                            
+                            <optgroup label="Preventive Medicine">
+                                <option value="Addiction Medicine">Addiction Medicine</option>
+                                <option value="Clinical Informatics">Clinical Informatics</option>
+                                <option value="Health Care Administration, Leadership, and Management">Health Care Administration, Leadership, and Management</option>
+                                <option value="Medical Toxicology">Medical Toxicology</option>
+                                <option value="Undersea and Hyperbaric Medicine">Undersea and Hyperbaric Medicine</option>
+                            </optgroup>
+                            
+                            <optgroup label="Psychiatry and Neurology">
+                                <option value="Addiction Psychiatry">Addiction Psychiatry</option>
+                                <option value="Brain Injury Medicine">Brain Injury Medicine</option>
+                                <option value="Child and Adolescent Psychiatry">Child and Adolescent Psychiatry</option>
+                                <option value="Clinical Neurophysiology">Clinical Neurophysiology</option>
+                                <option value="Consultation–Liaison Psychiatry">Consultation–Liaison Psychiatry</option>
+                                <option value="Epilepsy">Epilepsy</option>
+                                <option value="Forensic Psychiatry">Forensic Psychiatry</option>
+                                <option value="Geriatric Psychiatry">Geriatric Psychiatry</option>
+                                <option value="Neurocritical Care">Neurocritical Care</option>
+                                <option value="Neurodevelopmental Disabilities">Neurodevelopmental Disabilities</option>
+                                <option value="Neuromuscular Medicine">Neuromuscular Medicine</option>
+                                <option value="Pain Medicine">Pain Medicine</option>
+                                <option value="Sleep Medicine">Sleep Medicine</option>
+                                <option value="Vascular Neurology">Vascular Neurology</option>
+                            </optgroup>
+                            
+                            <optgroup label="Radiology">
+                                <option value="Neuroradiology">Neuroradiology</option>
+                                <option value="Nuclear Radiology">Nuclear Radiology</option>
+                                <option value="Pain Medicine">Pain Medicine</option>
+                                <option value="Pediatric Radiology">Pediatric Radiology</option>
+                            </optgroup>
+                            
+                            <optgroup label="Surgery">
+                                <option value="Complex General Surgical Oncology">Complex General Surgical Oncology</option>
+                                <option value="Pediatric Surgery">Pediatric Surgery</option>
+                                <option value="Surgery of the Hand">Surgery of the Hand</option>
+                                <option value="Surgical Critical Care">Surgical Critical Care</option>
+                            </optgroup>
+                            
+                            <optgroup label="Thoracic Surgery">
+                                <option value="Congenital Cardiac Surgery">Congenital Cardiac Surgery</option>
+                            </optgroup>
+                            
+                            <optgroup label="Urology">
+                                <option value="Pediatric Urology">Pediatric Urology</option>
+                                <option value="Urogynecology and Reconstructive Pelvic Surgery">Urogynecology and Reconstructive Pelvic Surgery</option>
+                            </optgroup>
                         </select>
                     </td>
                 </tr>
@@ -175,6 +390,13 @@
 
 
 <script>
+
+    function updateFieldCount() {
+        const select = document.getElementById("clinical-field");
+        const count = Array.from(select.options).filter(option => option.selected).length;
+        document.getElementById("field-count").innerText = `${count} selected`;
+    }
+
     function toggleProviderField(value) {
         const provider_type_block = document.getElementById('provider_type_block');
         const fieldRow = document.getElementById('clinical-field-row');
@@ -203,21 +425,7 @@
         }
     }
 
-    function toggleFieldDropdown() {
-        // const providerType = document.getElementById("provider_type").value;
-        // const fieldRow = document.getElementById("clinical-field-row");
-        // const practiceContextRow = document.getElementById("practice-context-row");
 
-        // // const shouldShow = (providerType === "Doctor");
-        // // fieldRow.style.display = shouldShow ? "table-row" : "none";
-        // // practiceContextRow.style.display = shouldShow ? "table-row" : "none";
-
-        // // If not Doctor, reset dependent fields
-        // if (!shouldShow) {
-        //     document.getElementById('clinical-field').selectedIndex = 0;
-        //     document.getElementById('practice-context').selectedIndex = 0;
-        // }
-    }
 </script>
 
 

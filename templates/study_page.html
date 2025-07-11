@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .survey-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .survey-item {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-xs);
+    transition: box-shadow var(--transition-fast);
+  }
+
+  .survey-item:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .progress-row strong {
+    color: var(--text-primary);
+  }
+</style>
+
+<section class="content-card">
+  <h2 class="page-title">Welcome, {{ user.name }}</h2>
+  <p class="page-subtitle">Thank you for participating in the Human Values Project.</p>
+
+  {% if progress %}
+  <div class="card-text" style="margin-top: 1.5rem;">
+    <h3 class="card-title">📊 Your Progress</h3>
+    <div class="card-text">
+
+      {% for item in progress %}
+      <div class="progress-row" style="margin-bottom: 1.25rem; background: var(--bg-tertiary); padding: 1rem; border-radius: var(--radius-lg);">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <div>
+            <strong>{{ item.type }} Questions</strong><br />
+            <span class="text-sm text-muted">{{ item.answered }} of atleast {{ item.minimum }} answered</span><br />
+            <span class="text-sm text-muted">Total: {{ item.total }}</span><br />
+
+            <span>Status:
+              {% if item.answered | int >= item.minimum %}
+                <span style="color: var(--accent-600); font-weight: bold;">Complete</span>
+              {% else %}
+                <span style="color: var(--danger-500); font-weight: bold;">Due</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <div>
+            {% if item.status == 'enabled' %}
+              {% if item.answered | int < item.total %}
+                    {% if item.answered | int < item.minimum %}
+                    <form method="POST" action="{{ url_for('survey_start', question_type=item.type, cmode=False) }}">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        Resume
+                    </button></form>
+                    {% else %}
+                    <form method="POST" action="{{ url_for('survey_start', question_type=item.type, cmode=True) }}">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        Continue answering
+                    </button></form>
+                    {% endif %}
+
+            {% else %}
+            <!-- All questions answered. No form shown. -->
+            {% endif %}
+            {% else %}
+              <button class="btn btn-sm btn-ghost" disabled style="opacity: 0.4;">Locked</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

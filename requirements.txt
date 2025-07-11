@@ -1,6 +1,6 @@
 annotated-types==0.7.0
 anyio==4.9.0
-awsebcli==3.24.1
+awsebcli==3.25
 bcrypt==4.3.0
 blessed==1.21.0
 blinker==1.9.0
@@ -23,7 +23,7 @@ gunicorn==23.0.0
 h11==0.14.0
 httpcore==1.0.8
 httpx==0.28.1
-hvp @ git+https://github.com/raheelsayeed/hvp-pipeline.git@main
+hvp @ git+https://github.com/raheelsayeed/hvp-pipeline.git@dde0c073a4ee4f4a453a99fcb3a5eac5e341e7fc
 idna==3.10
 invoke==2.2.0
 itsdangerous==2.2.0
@@ -43,6 +43,7 @@ pandas==2.2.3
 paramiko==3.5.1
 pathspec==0.12.1
 pyasn1==0.6.1
+pycountry==24.6.1
 pycparser==2.22
 pydantic==2.11.5
 pydantic_core==2.33.2
