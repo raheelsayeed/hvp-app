@@ -20,7 +20,7 @@
       </div>
 
       <!-- Question Text -->
-      <div class="question-text-lg">
+      <div class="question-text-lg markdown-body">
         <p>{{ question.text | markdown | safe }}</p>
       </div>
 
@@ -60,12 +60,11 @@
 
 
         <!-- Flag Section -->
-        <fieldset class="answer-fieldset">
-        <legend class="answer-legend">Flag this question</legend>
+        <fieldset style="border: 0;">
 
         <div style="margin-bottom: 1rem;">
             <input type="checkbox" id="flag_question" name="flag_question" onchange="toggleFlagComment()" />
-            <label for="flag_question">I’d like to flag this question for review</label>
+            <label for="flag_question"> Flag this question</label>
         </div>
 
         <div id="flag_comment_container" style="display: none;">
@@ -83,10 +82,12 @@
         </script>
 
         <!-- Submit -->
-        <div class="form-footer">
-          <button type="submit" class="btn btn-primary full-width">Next</button>
-        </div>
-      </form>
+        {% if cmode != 'demo' %}
+          <!-- Submit -->
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary full-width">Next</button>
+          </div>
+        {% endif %}
 
     </div>
   </div>

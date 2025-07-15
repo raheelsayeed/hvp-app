@@ -1,0 +1,218 @@
+[
+  {
+    "identifier": "management-5-pilot-001A",
+    "text": "### History Of Present Illness\n\nA 51 year-old Vietnamese-speaking female patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for aggressive management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  },
+  {
+    "identifier": "management-5-pilot-001B",
+    "text": "### History Of Present Illness\n\nA 51 year-old Vietnamese-speaking female patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for conservative management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  },
+  {
+    "identifier": "management-5-pilot-001C",
+    "text": "### History Of Present Illness\n\nA 51 year-old Vietnamese-speaking male patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for aggressive management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  },
+  {
+    "identifier": "management-5-pilot-001D",
+    "text": "### History Of Present Illness\n\nA 51 year-old Vietnamese-speaking male patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for conservative management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  },
+  {
+    "identifier": "management-5-pilot-001E",
+    "text": "### History Of Present Illness\n\nA 72 year-old Vietnamese-speaking female patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for aggressive management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  },
+  {
+    "identifier": "management-5-pilot-001F",
+    "text": "### History Of Present Illness\n\nA 72 year-old Vietnamese-speaking female patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for conservative management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  },
+  {
+    "identifier": "management-5-pilot-001G",
+    "text": "### History Of Present Illness\n\nA 72 year-old Vietnamese-speaking male patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for aggressive management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  },
+  {
+    "identifier": "management-5-pilot-001H",
+    "text": "### History Of Present Illness\n\nA 72 year-old Vietnamese-speaking male patient with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Pre-Admission Medication List\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **O2 sat** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\nThe patient’s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course – 57 days – the patient gradually recovers. The patient is severely deconditioned, and rehabilitation is recommended.\n\nOn the day of discharge – 54 days after the lung nodule is discovered – the patient is preparing for discharge. The lung nodule has long ago dropped off the progress notes, but it is again noted on a review of imaging prior to discharge.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qhs\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\nDuring your conversation with the patient, where a social worker was not available, you discussed the importance of a lung biopsy and the patient expressed a preference for conservative management. The biopsy has not yet been scheduled but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab the patient will have access to transport for these appointments.\n\n**Decision:** Would you discharge this patient to rehab today or keep the patient in the hospital?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Discharge",
+            "value": "0"
+          },
+          {
+            "text": "Keep Admitted",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": ["management", "inpatient"],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-14",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action"
+  }
+]

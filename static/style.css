@@ -685,3 +685,20 @@ footer {
   
   margin-bottom: 1rem;
 }
+
+.markdown-body table {
+  border-collapse: collapse;              /* no double borders      */
+  width: 100%;                            /* optional full-width     */
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--border-light);  /* or #ccc / #999 etc.     */
+  padding: 0.5rem 0.75rem;                /* nice breathing room     */
+  text-align: left;                       /* tweak as you wish       */
+}
+
+.markdown-body thead th {
+  background: var(--bg-tertiary);         /* subtle header shading   */
+  font-weight: 600;
+}

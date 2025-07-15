@@ -16,58 +16,282 @@
 
   <h3 class="card-title">Key Publications</h3>
   <ul class="component-list">
-    <li><em>Medical Artificial Intelligence and Human Values</em> (NEJM, 2024)</li>
-    <li><em>Compared with What? Measuring AI against the Health Care We Have</em> (NEJM, 2024)</li>
+    <li><em><a href="https://www.nejm.org/doi/abs/10.1056/NEJMra2214183"    target="_blank">Medical Artificial Intelligence and Human Values</em></a> (NEJM, 2024)</li>
+    <li><em><a href="https://www.nejm.org/doi/10.1056/NEJMp2404691"    target="_blank">Compared with What? Measuring AI against the Health Care We Have</em></a> (NEJM, 2024)</li>
   </ul>
 </section>
 
-{% if not user %}
+
+<!-- ──────────────── Call-to-Action Band ──────────────── -->
 <section class="content-card">
-  <div class="two-pane-cta" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-    <div class="pane-left" style="flex: 1;">
-      <h3 class="card-title">Are you a healthcare provider?</h3>
-      <p>We are actively enrolling clinicians and nurse practitioners.</p>
+
+  <div class="cta-grid">
+    <!-- Left : Participate -->
+    <div class="cta-pane">
+      <h3 class="cta-title">Participate in this Study</h3>
+      <p class="cta-text">
+        Are you a clinician, nurse practitioner, or other frontline provider?<br/>
+        Answer questions on real-world clinical scenarios and help us align future AI tools with patient values.
+      </p>
+
+      {% if not user %}
+      <a href="{{ url_for('login') }}" class="btn btn-primary">Join now → Login&nbsp;&amp;&nbsp;Participate</a>
+      {% endif %}
     </div>
-    <div class="pane-right" style="flex-shrink: 0;">
-      <a href="{{ url_for('login') }}" class="btn btn-primary">JOIN</a>
+
+    <!-- Right : Collaborate -->
+    <div class="cta-pane">
+      <h3 class="cta-title">Collaborate&nbsp;with Us</h3>
+      <p class="cta-text">
+       We partner with researchers, health-systems, and clinical teams who share our goal of value-aligned AI in medicine. Please reach out if you'd like to collaborate with us.<br>
+       </p>
+        <p>
+        <strong>Email:</strong>
+        <a href="mailto:#">[ ]</a>
+        </p>
+      
     </div>
   </div>
 </section>
-{% endif %}
 
+<section class="content-card team-section">
+  <h3 class="card-title">👩‍⚕️ Our Team</h3>
 
-<section class="content-card">
-  <h3 class="card-title">Key Components</h3>
-  <div class="component-grid">
-    <div class="component-card">
-      <h4 class="component-title">🧠 Clinical Decision Dynamics Study</h4>
-      <ul class="component-list">
-        <li>Diverse healthcare contexts</li>
-        <li>Multiple clinical specialties</li>
-        <li>Various patient populations</li>
-        <li>Different healthcare systems</li>
-      </ul>
-    </div>
+  <div class="team-grid">
+    <!-- Isaac ---------------------------------------------------- -->
+    <figure class="team-card">
+      <img src="{{ url_for('static', filename='images/team-isaac.jpg') }}"
+           alt="Dr. Isaac Kohane headshot" class="team-photo" />
+      <figcaption>
+        <h4>Dr. Isaac Kohane</h4>
+        <p>Professor, Harvard Medical School</p>
+      </figcaption>
+    </figure>
 
-    <div class="component-card">
-      <h4 class="component-title">📊 LLM Alignment Benchmarking</h4>
-      <ul class="component-list">
-        <li>Concordance with clinical decisions</li>
-        <li>Alignment with patient values</li>
-        <li>Consistency in decision-making</li>
-        <li>Robustness across contexts</li>
-      </ul>
-    </div>
+    <!-- Raheel --------------------------------------------------- -->
+    <figure class="team-card">
+      <img src="{{ url_for('static', filename='images/team-raheel.jpg') }}"
+           alt="Dr. Raheel Sayeed headshot" class="team-photo" />
+      <figcaption>
+        <h4>Dr. Raheel Sayeed</h4>
+        <p>Research Scientist</p>
+      </figcaption>
+    </figure>
 
-    <div class="component-card">
-      <h4 class="component-title">📜 Normative Decision Guidance</h4>
-      <ul class="component-list">
-        <li>Stakeholder engagement</li>
-        <li>Value framework development</li>
-        <li>Implementation guidelines</li>
-        <li>Ongoing evaluation processes</li>
-      </ul>
-    </div>
+    <!-- Payal ---------------------------------------------------- -->
+    <figure class="team-card">
+      <img src="{{ url_for('static', filename='images/team-payal.jpg') }}"
+           alt="Payal Chandak" class="team-photo" />
+      <figcaption>
+        <h4>Payal Chandak</h4>
+        <p>PhD Candidate</p>
+      </figcaption>
+    </figure>
+
+     <!-- Payal ---------------------------------------------------- -->
+    <figure class="team-card">
+      <img src="{{ url_for('static', filename='images/team-sara-hoffman.jpg') }}"
+           alt="Sarah Hoffman" class="team-photo" />
+      <figcaption>
+        <h4>Sara Hoffman</h4>
+        <p></p>
+      </figcaption>
+    </figure>
   </div>
 </section>
+
+
+<style>
+/* === Team Section ========================================= */
+.team-section {
+  text-align: center;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.team-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.team-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.team-photo {
+  width: 100%;
+  height: 220px;               /* Adjust for consistent height */
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.team-card h4 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+}
+
+.team-card p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* ───── CTA band styling ───── */
+.cta-band {
+  /* translucent purple glass */
+  /* background: rgba(99, 102, 241, 0.15);           indigo-500 @ 15 % */
+  /* backdrop-filter: blur(10px); */
+  /* -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(99, 102, 241, 0.25);     /* subtle border */
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  margin: var(--space-8) 0;
+  /* box-shadow: var(--shadow-md); */
+  /* color: var(--gray-50); */
+}
+
+/* grid layout */
+.cta-grid {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;                     /* mobile */
+}
+
+.cta-pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cta-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  /* color: var(--white); */
+}
+
+.cta-text {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  /* color: var(--gray-100); */
+}
+
+.cta-link {
+  /* color: var(--primary-100); */
+  text-decoration: underline;
+}
+
+
+
+/* ≥768 px: two columns */
+@media (min-width: 768px) {
+  .cta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+
+
+
+<!-- ──────────────── Project Pillars ──────────────── -->
+
+
+  <div class="pillar-grid">
+    <!-- Pillar 1 -->
+    <article class="pillar-card">
+      <h4 class="pillar-title">🧠 Clinical Decision Dynamics</h4>
+      <ul class="pillar-list">
+        <li>Diverse care contexts</li>
+        <li>Multiple specialties</li>
+        <li>Representative patient cohorts</li>
+        <li>Cross-system comparisons</li>
+      </ul>
+    </article>
+
+    <!-- Pillar 2 -->
+    <article class="pillar-card">
+      <h4 class="pillar-title">📊 LLM Alignment Benchmarking</h4>
+      <ul class="pillar-list">
+        <li>Decision concordance</li>
+        <li>Patient-value alignment</li>
+        <li>Stability &amp; consistency</li>
+        <li>Robustness across settings</li>
+      </ul>
+    </article>
+
+    <!-- Pillar 3 -->
+    <article class="pillar-card">
+      <h4 class="pillar-title">📜 Normative Guidance</h4>
+      <ul class="pillar-list">
+        <li>Stakeholder co-design</li>
+        <li>Value frameworks</li>
+        <li>Deployment playbooks</li>
+        <li>Continuous evaluation</li>
+      </ul>
+    </article>
+  </div>
+
+
+<style>
+/* Grid wrapper */
+.pillar-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;            /* mobile default */
+}
+
+/* Each card */
+.pillar-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xs);
+  padding: var(--space-6);
+}
+
+/* Headings & list */
+.pillar-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-4);
+}
+
+.pillar-list {
+  list-style: none;
+  padding-left: 0;
+  line-height: var(--leading-relaxed);
+}
+
+.pillar-list li {
+  padding-left: var(--space-6);
+  position: relative;
+  margin-bottom: var(--space-2);
+}
+
+.pillar-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-600);
+  font-weight: bold;
+}
+
+/* ≥ 768 px: three columns */
+@media (min-width: 768px) {
+  .pillar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
 {% endblock %}

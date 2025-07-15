@@ -31,7 +31,7 @@ TOTAL_QUESTIONS = {
 }
 
 MINIMUM_QUESTIONS_PER_TYPE = {
-    "TRIAGE": 4,
+    "TRIAGE": 20,
     "MANAGEMENT": 6
 }
 
@@ -72,9 +72,6 @@ else:
 
 application.secret_key = application.config['CLIENT_ID']
 
-
-
-
 # def enforce_https_in_production():
 #     if current_app.debug:
 #         return  # Do nothing if in debug mode (i.e., local dev)
@@ -93,7 +90,7 @@ DUE_SURVEY_METADATA = 'due_survey_metadata'
 
 @application.template_filter('markdown')
 def render_markdown(text):
-    return markdown.markdown(text)
+    return markdown.markdown(text, extensions=['fenced_code', 'tables', 'nl2br', "attr_list"])
 
 @application.template_filter('format_date')
 def format_date(value, fmt="%B %d, %Y"):
@@ -134,43 +131,9 @@ def rt(template, title=None, text=None):
 def governance():
     return render_template('about.html', **pkg())
 
-@application.route('/components')
-def components():
-    return render_template('about.html', **pkg())
-
 @application.route('/contact')
 def contact():
     return render_template('about.html', **pkg())
-
-
-@application.before_request
-def load_survey():
-    pass
-    # if request.endpoint in ('logout',):  # or check request.path == '/logout'
-    #     return
-    
-    # log.debug("Loading survey for current session")
-    # survey_id = session.get(DUE_SURVEY_ID)
-    # if survey_id:
-    #     participant_id = session.get('user', {}).get('email', None)
-    #     s3_file = f"surveys/{participant_id}/{survey_id}.json"
-    #     if s3_file:
-    #         survey_dict = download_survey(key=s3_file)
-    #         survey = Survey(**survey_dict)
-    #         g.survey = survey
-    # else:
-    #     g.survey = None
-
-
-def build_question_progress(progress: dict, total_questions: dict, minimum_required: int) -> dict:
-    merged = {}
-    for qtype in total_questions:
-        merged[qtype] = {
-            "total": total_questions[qtype],
-            "answered": int(progress.get(qtype, 0)),
-            "minimum": minimum_required
-        }
-    return merged
 
 
 @application.route('/')
@@ -189,16 +152,15 @@ def index():
         threshold_for_type_dict=MINIMUM_QUESTIONS_PER_TYPE
     )
     
-
     log.debug(f"New: Participant progress: {progress_arr}")
 
     if not progress_arr:
         log.warning(f"No question types assigned for participant: {participant.identifier}")
-        return render_template("study_page.html", progress=[], user=session.get('user', None))
+        return render_template("study_page.html", progress=[], user=session.get('user', None), participant=participant)
 
     # return progress_dict
     has_due_block = any(item.get("answered", 0) < item.get("minimum", 0) for item in progress_arr)
-    return render_template("study_page.html", progress=progress_arr, user=session.get('user', None), has_due_block=has_due_block)
+    return render_template("study_page.html", progress=progress_arr, user=session.get('user', None), has_due_block=has_due_block, participant=participant)
 
 
 
@@ -282,6 +244,13 @@ def complete_profile():
         practice_context_options=GeoContext
     )
 
+@application.route('/terms')
+def terms_of_service():
+    return render_template('tos.html', user=session.get('user'))
+
+@application.route('/privacy-policy')
+def privacy_policy():
+    return render_template('privacypolicy.html', user=session.get('user'))
 
 @application.route('/login')
 def login():
@@ -313,22 +282,6 @@ def about():
     return render_template('about.html', user=session.get('user'))
 
 
-    
-def update_survey_status(status: str):
-    if 'user' not in session or DUE_SURVEY_ID not in session:
-        return
-
-    participant_id = session["user"]["email"]
-    survey_id = session.get(DUE_SURVEY_ID)
-
-    if status == "complete":
-        metadata = mark_survey_complete(participant_id, survey_id)
-        session.pop(DUE_SURVEY_ID, None)
-        return metadata
-
-
-
-
 @application.route('/survey/start/<question_type>/<cmode>', methods=['GET', 'POST'])
 @login_required
 @require_profile_complete
@@ -336,7 +289,6 @@ def survey_start(question_type, cmode=None):
 
     session['current_question_type'] = question_type
     participant = g.participant
-    # random_question = get_unanswered_questions(participant_id=participant.identifier, question_type=question_type, number_of_questions=1)
 
     from utils.register import get_participant_registry 
     participant_registry = get_participant_registry(participant_id=participant.identifier)
@@ -480,104 +432,10 @@ def answer_question(question_id, answer_set_index, cmode=None):
         cmode=cmode
     )
 
-# def answer_question(question_id, answer_set_index, cmode=None): 
-
-#     participant = g.participant
-#     question = get_question_by_id(question_id)
-
-#     if not question:
-#         log.error(f"Question with ID {question_id} not found.")
-#         return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
-    
-#     answer_sets = question.answers
-#     total_answer_sets = len(answer_sets)
-
-#     answer_set_index = int(answer_set_index)
-
-#     if answer_set_index >= total_answer_sets:
-#         return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
-    
-#     # --- Skip already answered sets safely ---
-#     while answer_set_index < total_answer_sets and response_exists_in_s3(
-#         participant_id=participant.identifier,
-#         question_id=question.identifier,
-#         answer_set_id=answer_sets[answer_set_index].identifier
-#     ):
-#         answer_set_index += 1
-
-#     # --- Move to next question if all sets answered ---
-#     if answer_set_index >= total_answer_sets:
-#         return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
-    
-#     g.current_question = question 
-#     current_answer_set = answer_sets[answer_set_index]  
-
-#     if request.method == "POST":
-#         field_name = f"answer_{current_answer_set.identifier}"
-#         selected = request.form.get(field_name)
-        
-#         cmode = request.form.get('cmode')
-#         print(cmode)
-
-#             # Save flag if submitted
-#         if request.form.get("flag_question") == "on":
-#             comment = request.form.get("flag_comment", "").strip()
-#             save_flag_to_s3(
-#                 participant_id=g.participant.identifier,
-#                 question_id=question.identifier,
-#                 answer_set_id=current_answer_set.identifier,
-#                 comment=comment
-#             )
-        
-
-#         if selected:
-#             logging.debug(f"Saving response for participant {participant.identifier}, question {question.identifier}, answer set {current_answer_set.identifier}, value: {selected}")
-#             save_response_to_s3(
-#                 participant_id=participant.identifier,
-#                 question_id=question.identifier,
-#                 answer_set_id=current_answer_set.identifier,
-#                 answer_value=selected
-#             )
-
-#             from utils.question_extension import increment_question_progress 
-#             answer_count = increment_question_progress(participant_id=participant.identifier, question_type=question.type)
-#             has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[question.type]
-#             print(has_answered_minimum) 
-#             print(answer_count) 
-#             print(MINIMUM_QUESTIONS_PER_TYPE[question.type])
-#             print(f'cmode={cmode}')
-
-
-# #             if has_answered_minimum:
-# #                 if cmode == False:
-# #                     return redirect(url_for('index', user=session['user'])
-# # )
-# #                 else: 
-# #                     return redirect(url_for('answer_question', question_id=question_id, answer_set_index=answer_set_index + 1, cmode=cmode))
-
-
-#                 # flash(f"You have completed answering {session.get('current_question_type', None)} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
-#                 # else:
-
-#         return redirect(url_for('answer_question', question_id=question_id, answer_set_index=answer_set_index + 1, cmode=cmode))
-    
-#     # --- Render the question ---
-#     return render_template(
-#         "question2.html",
-#         user=session['user'],
-#         question=question,
-#         current_answer_set=current_answer_set,
-#         answer_set_index=answer_set_index,
-#         total_answer_sets=len(answer_sets),
-#         cmode=cmode
-#     )
 
 
 
 
-@application.route("/survey/complete")
-def survey_complete():
-    return redirect(url_for('index'))
 
 
 @application.route("/response/survey/<survey_id>")
@@ -643,6 +501,77 @@ def view_survey_responses(survey_id):
         log.exception("Error assembling survey response")
         return f"Internal error: {e}", 500
 
+
+
+
+# --------------------------------------------------------------------------
+# Demo route – preview a JSON file of questions in the question.html page
+# --------------------------------------------------------------------------
+import json
+from pathlib import Path
+from flask import abort, send_from_directory
+
+@application.route('/demo-questions', methods=['GET'])
+def demo_questions():
+    """
+    Usage:
+        /demo-questions?file=demo_questions.json&index=0
+            • file  – JSON file name located in ./static/demo/   (default: demo.json)
+            • index – 0-based index of the question you want to render (default: 0)
+
+    The file must hold a list of question dicts compatible with hvp.core.question.Question.
+    """
+
+    # ------------------------------------------------------------------ #
+    # 1. Locate & load the JSON file
+    # ------------------------------------------------------------------ #
+    file_name = request.args.get("file", "demo.json")
+    q_idx     = int(request.args.get("index", 0))
+
+    demo_dir  = Path(application.root_path) / "static" / "demo"
+    json_path = demo_dir / file_name
+
+    if not json_path.exists():
+        abort(404, description=f"Demo file {file_name!r} not found in /static/demo")
+
+    with json_path.open("r", encoding="utf-8") as f:
+        try:
+            raw_questions = json.load(f)
+        except json.JSONDecodeError as e:
+            abort(400, description=f"Malformed JSON: {e}")
+
+    if not isinstance(raw_questions, list) or not raw_questions:
+        abort(400, description="The JSON must be a non-empty list of questions.")
+
+    if q_idx < 0 or q_idx >= len(raw_questions):
+        abort(400, description="Index out of range.")
+
+    # ------------------------------------------------------------------ #
+    # 2. Build a Question object (re-use your existing Pydantic class)
+    # ------------------------------------------------------------------ #
+    try:
+        from hvp.core.question import Question                # adjust import path if needed
+        demo_question = Question(**raw_questions[q_idx])
+    except Exception as e:
+        abort(500, description=f"Error instantiating Question model: {e}")
+
+
+
+    # ------------------------------------------------------------------ #
+    # 3. Render the familiar question.html, passing bare-minimum context
+    # ------------------------------------------------------------------ #
+    return render_template(
+        "question.html",
+        user=session.get("user"),
+        question=demo_question,
+        current_answer_set=demo_question.answers[0],
+        answer_set_index=0,
+        total_answer_sets=len(demo_question.answers),
+        # these next two don’t matter for a one-off preview
+        question_number=0,
+        total_questions=len(raw_questions),
+        cmode="demo"             # flag so template can hide nav buttons, etc.
+    )
 
 def to_html_response(sr) -> str:
     """Convert survey response object to styled HTML for rendering."""

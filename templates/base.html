@@ -21,7 +21,7 @@
       <!-- Navigation Section -->
       <div class="nav-wrapper">
         <nav class="primary-nav">
-          <a href="{{ url_for('governance') }}" class="nav-link">Governance</a>
+          <!-- <a href="{{ url_for('governance') }}" class="nav-link">Governance</a> -->
           <a href="{{ url_for('about') }}" class="nav-link">About</a>
           <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
 
@@ -83,7 +83,17 @@
   </main>
 
   <footer>
-    &copy; {{ 2025 }} Harvard Medical School
+        <div class="footer-inner">
+      <span>&copy; {{ 2025 }} Harvard Medical School</span>
+
+      <!-- Divider -->
+      <span aria-hidden="true">|</span>
+
+      <!-- Policy links -->
+      <a href="{{ url_for('privacy_policy') }}" class="footer-link">Privacy&nbsp;Policy</a>
+      <span aria-hidden="true">•</span>
+      <a href="{{ url_for('terms_of_service') }}" class="footer-link">Terms&nbsp;of&nbsp;Service</a>
+    </div>
   </footer>
 
   <!-- Mobile menu JS -->
