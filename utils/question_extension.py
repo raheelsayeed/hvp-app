@@ -11,6 +11,7 @@ QUESTIONS_TABLE = dynamodb.Table("hvp-questions")
 HVP_PARTICIPANTS_REGISTRY_TABLE = dynamodb.Table("hvp-survey-registry")
 
 
+
 def get_question_identifiers(question_type: Optional[str]) -> List[str]:
 
     """

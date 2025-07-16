@@ -49,28 +49,32 @@
           <div>
             <strong>{{ item.type | title }} Questions</strong><br />
             <span class="text-sm text-muted">{{ item.answered }} of {{ item.total }} answered (minimum {{ item.minimum }})</span>
-            <br />
-            <!-- <span class="text-sm text-muted">Total: {{ item.total }}</span><br /> -->
-
-            <span>
-              {% if item.answered | int >= item.minimum %}
-                <span style="color: var(--accent-600); font-weight: bold;">You've completed your minimum {{ item.type }} set</span>
-              {% else %}
-                <span style="color: var(--danger-500); font-weight: bold;">Please answer atleast {{ item.minimum - item.answered}} questions</span>
+            <br/>
+              {% if item.answered | int >= item.minimum and item.answered | int < item.total %}
+                <span style="color: var(--accent-600); font-weight: bold;">
+                You’ve completed this set.<br/>Feel free to answer more questions.
+                </span>
+                {% elif item.answered | int == item.total %}
+                <span style="color: var(--accent-600); font-weight: bold;">All questions answered!</span>
+                {% else %}
+                <span style="color: var(--danger-500); font-weight: bold;">Please answer {{ item.minimum - item.answered }} more question{{ '' if item.minimum - item.answered == 1 else 's' }} to complete this set.</span>
               {% endif %}
-            </span>
           </div>
 
           <div>
             {% if item.status == 'enabled' %}
                 {% if item.status == 'enabled' and item.answered | int < item.total %}
 
-                    {% set show_resume = item.answered | int < item.minimum %}
-                    {% set cmode = 'false' if show_resume else 'true' %}
+                    {% set show_continue = item.answered | int < item.minimum %}
+                    {% set cmode = 'set-mode' if show_continue else 'continue-set-mode' %}
                     {% set button_label = 'Start' if item.answered|int == 0 
-                                        else ('Continue' if show_resume else 'Answer more') %}
+                                        else ('Continue' if show_continue else 'Answer more') %}
 
-                    <form method="POST" action="{{ url_for('survey_start', question_type=item.type, cmode=cmode) }}">
+                        
+                    <form method="POST" action="{{ url_for('question') }}">
+                        <input type="hidden" name="question_type" value="{{ item.type }}">
+                        <input type="hidden" name="cmode" value="{{ cmode }}">
+                        
                         <button type="submit" class="btn btn-primary btn-sm">
                         {{ button_label }}
                         </button>

@@ -54,41 +54,39 @@
   </div>
 </section>
 
+
+
 <section class="content-card team-section">
-  <h3 class="card-title">👩‍⚕️ Our Team</h3>
+  <h3>Research Team</h3>
 
   <div class="team-grid">
-    <!-- Isaac ---------------------------------------------------- -->
     <figure class="team-card">
-      <img src="{{ url_for('static', filename='images/team-isaac.jpg') }}"
+      <img src="{{ url_for('static', filename='headshots/kohane_headshot.png') }}"
            alt="Dr. Isaac Kohane headshot" class="team-photo" />
       <figcaption>
-        <h4>Dr. Isaac Kohane</h4>
-        <p>Professor, Harvard Medical School</p>
+        <h4>Isaac Kohane, MD, PhD</h4>
       </figcaption>
     </figure>
 
-    <!-- Raheel --------------------------------------------------- -->
     <figure class="team-card">
-      <img src="{{ url_for('static', filename='images/team-raheel.jpg') }}"
-           alt="Dr. Raheel Sayeed headshot" class="team-photo" />
-      <figcaption>
-        <h4>Dr. Raheel Sayeed</h4>
-        <p>Research Scientist</p>
-      </figcaption>
-    </figure>
-
-    <!-- Payal ---------------------------------------------------- -->
-    <figure class="team-card">
-      <img src="{{ url_for('static', filename='images/team-payal.jpg') }}"
+      <img src="{{ url_for('static', filename='headshots/payal_headshot.JPG') }}"
            alt="Payal Chandak" class="team-photo" />
       <figcaption>
-        <h4>Payal Chandak</h4>
-        <p>PhD Candidate</p>
+        <h4>Payal Chandak PhD</h4>
       </figcaption>
     </figure>
 
-     <!-- Payal ---------------------------------------------------- -->
+    <figure class="team-card">
+      <img src="{{ url_for('static', filename='headshots/raheel_sayeed.jpg') }}"
+           alt="Dr. Raheel Sayeed headshot" class="team-photo" />
+      <figcaption>
+        <h4>Raheel Sayeed, MD</h4>
+      </figcaption>
+    </figure>
+
+
+
+
     <figure class="team-card">
       <img src="{{ url_for('static', filename='images/team-sara-hoffman.jpg') }}"
            alt="Sarah Hoffman" class="team-photo" />
@@ -129,13 +127,13 @@
 }
 
 .team-photo {
-  width: 100%;
-  height: 220px;               /* Adjust for consistent height */
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-4);
+  width: 140px;              /* any fixed or responsive size works */
+  height: 140px;
+  border-radius: 50%;        /* ⬅ makes it a circle */
+  object-fit: cover;         /* keep aspect ratio, fill the frame */
+  object-position: center;   /* always centre the face */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);  /* soft shadow (optional) */
 }
-
 .team-card h4 {
   margin: 0 0 var(--space-2) 0;
   font-size: var(--text-lg);

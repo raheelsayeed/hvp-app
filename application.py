@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, redirect, session, request, url_for, g, current_app
+from flask import Flask, flash, make_response, render_template, redirect, session, request, url_for, g, current_app
 from flask import request, redirect
 import requests, os, json
 import urllib.parse
@@ -12,6 +12,8 @@ from rich.logging import RichHandler
 from utils.auth import *
 from hvp.core.survey import Survey
 from utils.question_extension import *
+from utils.register import get_participant_registry 
+
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -35,6 +37,17 @@ MINIMUM_QUESTIONS_PER_TYPE = {
     "MANAGEMENT": 6
 }
 
+
+@application.after_request
+def add_no_cache_headers(response):
+    if request.endpoint and request.endpoint.startswith(("next-q")):
+        response.headers["Cache-Control"] = (
+            "no-store, no-cache, must-revalidate, max-age=0, private"
+        )
+        response.headers["Pragma"] = "no-cache"        # for older HTTP/1.0 caches
+        response.headers["Expires"] = "0"
+
+    return response
 
 def require_profile_complete(f):
     @wraps(f)
@@ -87,6 +100,20 @@ application.secret_key = application.config['CLIENT_ID']
 
 DUE_SURVEY_ID = 'due_survey_id'
 DUE_SURVEY_METADATA = 'due_survey_metadata'
+
+
+def nocache(view):
+    """Decorator: add no-store headers so the page is not stored in history."""
+    def wrapper(*args, **kwargs):
+        resp = make_response(view(*args, **kwargs))
+        resp.headers["Cache-Control"] = (
+            "no-store, no-cache, must-revalidate, max-age=0")
+        resp.headers["Pragma"] = "no-cache"
+        resp.headers["Expires"] = "0"
+        return resp
+    wrapper.__name__ = view.__name__
+    return wrapper
+
 
 @application.template_filter('markdown')
 def render_markdown(text):
@@ -282,6 +309,7 @@ def about():
     return render_template('about.html', user=session.get('user'))
 
 
+
 @application.route('/survey/start/<question_type>/<cmode>', methods=['GET', 'POST'])
 @login_required
 @require_profile_complete
@@ -290,7 +318,6 @@ def survey_start(question_type, cmode=None):
     session['current_question_type'] = question_type
     participant = g.participant
 
-    from utils.register import get_participant_registry 
     participant_registry = get_participant_registry(participant_id=participant.identifier)
     
     random_question = get_random_unanswered_question(participant_data=participant_registry, question_type=question_type)
@@ -311,7 +338,6 @@ def answer_question(question_id, answer_set_index, cmode=None):
     participant = g.participant
 
     if request.method == "POST":
-        
         form_answerset_id = request.form.get('answer_set_identifier', None)
         form_question_id = request.form.get('question_identifier', None)
         form_question_type = request.form.get('question_type', None)
@@ -348,27 +374,19 @@ def answer_question(question_id, answer_set_index, cmode=None):
                     question_id=form_question_id
                 )
             has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[form_question_type]
-            print(has_answered_minimum) 
-            print(answer_count) 
-            print(MINIMUM_QUESTIONS_PER_TYPE[form_question_type])
-            print(f'cmode={cmode}, type={type(cmode)}')
-            
-
-            retline =  str(has_answered_minimum) + '\n' + str(cmode) + '\n' + str(form_question_type) + '\n' + str(answer_count) + '\n' + str(MINIMUM_QUESTIONS_PER_TYPE[form_question_type]) + '\n' + str(participant.identifier) + '\n' + str(form_question_id) + '\n' + str(form_answerset_id)
-
             was_last_answer_set = form_answerset_index + 1 >= form_answerset_count
 
             if was_last_answer_set:
                 if has_answered_minimum:
                     if cmode == 'False':
-                        flash(f"You have completed answering {form_question_type} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
+                        # flash(f"You have completed answering {form_question_type} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
                         return redirect(url_for('index'))
                     else: 
                         if answer_count < TOTAL_QUESTIONS[form_question_type]:
-                            flash(f"{form_question_type} Question #{answer_count+1} ", "success") 
+                            # flash(f"{form_question_type} Question #{answer_count+1} ", "success") 
                             return redirect(url_for('survey_start', question_type=form_question_type, cmode=cmode))
                         else:
-                            flash(f"You have completed answering all {form_question_type} questions", "success") 
+                            # flash(f"You have completed answering all {form_question_type} questions", "success") 
                             return redirect(url_for('index'))
             else:
                 # If not the last answer set, redirect to next one
@@ -438,90 +456,12 @@ def answer_question(question_id, answer_set_index, cmode=None):
 
 
 
-@application.route("/response/survey/<survey_id>")
-@login_required
-def view_survey_responses(survey_id):
-    from utils.s3 import list_response_keys
-    participant_id = session['user']['email']
 
-    try:
-        # 1. Download survey object
-        s_key = f"surveys/{participant_id}/{survey_id}.json"
-        survey_dict = download_survey(s_key)
-        if not survey_dict:
-            return f"Survey with ID '{survey_id}' not found.", 404
-
-        survey = Survey(**survey_dict)
-
-        # 2. List all response keys in S3 for this participant + survey
-        response_prefix = f"responses/{participant_id}/{survey_id}/"
-        response_keys = list_response_keys(response_prefix)
-
-
-        # 3. Download and parse all responses
-        question_responses = []
-        from hvp.core.response import SurveyResponse, QuestionResponse
-        from pathlib import PurePosixPath
-
-        # In your view_survey_responses function
-        for key in response_keys:
-            path_parts = PurePosixPath(key).parts  # safely handles the key like a path
-            if len(path_parts) < 5:
-                continue  # Skip malformed keys
-
-            response_data = download_json_from_s3(key, bucket_name=BUCKET_NAME_RESPONSES)
-            question_responses.append(
-                QuestionResponse(
-                    question_identifier=response_data['question_id'],
-                    answer_set_identifier=response_data['answer_set_id'],
-                    prompt='',
-                    response=response_data
-                )
-            )
-
-
-        # 4. Create survey response
-        survey_response = SurveyResponse(
-            survey=survey, 
-            responses=question_responses
-        )
-
-        p(survey_response)
-
-
-        # 5. Render result (or return dict for API)
-        return render_template(
-            'response.html', 
-            markdown_text=to_markdown2(survey_response),
-            html_text='',
-            user=session['user']
-        )
-
-    except Exception as e:
-        log.exception("Error assembling survey response")
-        return f"Internal error: {e}", 500
-
-
-
-
-# --------------------------------------------------------------------------
-# Demo route – preview a JSON file of questions in the question.html page
-# --------------------------------------------------------------------------
-import json
-from pathlib import Path
-from flask import abort, send_from_directory
 
 @application.route('/demo-questions', methods=['GET'])
 def demo_questions():
-    """
-    Usage:
-        /demo-questions?file=demo_questions.json&index=0
-            • file  – JSON file name located in ./static/demo/   (default: demo.json)
-            • index – 0-based index of the question you want to render (default: 0)
-
-    The file must hold a list of question dicts compatible with hvp.core.question.Question.
-    """
-
+    from pathlib import Path
+    from flask import abort
     # ------------------------------------------------------------------ #
     # 1. Locate & load the JSON file
     # ------------------------------------------------------------------ #
@@ -556,10 +496,6 @@ def demo_questions():
         abort(500, description=f"Error instantiating Question model: {e}")
 
 
-
-    # ------------------------------------------------------------------ #
-    # 3. Render the familiar question.html, passing bare-minimum context
-    # ------------------------------------------------------------------ #
     return render_template(
         "question.html",
         user=session.get("user"),
@@ -573,81 +509,217 @@ def demo_questions():
         cmode="demo"             # flag so template can hide nav buttons, etc.
     )
 
-def to_html_response(sr) -> str:
-    """Convert survey response object to styled HTML for rendering."""
 
-    html = f"""
-    <div class="card glass">
-        <h3 class="card-title">📝 Survey: {sr.survey.identifier}</h3>
-    """
+@application.route('/view-responses') 
+@login_required
+@require_profile_complete 
+def view_responses(): 
 
-    for i, question in enumerate(sr.survey.questions):
-        html += f"""
-        <div class="card-text" style="margin-top: 2rem;">
-            <h4 class="component-title">Question {i+1}: {question.identifier}</h4>
-            <div class="instruction-block">
-                <p class="instruction"><strong>Instruction:</strong> {question.instruct_human}</p>
-            </div>
-            <div class="question-block">
-                <p class="question-text">{question.text}</p>
-            </div>
-        """
+    participant = g.participant 
+    #1. List every response object participant stored in S3 
+    from utils.s3 import list_response_keys 
+    s3_prefix = f"responses/{participant.identifier}/" 
+    response_keys = list_response_keys(s3_prefix)
 
-        for answer_set in question.answers:
-            question_response = next(
-                (r for r in sr.responses if r.answer_set_identifier == answer_set.identifier),
-                None
-            )
+    if not response_keys:
+        flash("No survey responses found for this participant.", "info")
+        return render_template('responses.html', user=session.get('user'))
+    
 
-            if question_response:
-                selected_option = next(
-                    (o for o in answer_set.options if o.value == question_response.response['answer_value']),
-                    None
+    responses_json = [] 
+    for key in response_keys:
+        log.debug(f"Found response key: {key}")
+        #2. Download each response object and parse it
+        from utils.s3 import download_response
+        response_data = download_response(key=key) 
+        if response_data:
+            responses_json.append(response_data)
+    
+
+    questions = { } 
+    from utils.question_extension import get_question_by_id 
+    for response in responses_json:
+        question_id = response.get('question_id')
+        if question_id and question_id not in questions:
+            question = get_question_by_id(question_id)
+            if question:
+                questions[question_id] = question
+                # return question.model_dump_json()
+
+
+    
+
+    
+    rendering_text = "" 
+
+    from hvp.core.response import QuestionResponse 
+
+    
+
+    from markdown import markdown 
+    for i, response in enumerate(responses_json):
+
+        q_id = response.get('question_id') 
+        set_id = response.get('answer_set_id') 
+        response_value = response.get('answer_value')
+        question = questions.get(q_id) 
+        answer_set = next(
+                (a for a in question.answers if a.identifier == set_id),None)
+        selected_response = next((r for r in answer_set.options if r.value == response_value), None)
+
+        rendering_text += f"<p>{i+1}. {question.type}</p>"
+        rendering_text += f"<p>Set ID: {set_id}</p>"
+        rendering_text += f"<p><strong>Responded: {selected_response.text} (Value:{selected_response.value})</strong></p>"
+        rendering_text += markdown(question.text, extensions=["tables"])
+        rendering_text += f"<small>Question: {question.identifier}; Set_ID: {set_id}</small>"
+        rendering_text += "<hr />"
+        
+
+    return render_template('response.html', text=rendering_text)
+
+        
+
+def save_response(participant_id, question_type, question_id, answer_set_id, answer_set_index, answer_set_count, selected_answer, flag_question=None, flag_comment=None):
+
+    try: 
+        if flag_question:
+            save_flag_to_s3(
+                    participant_id=participant_id,
+                    question_type=question_type,
+                    question_id=question_id,
+                    answer_set_id=answer_set_id,
+                    comment=flag_comment
                 )
-
-                if selected_option:
-                    answer_html = "<blockquote>"
-                    for line in selected_option.text.splitlines():
-                        answer_html += f"<p>{line}</p>"
-                    answer_html += "</blockquote>"
-
-                    html += f"""
-                    <div class="answer-block">
-                        <strong>Answer:</strong>
-                        {answer_html}
-                    </div>
-                    """
-
-        html += "<hr /></div>"
-
-    html += "</div>"  # Close outer card
-
-    return html
-
+        
+        resp = save_response_to_s3(
+                participant_id=participant_id,
+                question_type=question_type,
+                question_id=question_id,
+                answer_set_id=answer_set_id,
+                answer_value=selected_answer
+            )
+        logging.debug(f'Saving response to S3: {resp}')
+        answer_count = increment_question_progress(
+                    participant_id=participant_id,
+                    question_type=question_type,
+                    question_id=question_id
+                )
+        return answer_count
+        
+    except Exception as e: 
+        raise e 
 
 
-def to_markdown2(sr) -> str:
-        # Convert survey_response to Markdown for rendering in template
-        md = f"##### Survey: {sr.survey.identifier}\n\n"
-
-        for i, question in enumerate(sr.survey.questions):
-            md += f"### Question {i+1}: {question.identifier}\n"
-            md += f"> Instruction: {question.instruct_human}\n\n"
-            md += f"{question.text}\n\n"
-            for answer_set in question.answers:
-
-                question_response = next(filter(lambda r: r.answer_set_identifier == answer_set.identifier and r.question_identifier == question.identifier, sr.responses), None)
 
 
-                if question_response:
-                    selected_option = next(filter(lambda o: o.value == question_response.response['answer_value'], answer_set.options), None)
-                    
-                    block_quote = '\n'.join(f"> {line}" for line in selected_option.text.splitlines())
-                    md += f"**Answer:**\n"
-                    md += f"{block_quote}\n\n"
-                
-                md += "--------------\n\n"
-        return md
+
+# application.py  (add near the other routes)
+# -------------------------------------------------------------
+@application.route('/partial/next-question', methods=["GET", "POST"])
+@login_required
+@require_profile_complete
+def next_question():
+    participant = g.participant
+
+    form      = request.form
+    args      = request.args
+
+    # -------- 1. Read context ---------------------------------
+    question_type = form.get("question_type") or args.get("question_type")
+    cmode = form.get('cmode') or args.get('cmode')
+    cmode         = str(cmode)               # keep as string for hidden input
+
+    end_qa_session = False 
+    question = None
+    
+
+    # -------- 2. If POST – store answer -----------------------
+    if request.method == "POST":
+
+        form_answerset_id = request.form.get('answer_set_identifier')
+        form_question_id = request.form.get('question_identifier')
+        form_question_type = request.form.get('question_type')
+        form_answerset_index = int(request.form.get('answer_set_index'))
+        form_answerset_count = int(request.form.get('answer_set_count'))
+        form_flag_question = request.form.get("flag_question", "off") == "on"
+        form_flag_comment = request.form.get("flag_comment", "").strip()
+        selected_answer = request.form.get('selected_answer')
+        cmode = request.form.get('cmode')
+
+        answer_count = save_response(
+            participant_id=participant.identifier,
+            question_type=form_question_type,
+            question_id=form_question_id,
+            answer_set_id=form_answerset_id,
+            answer_set_index=form_answerset_index,
+            selected_answer=selected_answer,
+            answer_set_count=form_answerset_count,
+            flag_question=form_flag_question,
+            flag_comment=form_flag_comment
+        )
+
+        has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[form_question_type]
+        completed_question_and_answerset = form_answerset_index + 1 >= form_answerset_count
+
+        if completed_question_and_answerset:
+            if has_answered_minimum: 
+                if cmode == 'set-mode':
+                    # flash(f"You have completed answering {form_question_type} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
+                    # redirect to main index 
+                    end_qa_session = True 
+                else:
+                    # IN CONTINUE SET MODE 
+                    if answer_count < TOTAL_QUESTIONS[form_question_type]:
+                        # flash(f"{form_question_type} Question #{answer_count+1} ", "success") 
+                        # Begin new
+                        question = None 
+                    else:
+                        # flash(f"You have completed answering all {form_question_type} questions", "success") 
+                        end_qa_session = True 
+        else:
+            question = get_question_by_id(form_question_id)
+            answer_set_index += 1
+
+
+    if end_qa_session:
+        resp = make_response("")              # empty body
+        resp.headers["HX-Redirect"] = url_for("index")
+        
+        return resp
+
+    if not question:
+        participant_registry = get_participant_registry(participant_id=participant.identifier)
+        question = get_random_unanswered_question(participant_data=participant_registry, question_type=question_type)
+        total_sets        = len(question.answers)
+        answer_set_index = 0 
+        current_set       = question.answers[0]
+        total_sets        = len(question.answers)
+    
+    return render_template(
+        "_question_partial.html",
+        question          = question,
+        current_answer_set= current_set,
+        answer_set_index  = answer_set_index,
+        total_answer_sets = total_sets,
+        cmode             = cmode
+    )
+
+@application.route('/question/<question_type>', methods=["GET"])
+@application.route('/question', methods=["POST"])
+@login_required
+@require_profile_complete
+def question(question_type=None):
+
+    if request.method == "GET":
+        return render_template('question_shell.html', question_type=question_type, cmode='True', user=session['user'])
+    else:
+        question_type = request.form.get('question_type') 
+        cmode = request.form.get('cmode') 
+
+        if not question_type:
+            raise ValueError('Missing question_type in POST')
+        return render_template('question_shell.html', question_type=question_type, cmode=cmode, user=session['user'])
+
     
 
 

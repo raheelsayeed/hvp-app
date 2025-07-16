@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div id="qbox"
+       hx-get="/partial/next-question?question_type={{ question_type }}&cmode={{ cmode|default('False') }}"
+       hx-trigger="load"
+       hx-target="#qbox"
+       hx-swap="innerHTML"
+       hx-indicator="#spinner"
+       hx-push-url="false">
+</div>
+
+<div id="spinner" class="loading hx-indicator">
+  <div class="loading-card">
+    Loading… please wait
+  </div>
+</div>
+
+{% endblock %}
+
+
+<script>
+// window.addEventListener('pageshow', function (evt) {
+//   if (evt.persisted) location.reload();
+// });
+</script>

@@ -124,38 +124,38 @@ def register_survey_metadata(participant_id, survey_id, filename):
 
 
 
-def mark_survey_complete(participant_id, survey_id):
-    now = datetime.now(timezone.utc).isoformat()
+# def mark_survey_complete(participant_id, survey_id):
+#     now = datetime.now(timezone.utc).isoformat()
     
-    response = SURVEY_TABLE.update_item(
-        Key={
-            "participant_id": participant_id,
-        },
-        ConditionExpression=Attr('survey_id').eq(survey_id),
-        UpdateExpression="SET #s = :status, updated_at = :updated",
-        ExpressionAttributeNames={
-            "#s": "status"
-        },
-        ExpressionAttributeValues={
-            ":status": "completed",
-            ":updated": now
-        },
-        ReturnValues="UPDATED_NEW"
-    )
-    return response
+#     response = SURVEY_TABLE.update_item(
+#         Key={
+#             "participant_id": participant_id,
+#         },
+#         ConditionExpression=Attr('survey_id').eq(survey_id),
+#         UpdateExpression="SET #s = :status, updated_at = :updated",
+#         ExpressionAttributeNames={
+#             "#s": "status"
+#         },
+#         ExpressionAttributeValues={
+#             ":status": "completed",
+#             ":updated": now
+#         },
+#         ReturnValues="UPDATED_NEW"
+#     )
+#     return response
 
 
 
 
-def get_survey_metadata_for_participant(participant_id):
-    try:
-        response = SURVEY_TABLE.query(
-            KeyConditionExpression=Key("participant_id").eq(participant_id)
-        )
-        return response.get("Items", [])
-    except Exception as e:
-        log.error(f"[DynamoDB] Error querying surveys: {e}")
-        return None
+# def get_survey_metadata_for_participant(participant_id):
+#     try:
+#         response = SURVEY_TABLE.query(
+#             KeyConditionExpression=Key("participant_id").eq(participant_id)
+#         )
+#         return response.get("Items", [])
+#     except Exception as e:
+#         log.error(f"[DynamoDB] Error querying surveys: {e}")
+#         return None
     
 # ----- PARTICIPANT ----- # 
 

@@ -1,0 +1,131 @@
+<!-- _question_partial.html -->
+<section class="content-card">
+  <div class="card-list">
+    <div class="card">
+
+        
+
+      <!-- Survey header (only shows “Decision …” when there are multiple answer-sets) -->
+      {% if total_answer_sets > 1 %}
+      <div class="survey-header text-sm text-secondary">
+        Decision {{ answer_set_index + 1 }}
+      </div>
+      {% endif %}
+
+      <!-- Instruction -->
+      <div class="instruction-box">
+        {{ question.instruct_human | markdown | safe }}
+      </div>
+
+      <!-- Question -->
+      <div class="question-text-lg markdown-body">
+        {{ question.text | markdown | safe }}
+      </div>
+
+      <!-- Answer form -->
+        <form  method="POST"
+                            hx-post="/partial/next-question"
+                            hx-target="#qbox"
+                            hx-swap="innerHTML"
+                            hx-indicator="#spinner"
+                            hx-push-url="false"
+                            class="answer-form">
+        <!-- Hidden context -->
+        <input type="hidden" name="question_identifier"  value="{{ question.identifier }}">
+        <input type="hidden" name="question_type"        value="{{ question.type }}">
+        <input type="hidden" name="answer_set_identifier" value="{{ current_answer_set.identifier }}">
+        <input type="hidden" name="answer_set_index"     value="{{ answer_set_index }}">
+        <input type="hidden" name="answer_set_count"     value="{{ total_answer_sets }}">
+        <input type="hidden" name="cmode" value="{{ cmode }}">
+
+        <fieldset class="answer-fieldset">
+          <legend class="answer-legend">Please select your decision:</legend>
+          {% for option in current_answer_set.options %}
+          <label class="option-row">
+            <input  class="option-input" type="radio"
+                    name="selected_answer"
+                    value="{{ option.value }}"
+                    required>
+            <span  class="option-label">{{ option.text }}</span>
+          </label>
+          {% endfor %}
+        </fieldset>
+
+        <!-- Flag-question section -->
+        <fieldset style="border:0">
+          <label>
+            <input type="checkbox" id="flag_question" name="flag_question"
+                   onchange="document.getElementById('flag_comment_container').style.display=this.checked?'block':'none';">
+            Flag this question
+          </label>
+
+          <div id="flag_comment_container" style="display:none;margin-top:.75rem">
+            <textarea id="flag_comment" name="flag_comment" rows="4" style="width:100%"
+                      placeholder="Your comments (sent privately to the study team)"></textarea>
+          </div>
+        </fieldset>
+
+        {% if cmode != 'demo' %}
+        <div class="form-footer">
+          <button type="submit" class="btn btn-primary full-width" data-disable-on-hx-disable>Next</button>
+        </div> 
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  // Disable every control in the form that triggered the request
+  document.body.addEventListener('htmx:beforeRequest', (evt) => {
+    const form = evt.target.closest('form');
+    if (form) form.querySelectorAll('input, select, textarea, button')
+                  .forEach(el => el.disabled = true);
+  });
+
+  // Re-enable after the swap (old form is usually replaced, but
+  // this covers cases where it isn’t)
+  document.body.addEventListener('htmx:afterSwap', (evt) => {
+    const form = evt.target.closest('form');
+    if (form) form.querySelectorAll('input, select, textarea, button')
+                  .forEach(el => el.disabled = false);
+  });
+</script>
+
+<script>
+    
+  document.body.addEventListener('click', function (e) {
+
+    // Do we have a button (or link) that opted-in?
+    // const btn = e.target.closest('[data-disable-on-click]');
+    // if (!btn) return;
+    // btn.disabled = true 
+
+    // 1. show spinner immediately
+    // document.getElementById('spinner')?.classList.add('htmx-request');
+
+    // 2. disable the whole form so user can’t double-click
+    // const form = btn.closest('form');
+    // if (form && btn.hasAttribute('data-disable-on-click')) {
+    //   form.querySelectorAll('input, select, textarea, button')
+    //       .forEach(el => el.disabled = true);
+    // }
+  });
+</script>
+
+
+<style>
+.instruction-box{background:var(--bg-tertiary);padding:var(--space-4)var(--space-5);
+  border-left:4px solid var(--primary-600);border-radius:var(--radius-md);
+  color:var(--text-primary);margin-bottom:var(--space-6);line-height:var(--leading-relaxed)}
+.question-text-lg{font-size:var(--text-lg);color:var(--text-primary);margin-bottom:var(--space-6)}
+.question-text-lg li{padding:0} .question-text-lg li::before{content:normal}
+.answer-fieldset{border:1px solid var(--border-light);background:var(--bg-primary);
+  padding:var(--space-5);border-radius:var(--radius-md);margin-bottom:var(--space-6)}
+.answer-legend{font-weight:var(--font-weight-semibold);font-size:var(--text-base);
+  color:var(--text-primary);margin-bottom:var(--space-4)}
+.option-row{display:flex;align-items:flex-start;gap:var(--space-3);margin-bottom:var(--space-4)}
+.option-input{margin-top:.3rem;accent-color:var(--primary-600)}
+.form-footer{text-align:center;margin-top:var(--space-6)}
+</style>

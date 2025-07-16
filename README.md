@@ -77,19 +77,18 @@ User[WebApp]->Bucket: Persist SurveyResponse-Participant-1.json
         - survey/question/<q_id>/set/<q_set_id>/    
 - [x] Continue answering
 - [x] We have 200 TRIAGE questions 
-- We need some stats to show at the end of Surveys 
-- Keep generic
+- [x]We need some stats to show at the end of Surveys 
 - [x] Disclaimer (You may wish to decide other decisions, consequence)
 - [x] zak concordance measure- link preprint
 - [x] Flag Question Feature (Flag question) 
 - [x] Gender-Text: Prefer not say, Other
 - [x] All Countries
 - [x] Dropdownn multiple selections
-- [ ] Privacy policy and terms of service specific to CDDS
+- [x] Privacy policy and terms of service specific to CDDS
 
 
 --- Fatigue inducing similarity: 
 - 9cefe718851b81108eb3b5942662753df6a84b6b318a313bb5c3b4aa2b49ba53
 - ec66badafea938081965b2012aa52236954d571ea1639d84d7a125eeea6b8655
 - seeing  'acute onset vertigo' too many times 
-- 
+- Age: 38, Sex: Female, Status: Healthy

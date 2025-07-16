@@ -16,8 +16,8 @@ def assign_question_types(participant: AppParticipant):
     if  participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
         types.append("TRIAGE")
 
-        if 'Critical Care Medicine' in participant.clinical_field or 'Emergency Medicine' in participant.clinical_field:
-            types.append("MANAGEMENT")
+        # if 'Critical Care Medicine' in participant.clinical_field or 'Internal Medicine' in participant.clinical_field:
+        #     types.append("MANAGEMENT")
 
     
     

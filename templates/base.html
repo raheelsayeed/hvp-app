@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma"        content="no-cache">
+  <meta http-equiv="Expires"       content="0">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Human Values Project</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body>
 
@@ -21,7 +27,6 @@
       <!-- Navigation Section -->
       <div class="nav-wrapper">
         <nav class="primary-nav">
-          <!-- <a href="{{ url_for('governance') }}" class="nav-link">Governance</a> -->
           <a href="{{ url_for('about') }}" class="nav-link">About</a>
           <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
 
