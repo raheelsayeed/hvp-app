@@ -5,8 +5,8 @@ from utils.aws_session import get_boto3_session
 
 class ProductionConfig(Config):
 
-    REDIRECT_URI = os.getenv('HVP_APP_CALLBACK_URL')
-    MAIN_URI = os.getenv("HVP_APP_URL")
+    REDIRECT_URI = os.getenv('HVP_STUDY_APP_CALLBACK_URL')
+    MAIN_URI = os.getenv("HVP_STUDY_APP_URL")
     DEBUG_DUE_SURVEY = False 
 
     def __init__(self):

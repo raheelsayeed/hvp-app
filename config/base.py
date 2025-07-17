@@ -5,3 +5,4 @@ class Config:
     REDIRECT_URI = "http://localhost:3000/callback"
     MAIN_URI = "http://localhost:3000"
     PUBLIC_KEY_URL = ""
+    

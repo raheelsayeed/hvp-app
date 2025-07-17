@@ -703,34 +703,31 @@ footer {
   font-weight: 600;
 }
 
+
+
 #spinner          { display:none; }           
 #spinner.htmx-request { display:grid }  
-
 /* ——— full-pag/* ========== FULL-SCREEN OVERLAY ========== */
 .loading{
   /* hidden until HTMX adds .htmx-request */
   display:none;
-
   /* cover the whole viewport */
   position:fixed; inset:0; z-index:1000;
-  background:rgba(0,0,0,.45);
-
+  background:rgba(0,0,0,.9);
   /* --- centring, grid version --- */
   display:grid;                  /* becomes active when .htmx-request added */
   place-items:center;            /* both horizontal & vertical centring */
 }
-
 /* HTMX puts this class on the indicator while the request is running */
 .loading.htmx-request{display:grid;}   /* show & keep it a grid */
-
 /* ========== INNER CARD ========== */
 .loading-card{
-  background:#fff;
+  background: var(--bg-secondary);
   padding:2rem 3rem;
   border-radius:.75rem;
   font-weight:600;
   font-size:1.05rem;
-  top: 400px;
-  box-shadow:0 8px 24px rgba(0,0,0,.20);
+  /* top: 400px; */
+  /* box-shadow:0 8px 24px rgba(0,0,0,.20); */
   text-align: center;
 }
