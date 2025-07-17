@@ -1,5 +1,7 @@
 from flask import Flask, flash, make_response, render_template, redirect, session, request, url_for, g, current_app
 from flask import request, redirect
+from flask_talisman import Talisman, talisman
+from werkzeug.middleware.proxy_fix import ProxyFix
 import requests, os, json
 import urllib.parse
 from rich.console import Console
@@ -15,6 +17,8 @@ from utils.question_extension import *
 from utils.register import get_participant_registry 
 
 
+
+
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s [%(levelname)s] %(message)s',
@@ -26,6 +30,27 @@ log = logging.getLogger(__name__)
 p = Console().print
 
 application = Flask(__name__)
+if os.getenv("FLASK_ENV") == "production":
+    from config.production import ProductionConfig
+    config = ProductionConfig()
+    application.config.from_object(config)
+    log.debug('Loading PROD configuration')
+else:
+    from config.development import DevelopmentConfig
+    config = DevelopmentConfig() 
+    application.config.from_object(config)
+    log.debug('Loading DEBUG configuration')
+
+application.secret_key = application.config['CLIENT_ID']
+
+# Order matters: wrap FIRST
+application.wsgi_app = ProxyFix(
+    application.wsgi_app,
+    x_for=1,          # keep original client IP, optional
+    x_host=1,         # trust Host header
+    x_proto=1         # <<< trust scheme (http/https)
+)
+
 
 TOTAL_QUESTIONS = { 
     "TRIAGE": 200,
@@ -33,14 +58,14 @@ TOTAL_QUESTIONS = {
 }
 
 MINIMUM_QUESTIONS_PER_TYPE = {
-    "TRIAGE": 20,
+    "TRIAGE": 35,
     "MANAGEMENT": 6
 }
 
 
 @application.after_request
 def add_no_cache_headers(response):
-    if request.endpoint and request.endpoint.startswith(("next-q")):
+    if request.endpoint and request.endpoint.startswith(("question")):
         response.headers["Cache-Control"] = (
             "no-store, no-cache, must-revalidate, max-age=0, private"
         )
@@ -72,18 +97,6 @@ def require_profile_complete(f):
         return f(*args, **kwargs)
     return decorated_function
 
-if os.getenv("FLASK_ENV") == "production":
-    from config.production import ProductionConfig
-    config = ProductionConfig()
-    application.config.from_object(config)
-    log.debug('Loading PROD configuration')
-else:
-    from config.development import DevelopmentConfig
-    config = DevelopmentConfig() 
-    application.config.from_object(config)
-    log.debug('Loading DEBUG configuration')
-
-application.secret_key = application.config['CLIENT_ID']
 
 # def enforce_https_in_production():
 #     if current_app.debug:
@@ -98,8 +111,7 @@ application.secret_key = application.config['CLIENT_ID']
 #     if response:
 #         return response
 
-DUE_SURVEY_ID = 'due_survey_id'
-DUE_SURVEY_METADATA = 'due_survey_metadata'
+
 
 
 def nocache(view):
@@ -142,25 +154,9 @@ def format_date(value, fmt="%B %d, %Y"):
     return "Invalid date"
 
 
-def pkg(text=None, title=None, survey_list=None, due_item=None, show_resume=None):
-    return {
-        "user": session.get('user', None),
-        "status": {"title": title, "text": text},
-        "survey_list": survey_list,
-        "due_survey_item": due_item,
-        "show_resume": show_resume
-    }
-def rt(template, title=None, text=None):
-    return render_template(template, **pkg(text, title))
-
-
-@application.route('/governance')
-def governance():
-    return render_template('about.html', **pkg())
-
 @application.route('/contact')
 def contact():
-    return render_template('about.html', **pkg())
+    return render_template('about.html', user=session.get('user'))
 
 
 @application.route('/')
@@ -299,6 +295,7 @@ def logout():
         f"&logout_uri={application.config['MAIN_URI']}"
     )
     return redirect(logout_url)
+
 
 @application.route('/callback')
 def callback():
@@ -643,7 +640,9 @@ def next_question():
         form_answerset_count = int(request.form.get('answer_set_count'))
         form_flag_question = request.form.get("flag_question", "off") == "on"
         form_flag_comment = request.form.get("flag_comment", "").strip()
+        form_assigned_question_types = int(request.form.get('number_of_assigned_question_types'))
         selected_answer = request.form.get('selected_answer')
+
         cmode = request.form.get('cmode')
 
         answer_count = save_response(
@@ -658,7 +657,7 @@ def next_question():
             flag_comment=form_flag_comment
         )
 
-        has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[form_question_type]
+        has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[form_question_type] and int(answer_count) < TOTAL_QUESTIONS[form_question_type]
         completed_question_and_answerset = form_answerset_index + 1 >= form_answerset_count
 
         if completed_question_and_answerset:
@@ -666,7 +665,8 @@ def next_question():
                 if cmode == 'set-mode':
                     # flash(f"You have completed answering {form_question_type} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
                     # redirect to main index 
-                    end_qa_session = True 
+                    # do not end session if 
+                    end_qa_session = False if form_assigned_question_types == 1 else True
                 else:
                     # IN CONTINUE SET MODE 
                     if answer_count < TOTAL_QUESTIONS[form_question_type]:
@@ -689,6 +689,10 @@ def next_question():
 
     if not question:
         participant_registry = get_participant_registry(participant_id=participant.identifier)
+        print(participant_registry)
+        assigned_questions_types = participant_registry.get('assigned_question_types') 
+        
+
         question = get_random_unanswered_question(participant_data=participant_registry, question_type=question_type)
         total_sets        = len(question.answers)
         answer_set_index = 0 
@@ -701,7 +705,8 @@ def next_question():
         current_answer_set= current_set,
         answer_set_index  = answer_set_index,
         total_answer_sets = total_sets,
-        cmode             = cmode
+        cmode             = cmode,
+        number_of_assigned_question_types = len(assigned_questions_types)
     )
 
 @application.route('/question/<question_type>', methods=["GET"])

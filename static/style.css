@@ -705,29 +705,46 @@ footer {
 
 
 
-#spinner          { display:none; }           
-#spinner.htmx-request { display:grid }  
-/* ——— full-pag/* ========== FULL-SCREEN OVERLAY ========== */
-.loading{
-  /* hidden until HTMX adds .htmx-request */
-  display:none;
-  /* cover the whole viewport */
-  position:fixed; inset:0; z-index:1000;
-  background:rgba(0,0,0,.9);
-  /* --- centring, grid version --- */
-  display:grid;                  /* becomes active when .htmx-request added */
-  place-items:center;            /* both horizontal & vertical centring */
+/* --- base hide/show controlled by htmx --- */
+#spinner {
+  display: none;
 }
-/* HTMX puts this class on the indicator while the request is running */
-.loading.htmx-request{display:grid;}   /* show & keep it a grid */
+#spinner.htmx-request {
+  display: grid;
+}
+
+/* ========== FULL-SCREEN OVERLAY ========== */
+#spinner.loading {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.5);   /* static */
+  place-items: center;
+  /* kill inherited transitions that might fade bg */
+  transition: none !important;
+  animation: none !important;
+}
+
 /* ========== INNER CARD ========== */
-.loading-card{
+#spinner .loading-card {
   background: var(--bg-secondary);
-  padding:2rem 3rem;
-  border-radius:.75rem;
-  font-weight:600;
-  font-size:1.05rem;
-  /* top: 400px; */
-  /* box-shadow:0 8px 24px rgba(0,0,0,.20); */
+  padding: 2rem 3rem;
+  border-radius: .75rem;
+  font-weight: 600;
+  font-size: 1.05rem;
   text-align: center;
+  /* animate TEXT ONLY */
+  /* --pulse-min: .4; */
+  /* animation: loadingTextPulse 1.2s ease-in-out infinite; */
+}
+
+#spinner .loading-card span,
+#spinner .loading-card {
+  color: inherit;
+}
+
+/* Keyframes: fade text, not bg */
+@keyframes loadingTextPulse {
+  0%,100% { opacity: 1; }
+  50%     { opacity: var(--pulse-min); }
 }

@@ -1070,7 +1070,7 @@
     "publisher": "Zak Kohane",
     "date_created": "2025-07-01T00:00:00Z",
     "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
-    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The oth  er will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
   },
   {
     "identifier": "",

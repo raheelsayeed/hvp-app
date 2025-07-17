@@ -19,6 +19,7 @@ distro==1.9.0
 ecdsa==0.19.1
 fabric==3.2.2
 Flask==3.1.1
+flask-talisman==1.1.0
 gunicorn==23.0.0
 h11==0.14.0
 httpcore==1.0.8

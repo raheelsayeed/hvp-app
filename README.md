@@ -86,6 +86,9 @@ User[WebApp]->Bucket: Persist SurveyResponse-Participant-1.json
 - [x] Dropdownn multiple selections
 - [x] Privacy policy and terms of service specific to CDDS
 
+--- DEMO Qs 
+
+- http://study.hvp.global/demo-questions?file=management_v3.json&index=0
 
 --- Fatigue inducing similarity: 
 - 9cefe718851b81108eb3b5942662753df6a84b6b318a313bb5c3b4aa2b49ba53
