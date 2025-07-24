@@ -1,7 +1,6 @@
 from typing import Optional, List
 from hvp.core.participant import Participant, ParticipantType
 from hvp.core.survey import Survey
-from utils.survey_item import SurveyItem
 from utils.s3 import * 
 import logging 
 from datetime import timezone, datetime 
@@ -117,71 +116,71 @@ class AppParticipant(Participant):
         return None
      
 
-    def get_due_surveys(self):
+    # def get_due_surveys(self):
         
-        all_survey_metadata = get_survey_metadata_for_participant(self.identifier)
-        log.debug(f'survey_metadata={all_survey_metadata}') 
+        # all_survey_metadata = get_survey_metadata_for_participant(self.identifier)
+        # log.debug(f'survey_metadata={all_survey_metadata}') 
 
-        due_surveys = []
+        # due_surveys = []
 
-        for metadata in all_survey_metadata:
-            key = metadata.get("filename")
-            survey_data = download_survey(key)
-            if survey_data:
-                survey_obj = Survey(**survey_data)
-                survey_item = SurveyItem(survey=survey_obj, metadata=metadata)
-                due_surveys.append(survey_item)
-            else:
-                raise ValueError(f"Survey data not found; key={key}")
+        # for metadata in all_survey_metadata:
+        #     key = metadata.get("filename")
+        #     survey_data = download_survey(key)
+        #     if survey_data:
+        #         survey_obj = Survey(**survey_data)
+        #         survey_item = SurveyItem(survey=survey_obj, metadata=metadata)
+        #         due_surveys.append(survey_item)
+        #     else:
+        #         raise ValueError(f"Survey data not found; key={key}")
         
-        # if no due surveys found, create a  new one
-        if len(all_survey_metadata) == 0:
-            new_survey = self.create_new_survey()
-            survey_id = new_survey.identifier
-            key = f"surveys/{self.identifier}/{survey_id}.json"
-            upload_survey(data=new_survey.model_dump_json(), key=key)
-            # dispatch_email_notification(self.email, f"https://dev.hvp.global/survey/start")
-            s_metadata = register_survey_metadata(
-                participant_id=self.identifier,
-                survey_id=survey_id,
-                filename=key
-            )
-            log.debug(f'New Survey Registered={s_metadata}')
-            survey_item = SurveyItem(survey=new_survey, metadata=s_metadata)
-            due_surveys.append(survey_item)
+        # # if no due surveys found, create a  new one
+        # if len(all_survey_metadata) == 0:
+        #     new_survey = self.create_new_survey()
+        #     survey_id = new_survey.identifier
+        #     key = f"surveys/{self.identifier}/{survey_id}.json"
+        #     upload_survey(data=new_survey.model_dump_json(), key=key)
+        #     dispatch_email_notification(self.email, f"https://study.hvp.global")
+        #     s_metadata = register_survey_metadata(
+        #         participant_id=self.identifier,
+        #         survey_id=survey_id,
+        #         filename=key
+        #     )
+        #     log.debug(f'New Survey Registered={s_metadata}')
+        #     survey_item = SurveyItem(survey=new_survey, metadata=s_metadata)
+        #     due_surveys.append(survey_item)
 
-        return due_surveys
+        # return due_surveys
     
 
-    from utils.question_extension import get_unanswered_questions 
+    # from utils.question_extension import get_unanswered_questions 
    
    
 
 
 
-    def create_new_survey(self, num_questions: int = 12) -> Survey:
+    # def create_new_survey(self, num_questions: int = 12) -> Survey:
 
-        # get 10 ananswered questions
-        from utils.question_extension import get_unanswered_questions
+    #     # get 10 ananswered questions
+    #     from utils.question_extension import get_unanswered_questions
 
-        # make sure they are new/unanswered 
-        # make sure they belong to the right type
-        questions = get_unanswered_questions(
-            participant_id=self.identifier,
-            question_type='TRIAGE',
-            number_of_questions=num_questions
-        )
+    #     # make sure they are new/unanswered 
+    #     # make sure they belong to the right type
+    #     questions = get_unanswered_questions(
+    #         participant_id=self.identifier,
+    #         question_type='TRIAGE',
+    #         number_of_questions=num_questions
+    #     )
 
-        if questions is None or len(questions) == 0:
-            raise ValueError("No unanswered questions available for the participant.")
+    #     if questions is None or len(questions) == 0:
+    #         raise ValueError("No unanswered questions available for the participant.")
 
-        # create a Survey with these questions 
-        survey = Survey(
-            metadata={"question_type": "TRIAGE"},
-            questions=questions,
-            participant=self
-        )
+    #     # create a Survey with these questions 
+    #     survey = Survey(
+    #         metadata={"question_type": "TRIAGE"},
+    #         questions=questions,
+    #         participant=self
+    #     )
 
-        # return the Survey object
-        return survey
+    #     # return the Survey object
+    #     return survey
         

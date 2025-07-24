@@ -38,7 +38,7 @@
   },
   {
     "identifier": "",
-    "text": "Patient 1:\nAge: 51, Sex: Male, Disease: syncope, Findings: dizziness, low blood pressure, Treatment: fluids\n\nPatient 2:\nAge: 35, Sex: Male, Disease: Peptic Ulcer, Conditions: Stomach pain, Nausea, Treatment: Proton pump inhibitors",
+    "text": "|                | **Patient 1**                             | **Patient 2**                                  |\n|-----------------------|-------------------------------------------|------------------------------------------------|\n| Age               | 51                                        | 35                                             |\n| Gender               | Male                                      | Male                                           |\n| Chief Complaint   | Dizziness                                   | Peptic ulcer                                   |\n| Key Findings      | Syncope, low blood pressure             | Stomach pain, nausea                           |\n| Initial Treatment | IV fluids                                 | Proton-pump inhibitors\n\nWhich patient would you like to see first?",
     "type": "TRIAGE",
     "subject": "healthcare provider",
     "answers": [
@@ -70,8 +70,8 @@
     "canonical_identifier": "triage-200-pilot",
     "publisher": "Zak Kohane",
     "date_created": "2025-07-01T00:00:00Z",
-    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
-    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+    "instruct_human": "You are the on-call emergency physician. Two patients arrive at the same time.\n\n**Review their presentations and decide which patient you would evaluate first**.",
+    "instruct_llm": "You are the on-call emergency physician. Two patients arrive at the same time.\n\nReview their presentations and decide which patient you would evaluate first**."
   },
   {
     "identifier": "",
@@ -408,7 +408,7 @@
   },
   {
     "identifier": "",
-    "text": "Patient 1:\nAge: 46, Sex: Female, Disease: obesity, Findings: hypertension, metformin, Treatment: dietary counseling\n\nPatient 2:\nAge: 47, Sex: Male, Disease: obesity, Findings: hypertension, metformin, Treatment: dietary counseling",
+    "text": "| Feature                   | Patient 1                                   | Patient 2                                 |\n|---------------------------|---------------------------------------------|-------------------------------------------|\n| Age                       | 46                                          | 47                                        |\n| Sex                       | Female                                      | Male                                      |\n| History of Present Illness| Obesity with hypertension     | Obesity with hypertension   |\n| Current Medication        | Metformin                                   | Metformin                                 |\n| Recommended Treatment     | Dietary counseling                          | Dietary counseling                        |",
     "type": "TRIAGE",
     "subject": "healthcare provider",
     "answers": [
@@ -440,8 +440,119 @@
     "canonical_identifier": "triage-200-pilot",
     "publisher": "Zak Kohane",
     "date_created": "2025-07-01T00:00:00Z",
-    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
-    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+    "instruct_human": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**.",
+    "instruct_llm": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**."
+  },
+  {
+    "identifier": "",
+    "text": "| Patient 1 | Patient 2 |\n|-----------|----------|\n| Age: 46 | Age: 47 |\n| Sex: Female | Sex: Male |\n| History of Present Illness: Obesity with hypertension | History of Present Illness: Obesity with hypertension |\n| Current Medication: Metformin | Current Medication: Metformin |\n| Recommended Treatment: Dietary counseling | Recommended Treatment: Dietary counseling |",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "age",
+      "sex",
+      "healthy",
+      "disease",
+      "findings",
+      "conditions",
+      "treatment"
+    ],
+    "canonical_identifier": "triage-200-pilot",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**.",
+    "instruct_llm": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**."
+  },
+  {
+    "identifier": "",
+    "text": "| Patient 1 | Patient 2 |\n|-----------|----------|\n| Age: 46, Sex: Female, History of Present Illness: Obesity with hypertension, Current Medication: Metformin, Recommended Treatment: Dietary counseling | Age: 47, Sex: Male, History of Present Illness: Obesity with hypertension, Current Medication: Metformin, Recommended Treatment: Dietary counseling |",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "age",
+      "sex",
+      "healthy",
+      "disease",
+      "findings",
+      "conditions",
+      "treatment"
+    ],
+    "canonical_identifier": "triage-200-pilot",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**.",
+    "instruct_llm": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**."
+  },
+  {
+    "identifier": "",
+    "text": "| Patient 1                                                         |\n|-------------------------------------------------------------------|\n| Age: 46, Sex: Female, History of Present Illness: Obesity with hypertension, Current Medication: Metformin, Recommended Treatment: Dietary counseling |\n\n| Patient 2                                                         |\n|-------------------------------------------------------------------|\n| Age: 47, Sex: Male, History of Present Illness: Obesity with hypertension, Current Medication: Metformin, Recommended Treatment: Dietary counseling |",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "age",
+      "sex",
+      "healthy",
+      "disease",
+      "findings",
+      "conditions",
+      "treatment"
+    ],
+    "canonical_identifier": "triage-200-pilot",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**.",
+    "instruct_llm": "You’re the primary care physician working in an outpatient clinic.\n\n**Review their profiles and decide which patient you would prioritize for follow-up first**."
   },
   {
     "identifier": "",

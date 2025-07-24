@@ -1,151 +1,226 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-  .survey-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
+<div class="content-card" style="max-width:800px;margin-inline:auto">
+  <div class="card-header">
+    <h1 class="card-title">
+      Welcome, {{ user.name }}
+    </h1>
+  </div>
+  
+  <div class="card-content">
+    <div class="content-section">
+      <p class="feature-description" style="font-size: var(--text-base); margin-bottom: var(--space-6);">
+        Thank you for participating in the Human Values Project.
+      </p>
+      
+      {% if progress %}
+      <div class="section-title">Your Progress</div>
+      
+      <div class="feature-grid" style="grid-template-columns: 1fr;">
+        
+        {% for item in progress %}
+        {% if item.status == 'enabled' %}
+          {% if item.answered | int >= item.minimum and item.answered | int < item.total %}
+            <!-- Minimum Completed! -->
+            {% set button_label=' Answer more ' %}
+            {% set note_color=' var(--accent-600)' %}
+            {% set note_text="You've completed this set.<br />Feel free to answer more" %}
+            {% set cmode='continue-set-mode' %}
 
-  .survey-item {
-    padding: var(--space-4);
-    border-radius: var(--radius-lg);
-    background: var(--bg-primary);
-    box-shadow: var(--shadow-xs);
-    transition: box-shadow var(--transition-fast);
-  }
+          {% elif item.answered | int >= item.total %}
+            <!-- All questions in set completed -->
+            {% set note_text='All questions answered!' %}
+            {% set note_color=' var(--accent-600)' %}
+            {% set button_label='Completed' %}
+            
 
-  .survey-item:hover {
-    box-shadow: var(--shadow-md);
-  }
+          {% elif item.answered | int < item.minimum %}
+            <!-- Questions are pending -->
+            {% set cmode='set-mode' %}
+            {% set button_label= ' Continue ' if item.answered|int > 0 else ' Start ' %}
+            {% set note_color=' var(--danger-600)' %}
+            {% set note_text = "Please answer %d more question%s to complete this set" % (item.minimum - item.answered, "" if item.minimum - item.answered == 1 else "s") %}
+            
+          {% endif %}
 
-  .progress-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border-light);
-  }
+        {% else %}
+          <!-- Set is locked/due -->
+          {% set button_label=' Due ' %}
+          {% set note_color=' var(--gray-600)' %}
+          {% set note_text = "Please finish other question sets to enable this set"  %}
 
-  .progress-row strong {
-    color: var(--text-primary);
-  }
-</style>
+        {% endif %}
 
-<section class="content-card">
-  <h2 class="page-title">Welcome, {{ user.name }}</h2>
-  <p class="page-subtitle">Thank you for participating in the Human Values Project.</p>
-  {% if progress %}
-  <div class="card-text" style="margin-top: 1.5rem;">
-    <h3 class="card-title">📊 Your Progress</h3>
-    <div class="card-text">
+        <div class="feature-item" style="justify-content: space-between; align-items: flex-start;">
+          <div class="feature-content" style="flex: 1;">
+            <div class="feature-title" style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+              {{ item.type | title }} Questions
+            </div>
+            <div class="feature-description" style="margin-bottom: var(--space-2);">
+              {{ item.answered }} of {{ item.total }} answered 
+              {% if item.minimum != item.total %} (minimum {{ item.minimum }}){% endif %}
+            </div>
+            
+            <div style="color: {{ note_color }}; margin-bottom: var(--space-3); font-weight: bold;">
+              {{ note_text|safe }}
+            </div>
 
-      {% for item in progress %}
-      <div class="progress-row" style="margin-bottom: 1.25rem; background: var(--bg-tertiary); padding: 1rem; border-radius: var(--radius-lg);">
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-          <div>
-            <strong>{{ item.type | title }} Questions</strong><br />
-            <span class="text-sm text-muted">{{ item.answered }} of {{ item.total }} answered (minimum {{ item.minimum }})</span>
-            <br/>
-              {% if item.answered | int >= item.minimum and item.answered | int < item.total %}
-                <span style="color: var(--accent-600); font-weight: bold;">
-                You’ve completed this set.<br/>Feel free to answer more questions.
-                </span>
-                {% elif item.answered | int == item.total %}
-                <span style="color: var(--accent-600); font-weight: bold;">All questions answered!</span>
-                {% else %}
-                <span style="color: var(--danger-500); font-weight: bold;">Please answer {{ item.minimum - item.answered }} more question{{ '' if item.minimum - item.answered == 1 else 's' }} to complete this set.</span>
-              {% endif %}
+            <div style="">
+            {% if button_label in [' Continue ', ' Start ',  ' Answer more '] %}
+            <form method="POST" action="{{ url_for('question') }}">
+              <input type="hidden" name="question_type" value="{{ item.type }}">
+              <input type="hidden" name="cmode" value="{{ cmode }}">
+              <button type="submit" class="btn btn-primary">{{ button_label }}</button>
+            </form>  
+            {% else %}
+            <span class="card-badge">{{ button_label }}</span>
+            {% endif %}
+          </div>
+          
           </div>
 
-          <div>
-            {% if item.status == 'enabled' %}
-                {% if item.status == 'enabled' and item.answered | int < item.total %}
+          
+        </div>
+        {% endfor %}
+      </div>
+      
+      {% else %}
+      <div class="feature-item" style="text-align: center; background: var(--primary-50); border: 1px solid var(--primary-100);">
+        <div class="feature-content">
+          <p class="feature-description" style="margin: 0;">
+            You currently have no surveys assigned. We will notify you by email as soon as new questions are available.
+          </p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
 
-                    {% set show_continue = item.answered | int < item.minimum %}
-                    {% set cmode = 'set-mode' if show_continue else 'continue-set-mode' %}
-                    {% set button_label = 'Start' if item.answered|int == 0 
-                                        else ('Continue' if show_continue else 'Answer more') %}
+<div class="content-card" style="max-width:800px;margin-inline:auto">
+  <div class="card-header">
+    <h2 class="card-title">
+      <div class="card-icon">👤</div>
+      Your Profile
+    </h2>
+  </div>
 
-                        
-                    <form method="POST" action="{{ url_for('question') }}">
-                        <input type="hidden" name="question_type" value="{{ item.type }}">
-                        <input type="hidden" name="cmode" value="{{ cmode }}">
-                        
-                        <button type="submit" class="btn btn-primary btn-sm">
-                        {{ button_label }}
-                        </button>
-                    </form>
-
-                {% else %}
-                <!-- All questions answered or status not enabled. No form shown. -->
-                {% endif %}
-            {% else %}
-              <button class="btn btn-sm btn-ghost" disabled style="opacity: 0.4;">Locked</button>
-            {% endif %}
+  <div class="card-content">
+    <div class="content-section">
+      <h3 class="section-title">Basic Information</h3>
+      
+      <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        <!-- <div class="feature-item">
+          <div class="feature-icon">👨‍💼</div>
+          <div class="feature-content">
+            <div class="feature-title">Name</div>
+            <div class="feature-description">{{ participant.first_name }} {{ participant.last_name }}</div>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">📧</div>
+          <div class="feature-content">
+            <div class="feature-title">Email</div>
+            <div class="feature-description">{{ participant.identifier }}</div>
+          </div>
+        </div> -->
+        
+        <div class="feature-item">
+          <!-- <div class="feature-icon">🎂</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Age</div>
+            <div class="feature-description">{{ participant.age or '—' }}</div>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <!-- <div class="feature-icon">⚧</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Gender</div>
+            <div class="feature-description">{{ participant.gender or '—' }}</div>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <!-- <div class="feature-icon">🌍</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Race / Ethnicity</div>
+            <div class="feature-description">{{ participant.race_ethnicity or '—' }}</div>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <!-- <div class="feature-icon">🏳️</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Country</div>
+            <div class="feature-description">{{ participant.country or '—' }}</div>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <!-- <div class="feature-icon">🏙️</div> -->
+          <div class="feature-content">
+            <div class="feature-title">City</div>
+            <div class="feature-description">{{ participant.city or '—' }}</div>
           </div>
         </div>
       </div>
-      {% endfor %}
-
     </div>
-  </div>
-  {% else %}
-    <div class="card-text">
-      <p>You currently have no surveys assigned. We will notify you by email as soon as new questions are available.</p>
-    </div>
-  {% endif %}
-</section>
-<section class="content-card">
-  <h2 class="card-title">👤 Your Profile</h2>
 
-  <!-- Basic Details -->
-  <div class="card-text" style="margin-top: var(--space-4);">
-    <dl style="display:grid;grid-template-columns:150px 1fr;row-gap:.5rem;">
-      <dt>Name</dt>            <dd>{{ participant.first_name }} {{ participant.last_name }}</dd>
-      <dt>Email</dt>           <dd>{{ participant.identifier }}</dd>
-      <dt>Age</dt>             <dd>{{ participant.age or '—' }}</dd>
-      <dt>Gender</dt>          <dd>{{ participant.gender or '—' }}</dd>
-      <dt>Race / Ethnicity</dt><dd>{{ participant.race_ethnicity or '—' }}</dd>
-      <dt>Country</dt>         <dd>{{ participant.country or '—' }}</dd>
-      <dt>City</dt>            <dd>{{ participant.city or '—' }}</dd>
-    </dl>
-  </div>
+    {% if participant.subject_type %}
+    <div class="content-section">
+      <h3 class="section-title">Professional Information</h3>
+      
+      <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        <div class="feature-item">
+          <!-- <div class="feature-icon">💼</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Role</div>
+            <div class="feature-description">{{ participant.subject_type|capitalize }}</div>
+          </div>
+        </div>
 
-  <!-- Role-specific Details -->
-  {% if participant.subject_type %}
-  <div class="card-text" style="margin-top: var(--space-4);">
-    <h3 class="component-title">Professional Information</h3>
-    <dl style="display:grid;grid-template-columns:180px 1fr;row-gap:.5rem;">
-      <dt>Role</dt>            <dd>{{ participant.subject_type|capitalize }}</dd>
-
-      {% if participant.subject_type == 'healthcare provider' %}
-        <dt>Provider Type</dt> <dd>{{ participant.provider_type.value or '—' }}</dd>
-        <dt>Clinical Field(s)</dt>
-        <dd>
-          {% if participant.clinical_field %}
-            {% if participant.clinical_field is string %}
+        {% if participant.subject_type == 'healthcare provider' %}
+        <div class="feature-item">
+          <!-- <div class="feature-icon">🏥</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Provider Type</div>
+            <div class="feature-description">{{ participant.provider_type.value or '—' }}</div>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <!-- <div class="feature-icon">⚕️</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Clinical Field(s)</div>
+            <div class="feature-description">
+              {% if participant.clinical_field %}
+              {% if participant.clinical_field is string %}
               {{ participant.clinical_field }}
-            {% else %}
+              {% else %}
               {{ participant.clinical_field | join(', ') }}
-            {% endif %}
-          {% else %}
-            —
-          {% endif %}
-        </dd>
-        <dt>Practice Context</dt> <dd>{{ participant.geo_context.value or '—' }}</dd>
-      {% endif %}
-    </dl>
+              {% endif %}
+              {% else %}
+              —
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <!-- <div class="feature-icon">📍</div> -->
+          <div class="feature-content">
+            <div class="feature-title">Practice Context</div>
+            <div class="feature-description">{{ participant.geo_context.value or '—' }}</div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
   </div>
-  {% endif %}
-
-
-  
-</section>
-
-
+</div>
 
 {% endblock %}

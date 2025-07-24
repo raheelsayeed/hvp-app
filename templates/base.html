@@ -1,112 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
-  <meta http-equiv="Pragma"        content="no-cache">
-  <meta http-equiv="Expires"       content="0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Human Values Project</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_a.css') }}" />
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
+
 <body>
+  <!-- Loading Spinner -->
+  <div id="spinner" class="loading">
+    <div class="loading-card">
+      <span>Loading...</span>
+    </div>
+  </div>
 
   <header>
     <div class="header-container">
       <!-- Branding Section -->
       <div class="branding">
-        <h1 class="brand-title">
-          <a href="{{ url_for('index') }}" style="text-decoration: none; color: var(--text-primary);">Clinical Decision Dynamics Study</a>
-        </h1>
-        <div class="brand-subtitle">Human Values Project</div>
+        <img src="{{ url_for('static', filename='img/hms-shield.png') }}" alt="Harvard Medical School Logo"
+          class="harvard-logo" />
+        <div class="brand-content">
+          <h1 class="brand-title">
+            <a href="{{ url_for('index') }}">Clinical Decision Dynamics Study</a>
+          </h1>
+          <div class="brand-subtitle">Human Values Project</div>
+        </div>
       </div>
 
-      <!-- Navigation Section -->
+      <!-- Desktop Navigation -->
       <div class="nav-wrapper">
         <nav class="primary-nav">
           <a href="{{ url_for('about') }}" class="nav-link">About</a>
           <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
-
           {% if user %}
-            <a href="{{ url_for('index') }}" class="nav-link">My Study</a>
-            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+          <a href="{{ url_for('index') }}" class="nav-link nav-link-active">My Study</a>
+          <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
           {% else %}
-            <a href="{{ url_for('login') }}" class="btn btn-primary">Login & Participate</a>
+          <a href="{{ url_for('login') }}" class="btn btn-primary">Login & Participate</a>
           {% endif %}
         </nav>
-
         {% if user %}
         <div class="user-status">
-          <span class="user-avatar">{{ user.email[0]|upper }}</span>
-          <span>Logged in as {{ user.email }}</span>
+          <span class="user-email">{{ user.email }}</span>
         </div>
         {% endif %}
       </div>
 
-      <!-- Mobile menu toggle (if needed) -->
+      <!-- Mobile Menu Toggle -->
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="hamburger">
+        <span class="sr-only">Toggle Menu</span>
+        <div class="hamburger">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
-        </span>
+        </div>
       </button>
     </div>
 
     <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobile-nav">
+    <nav class="mobile-nav" id="mobile-nav">
       <div class="mobile-nav-links">
         <a href="{{ url_for('about') }}" class="nav-link">About</a>
         <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
         {% if user %}
-          <a href="{{ url_for('index') }}" class="nav-link">My Study</a>
-          <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        <a href="{{ url_for('index') }}" class="nav-link">My Study</a>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
         {% else %}
-          <a href="{{ url_for('login') }}" class="btn btn-primary">Login & Participate</a>
+        <a href="{{ url_for('login') }}" class="btn btn-primary">Login & Participate</a>
         {% endif %}
       </div>
-    </div>
+    </nav>
   </header>
 
-  <main class="container">
-      {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="alert alert-{{ category }}">
-            {{ message }}
-          </div>
-        {% endfor %}
-      {% endif %}
+  <main class="content">
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
+
+    <!-- Main Content -->
     {% block content %}
     {% endblock %}
   </main>
 
   <footer>
-        <div class="footer-inner">
-      <span>&copy; {{ 2025 }} Harvard Medical School</span>
-
-      <!-- Divider -->
-      <span aria-hidden="true">|</span>
-
-      <!-- Policy links -->
-      <a href="{{ url_for('privacy_policy') }}" class="footer-link">Privacy&nbsp;Policy</a>
+    <div class="footer-inner">
+      <a href="{{ url_for('privacy_policy') }}" class="footer-link">Privacy Policy</a>
       <span aria-hidden="true">•</span>
-      <a href="{{ url_for('terms_of_service') }}" class="footer-link">Terms&nbsp;of&nbsp;Service</a>
+      <a href="{{ url_for('terms_of_service') }}" class="footer-link">Terms of Service</a>
+    </div>
+    <div style="margin-top: var(--space-2);">
+      <div>This study has been approved by Institutional Review Board at HMS</div>
+      <div>&copy; 2025 Harvard Medical School</div>
     </div>
   </footer>
 
-  <!-- Mobile menu JS -->
+  <!-- Mobile Menu JavaScript -->
   <script>
-    const toggle = document.getElementById('menu-toggle');
-    const mobileNav = document.getElementById('mobile-nav');
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('active');
-      mobileNav.classList.toggle('active');
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+
+      if (toggle && mobileNav) {
+        toggle.addEventListener('click', function () {
+          toggle.classList.toggle('active');
+          mobileNav.classList.toggle('active');
+
+          // Update aria-expanded for accessibility
+          const isExpanded = mobileNav.classList.contains('active');
+          toggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (event) {
+          if (!toggle.contains(event.target) && !mobileNav.contains(event.target)) {
+            toggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Close mobile menu when pressing escape
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && mobileNav.classList.contains('active')) {
+            toggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
     });
   </script>
+
+  <style>
+    /* Alert styles to match the design system */
+    .alert {
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+      border-radius: var(--radius-lg);
+      font-weight: var(--font-weight-medium);
+      border: 1px solid;
+    }
+
+    .alert-success {
+      background-color: #f0fdf4;
+      border-color: var(--accent-500);
+      color: #166534;
+    }
+
+    .alert-error,
+    .alert-danger {
+      background-color: #fef2f2;
+      border-color: var(--danger-500);
+      color: #991b1b;
+    }
+
+    .alert-warning {
+      background-color: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .alert-info {
+      background-color: var(--primary-50);
+      border-color: var(--primary-500);
+      color: var(--primary-700);
+    }
+
+    /* User status styling */
+    .user-status {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+
+    .user-email {
+      padding: var(--space-1) var(--space-3);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      font-weight: var(--font-weight-medium);
+    }
+
+    /* Responsive adjustments for user status */
+    @media (max-width: 768px) {
+      .user-status {
+        display: none;
+      }
+    }
+  </style>
 </body>
+
 </html>

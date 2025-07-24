@@ -1,0 +1,78 @@
+{# templates/contact.html #}
+{% extends "base.html" %}
+
+{% block title %}Contact – Clinical Decision Dynamics Study{% endblock %}
+
+{% block content %}
+<section class="content-card" style="max-width:800px;margin-inline:auto">
+<div class="card-header">
+    <h1 class="card-title">
+      Contact us
+    </h1>
+  </div>
+
+    <!-- {# show flash("Thanks …", "success") after successful POST #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+        
+        <form hx-post="{{ url_for('handle_contact') }}" hx-target="this" hx-swap="outerHTML">
+            <h3>Send us a message</h3>
+
+            <label>
+                Your name<br>
+                <input type="text" name="name" required style="width:100%;padding:.5rem">
+            </label><br>
+
+            <label>
+                Email<br>
+                <input type="email" name="email" required style="width:100%;padding:.5rem">
+            </label><br>
+
+            <label>
+                Message<br>
+                <textarea name="message" rows="6" required style="width:100%;padding:.5rem"></textarea>
+            </label><br>
+
+            <button type="submit" class="btn btn-primary">Send &nbsp;➤</button>
+        </form> -->
+
+    <!-- Static contact details -->
+    <div>
+        <div style="max-width: 400px;">
+            <br />
+            <a href="https://dbmi.hms.harvard.edu" target="_blank" rel="noopener">
+                <img src="{{ url_for('static', filename='img/HMS_DBMI_Logo-2.svg') }}"
+                    alt="Harvard Medical School – Blavatnik Institute – Department of Biomedical Informatics">
+            </a>
+        </div>
+        <br />
+        <h3>Office</h3>
+        <p>
+            <strong>Human Values Project</strong><br>
+            Department of Biomedical Informatics<br>
+            Harvard Medical School<br>
+            10 Shattuck Street<br>
+            Suite 514<br />
+            Boston, MA 02115 USA
+        </p>
+
+        <p>
+            <strong>E-mail:</strong>
+            <a href="mailto:humanvaluesproject@hms.harvard.edu">humanvaluesproject@hms.harvard.edu</a><br>
+            <strong>Phone:</strong> +1 (617) 432-2144<br />
+            <strong>Web:</Strong> <a href="https://dbmi.hms.harvard.edu">dbmi.hms.harvard.edu</a>
+        </p>
+
+        
+
+    </div>
+    </div>
+</section>
+{% endblock %}

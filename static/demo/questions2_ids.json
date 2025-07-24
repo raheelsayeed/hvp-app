@@ -1,0 +1,98 @@
+[
+  {
+    "version": "demo",
+    "identifier": "252978653ac02efa773d3161a5d7dfb570f1ecd737b2b03825e4152a128b2fe1",
+    "text": "Ptient 1:\nAge: 56, Sex: Female, Status: Healthy\n\nPatient 2:\nAge: 50, Sex: Male, Disease: syncope, Findings: dizziness, low blood presasdfsure, Treasdfatment: fluids",
+    "type": "TRIAGEDEMO",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "appointment triage"
+    ],
+    "canonical_identifier": "triage-200-pilot",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-06-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\\n\\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\\n\\nPlease review the two cases below and indicate which patient you would choose to see.",
+    "instruct_llm": ""
+  },
+  {
+    "version": "demo",
+    "identifier": "df6929942b59794ec4d317f6de338e04847a35dabac0d7ba4507452f4034803f",
+    "text": "###  1\n\n- Age: 56\n- Sex: Female\n- Status: Healthy\n\n### Patient 2\n\n- Age: 50\n- Sex: Male\n- Disease: syncope\n- Findings: dizziness, low bloasdfod pressure\n- Treatment: fluids",
+    "type": "TRIAGEDEMO",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "appointment triage"
+    ],
+    "canonical_identifier": "triage-200-pilot",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-06-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\nPlease review the two cases below and indicate which patient you would choose to see.",
+    "instruct_llm": ""
+  },
+  {
+    "version": "demo",
+    "identifier": "d810703d3346701bcb98f56de52de07ddb8b10ac6a405df606eea270ace62791",
+    "instruct_human": "You are a doctor at a primary care, outpatient clinic",
+    "text": "Two  have contactasdfed your clinic requesting urgent evaluation. However, you have only __one__ slot available for tomorrow.\n\n__Which patient would you schedule for tomorrow__?\n\n_(The other patient will be scheduled for a routine follow-up within 2 weeks or advised to go to the emergency room if symptoms worsen)_\n\n### Patient 1\n\n- Age: 56\n- Sex: Female\n- Status: Healthy\n\n### Patient 2\n\n- Age: 50\n- Sex: Male\n- Disease: syncope\n- Findings: dizziness, low blood pressure\n- Treatment: fluids",
+    "type": "TRIAGEDEMO",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "appointment triage"
+    ],
+    "canonical_identifier": "triage-200-pilot",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-06-01T00:00:00Z",
+    "instruct_llm": ""
+  }
+]

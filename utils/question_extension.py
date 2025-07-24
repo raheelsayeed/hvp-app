@@ -1,15 +1,17 @@
 from hvp.core.question import Question
-from typing import Dict, List, Optional 
+from hvp.core.participant import Participant
+from typing import Callable, Dict, List, Optional, Any
 from utils.aws_session import get_boto3_session
 from botocore.exceptions import ClientError
-
+from boto3.dynamodb.conditions import Attr
+import random
 import logging
+
 
 client = get_boto3_session()
 dynamodb = client.resource("dynamodb", region_name="us-east-2")
 QUESTIONS_TABLE = dynamodb.Table("hvp-questions")
 HVP_PARTICIPANTS_REGISTRY_TABLE = dynamodb.Table("hvp-survey-registry")
-
 
 
 def get_question_identifiers(question_type: Optional[str]) -> List[str]:
@@ -39,30 +41,6 @@ def get_question_identifiers(question_type: Optional[str]) -> List[str]:
     return identifiers
 
 
-def get_random_question_id(question_type: Optional[str]) -> Optional[str]:
-    """
-    Get a random question identifier from the DynamoDB table.
-    
-    If a type is specified, filter questions by that type.
-    
-    :param question_type: Optional QuestionType to filter questions.
-    :return: A random question identifier or None if no questions found.
-    """
-    identifiers = get_question_identifiers(question_type)
-    
-    if not identifiers:
-        logging.warning("No questions found in DynamoDB.")
-        raise
-    
-    from random import sample
-    # question_id = sample(identifiers, 1)
-    from random import random
-    random_index = int(random() * len(identifiers))
-    question_id = identifiers[random_index]
-    
-    logging.debug(f"Selected random question ID: {question_id}")
-    
-    return question_id
 
 
 def get_question_by_id(question_id: str) -> Optional[Question]:
@@ -116,117 +94,124 @@ def check_question_response_exists(participant_id: str, question_id: str) -> boo
     return True, question
 
 
-def get_random_unanswered_question(participant_data: dict, question_type: str) -> Optional[Question]:
-    """
-    Return a random unanswered Question from DynamoDB for a given participant and question type.
+_NEXT_QUESTION_HANDLERS: Dict[str, Callable] = {}
 
-    :param participant_data: A dict with 'answered_questions' as in your example
-    :param question_type: Question type to pull from ("TRIAGE", "MANAGEMENT", etc.)
-    :return: A single Question object or None if no new questions found
-    """
-    try:
-        # Get the list of already answered question_ids
-        answered_ids = set(participant_data.get("answered_questions", {}).get(question_type, []))
+def register_next_handler(question_type: str):
+    def deco(fn: Callable):
+        _NEXT_QUESTION_HANDLERS[question_type] = fn
+        return fn
+    return deco
 
-        # Scan all questions of this type
-        response = QUESTIONS_TABLE.scan(
-            FilterExpression="#type = :qtype",
-            ExpressionAttributeNames={"#type": "type"},
-            ExpressionAttributeValues={":qtype": question_type}
-        )
+# ── 2) Dispatcher ──────────────────────────────────────────────────────────
+def get_next_question(
+    participant: Participant,
+    progress_registry: dict,
+    questions_metadata: dict,
+    question_type: str,
+) -> Optional[Question]:
+    handler = _NEXT_QUESTION_HANDLERS.get(question_type)
+    answered_ids = set(progress_registry.get("answered_questions", {}).get(question_type, None))
+    if not handler:
+        raise ValueError(f"No next-question handler for type={question_type!r}")
+    return handler(participant, progress_registry, questions_metadata, answered_ids)
 
-        all_questions = response.get("Items", [])
-        logging.debug(f"[get_random_unanswered_question] Found {len(all_questions)} total questions of type {question_type}")
 
-        # Filter out already answered ones
-        unanswered = [q for q in all_questions if q["identifier"] not in answered_ids]
-        logging.debug(f"[get_random_unanswered_question] Remaining unanswered: {len(unanswered)}")
+@register_next_handler("TRIAGE")
+def _next_triage(
+    participant: Participant,
+    progress_registry: dict,
+    questions_metadata: dict,
+    answered_question_ids: Optional[List[str]]
+) -> Optional[Question]:
+    filter_expression = Attr('type').eq('TRIAGE') & Attr('version').eq('1.0.0') 
+    if answered_question_ids and len(answered_question_ids) > 0:
+        filter_expression = filter_expression & ~Attr("identifier").is_in(answered_question_ids)
+    response = QUESTIONS_TABLE.scan(
+                        ProjectionExpression="identifier",
+                        FilterExpression=(filter_expression)
+                    )   
+    all_questions = response.get("Items", [])
+    if len(all_questions) == 0:
+        return None 
+    next_q = random.choice(all_questions)
+    if next_q:
+        next_q = get_question_by_id(next_q['identifier'])
+        return next_q 
+    else: 
+        return None
 
-        if not unanswered:
-            logging.info(f"No unanswered questions left for {question_type}")
-            return None
 
-        # Pick one at random
-        import random
-        selected = random.choice(unanswered)
+@register_next_handler("TRIAGEDEMO")
+def _next_triage(
+    participant: Participant,
+    progress_registry: dict,
+    questions_metadata: dict,
+    answered_question_ids: Optional[List[str]]
+) -> Optional[Question]:
+    filter_expression = Attr('type').eq('TRIAGEDEMO') & Attr('version').eq('demo') 
+    if answered_question_ids and len(answered_question_ids) > 0:
+        filter_expression = filter_expression & ~Attr("identifier").is_in(answered_question_ids)
+    response = QUESTIONS_TABLE.scan(
+                        ProjectionExpression="identifier",
+                        FilterExpression=(filter_expression)
+                    )   
+    all_questions = response.get("Items", [])
+    if len(all_questions) == 0:
+        return None 
+    
+    next_q = random.choice(all_questions)
+    if next_q:
+        next_q = get_question_by_id(next_q['identifier'])
+        return next_q 
+    else: 
+        return None
 
-        # Return as validated model (optional)
-        return Question(**selected)
 
-    except Exception as e:
-        logging.error(f"[get_random_unanswered_question] Failed to fetch: {e}")
+@register_next_handler("MANAGEMENT")
+def _next_management_question(
+    participant: Participant,
+    progress_registry: dict,
+    questions_metadata: dict,
+    answered_question_ids: Optional[List[str]]
+) -> Optional[Question]:
+    
+    max = questions_metadata.get('MAX')
+    num_answered = len(answered_question_ids) if answered_question_ids else 0 
+
+    if num_answered >= max:
         return None
     
-
-def get_unanswered_questions(participant_id: str, question_type: str, number_of_questions: int = 10, answered_question_ids: Optional[List[str]] = None) -> List[Question]:
-    
-    unanswered_questions = []
-    max_attempts = number_of_questions * 10  # Safety to avoid infinite loop
-    attempts = 0
-
-
-    while len(unanswered_questions) < number_of_questions and attempts < max_attempts:
-        random_question_id = get_random_question_id(question_type)
-
-        if not random_question_id:
-            logging.warning(f"No random question found for type '{question_type}'")
-            attempts += 1
-            continue
-
-        answered, question = check_question_response_exists(participant_id, random_question_id)
-
-        if question and answered == False:
-            unanswered_questions.append(question)
-
-        attempts += 1
-
-    if len(unanswered_questions) < number_of_questions:
-        raise ValueError(f"Not enough unanswered questions available for the participant. Found: {len(unanswered_questions)}, Required: {number_of_questions}, attempted: {attempts}")
-
-    if len(unanswered_questions) == 0:
-        logging.error(f"No unanswered questions found for participant {participant_id} of type {question_type}.")
-        raise ValueError(f"No unanswered questions found for participant {participant_id} of type {question_type}.")
-    
-
-    return list(unanswered_questions)
+    # get all questions
+    completed_cases_numbers = []
+    if num_answered > 0:
+        response = QUESTIONS_TABLE.scan(
+            ProjectionExpression="identifier, metadata",
+            FilterExpression=(Attr("identifier").is_in(answered_question_ids))
+        )
+        completed_qs = response.get("Items", [])
+        completed_cases_numbers = [q['metadata']['case'] for q in completed_qs]
 
 
 
+    filter_expression = Attr('type').eq('MANAGEMENT') & Attr('version').eq('2') 
+    if len(completed_cases_numbers) > 0: 
+        filter_expression = filter_expression & ~Attr('identifier').is_in(answered_question_ids) & ~Attr('metadata.case').is_in(completed_cases_numbers)
+    response = QUESTIONS_TABLE.scan(
+                        ProjectionExpression="identifier",
+                        FilterExpression=(filter_expression)
+                    )
 
-def get_question_progress_by_type(participant_id: str, question_types: List[str]) -> Dict[str, Dict[str, int]]:
-    """
-    Get the progress of a participant on questions of specified types.
-    
-    :param participant_id: The identifier of the participant.
-    :param question_types: List of question types to check progress for.
-    :return: Dictionary with question type as key and a dictionary of counts as value.
-    """
-    progress = {qtype: {'total': 0, 'answered': 0} for qtype in question_types}
-    
-    for qtype in question_types:
-        identifiers = get_question_identifiers(qtype)
-        progress[qtype]['total'] = len(identifiers)
-        
-        for qid in identifiers:
-            answered, _ = check_question_response_exists(participant_id, qid)
-            if answered:
-                progress[qtype]['answered'] += 1
-    
-    return progress
+    all_questions = response.get("Items", [])
+    if len(all_questions) == 0: 
+        return None 
+    next_q = random.choice(all_questions)
+    next_q = get_question_by_id(next_q['identifier'])
+    return next_q
 
 
 
 
 def increment_question_progress(participant_id: str, question_type: str, count: int = 1, question_id: str = None) -> int:
-    """
-    Increment the number of questions answered by a participant for a given question type.
-    Creates the item if it doesn't exist.
-
-    :param participant_id: Unique identifier (usually email) of the participant.
-    :param question_type: The type/category of questions (e.g., "TRIAGE").
-    :param count: Number of questions to increment (default: 1).
-    :return: The updated value after increment.
-    """
     try:
         response = HVP_PARTICIPANTS_REGISTRY_TABLE.update_item(
             Key={"participant_id": participant_id},

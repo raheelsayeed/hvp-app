@@ -13,13 +13,14 @@ SURVEY_TABLE = d_client.Table("hvp-survey-registry")
 def assign_question_types(participant: AppParticipant):
     types = []
 
+    if participant.identifier == "raheelsayeedhms@gmail.com":
+        types.append("TRIAGEDEMO")
+
     if  participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
         types.append("TRIAGE")
 
         # if 'Critical Care Medicine' in participant.clinical_field or 'Internal Medicine' in participant.clinical_field:
         #     types.append("MANAGEMENT")
-
-    
     
     # Assign first one as enabled, rest as pending
     assigned = []
@@ -43,15 +44,16 @@ def assign_question_types(participant: AppParticipant):
             Item=registry_item
         )
         logging.info(f"Assigned question types for participant {participant.identifier}: {types}")
+        return types
 
     except Exception as e:
         logging.error(f"Error assigning question types for participant {participant.identifier}: {e}")
         raise e
 
-
-
-
-def get_assigned_question_types_with_progress(participant_id: str, total_questions_dict: dict, threshold_for_type_dict: dict) -> list[dict]:
+def get_assigned_question_types_with_progress(
+        participant_id: str,
+        questions_metadata: dict 
+    ) -> list[dict]:
     try:
         response = SURVEY_TABLE.get_item(Key={"participant_id": participant_id})
 
@@ -67,30 +69,29 @@ def get_assigned_question_types_with_progress(participant_id: str, total_questio
         result = []
         for i, qtype in enumerate(assigned_types):
             answered = progress.get(qtype, 0)
-            total = total_questions_dict.get(qtype, 0)
-            minimum = threshold_for_type_dict.get(qtype, 0)
+            total = questions_metadata.get(qtype).get('TOTAL', 0)
+            minimum = questions_metadata.get(qtype).get('MIN', 0)
+            maximum = questions_metadata.get(qtype).get('MAX', total)
             status = "enabled" 
 
             if i == 0:
                 if answered >= minimum:
                     status = "enabled"
             else:
-                previous_answered = progress.get(assigned_types[i - 1], 0) 
-                previous_minimum = threshold_for_type_dict.get(assigned_types[i - 1], 0) 
+                previous_answered = progress.get(assigned_types[i - 1], 0)
+                previous_minimum = questions_metadata.get(assigned_types[i - 1]).get('MIN', 0)
                 if previous_answered >= previous_minimum:
                     status = "enabled"
                 else:
                     status = "pending"
-            
-
-            # status = "enabled" if i == 0 or progress.get(assigned_types[i - 1], 0) >= minimum else "pending"
-
+        
             result.append({
                 "type": qtype,
                 "status": status,
                 "answered": answered,
                 "total": total,
-                "minimum": minimum
+                "minimum": minimum,
+                "maximum": maximum
             })
 
         return result

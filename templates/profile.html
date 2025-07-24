@@ -11,6 +11,13 @@
         padding: 0.25rem 0.5rem;
     }
 
+    /* in your stylesheet */
+    .form-table td:first-child {
+        text-align: right;
+        padding-right: 1rem;
+        /* give a little breathing room */
+    }
+
     .form-table label {
         font-weight: bold;
     }
@@ -19,6 +26,7 @@
     .form-table input {
         width: 100%;
         padding: 0.4rem;
+        font-size: 1.125rem;
         border-radius: 4px;
         border: 1px solid #ccc;
     }
@@ -51,9 +59,11 @@
     };
 </script>
 <section class="content-card">
-
-
-    <h2>Complete Your Profile</h2>
+<div class="card-header">
+    <h1 class="card-title">
+      Complete Your Profile
+    </h1>
+  </div>
     <p>Please fill in the following to participate in the study.</p>
     <div class="card">
 
@@ -119,9 +129,10 @@
                         <select name="subject_type" id="subject_type" required
                             onchange="toggleProviderField(this.value)">
                             <option value="">-- Select Option --</option>
-                            {% for subject_type in subject_types %}
+                            <option value="healthcare provider">Healthcare provider</option>
+                            <!-- {% for subject_type in subject_types %}
                             <option value="{{ subject_type.value }}">{{ subject_type.value | capitalize}}</option>
-                            {% endfor %}
+                            {% endfor %} -->
                         </select>
                     </td>
                 </tr>
@@ -137,233 +148,249 @@
                     </td>
                 </tr>
 
-
-
-
-
-
-
-
-
                 <tr id="clinical-field-row" style="display: none;">
                     <td>
                         <label for="field">Field</label>
                         <div style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary);">
-                        Hold down <strong>Ctrl (Windows)</strong> or <strong>Cmd ⌘ (Mac)</strong> to select multiple options. <br/>On mobile, tap to select multiple entries.
+                            Hold down <strong>Ctrl (Windows)</strong> or <strong>Cmd ⌘ (Mac)</strong> to select multiple
+                            options. <br />On mobile, tap to select multiple entries.
                         </div>
-                        <div id="field-count" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        <div id="field-count"
+                            style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
                             0 selected
                         </div>
                     </td>
                     <td>
 
-                        <select name="clinical-field" id="clinical-field" multiple size="20" onchange="updateFieldCount()">
+                        <select name="clinical-field" id="clinical-field" multiple size="20"
+                            onchange="updateFieldCount()">
                             <!-- <option value="">-- Select Field --</option> -->
-                            {% for field in field_options %}
-                            <!-- <option value="{{ field.value }}">{{ field.value | capitalize}}</option> -->
-                            {% endfor %}
+
+                            <!-- <select id="subspecialties" name="subspecialties" multiple size="10"> -->
+
+                            <option value="Anesthesiology"><span style="font-weight: bold;">Anesthesiology</span>
+                            </option>
+                            <option value="Adult Cardiac Anesthesiology">└── Adult Cardiac Anesthesiology</option>
+                            <option value="Critical Care Medicine">└── Critical Care Medicine</option>
+                            <option value="Health Care Administration, Leadership, and Management">└──
+                                Health Care Administration, Leadership, and Management</option>
+                            <option value="Hospice and Palliative Medicine">└──
+                                Hospice and Palliative Medicine</option>
+                            <option value="Neurocritical Care">└── Neurocritical Care</option>
+                            <option value="Pain Medicine">└── Pain Medicine</option>
+                            <option value="Pediatric Anesthesiology">└── Pediatric Anesthesiology</option>
+                            <option value="Sleep Medicine">└── Sleep Medicine</option>
 
 
-                                    <!-- <select id="subspecialties" name="subspecialties" multiple size="10"> -->
+                            <!-- Dermatology -->
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Dermatopathology">└── Dermatopathology</option>
+                            <option value="Micrographic Dermatologic Surgery">└── Micrographic Dermatologic Surgery
+                            </option>
+                            <option value="Pediatric Dermatology">└── Pediatric Dermatology</option>
 
-                                <option value="Anesthesiology"><span style="font-weight: bold;">Anesthesiology</span></option>
-                                <option value="Adult Cardiac Anesthesiology">└── Adult Cardiac Anesthesiology</option>
-                                <option value="Critical Care Medicine">└── Critical Care Medicine</option>
-                                <option value="Health Care Administration, Leadership, and Management">└──
- Health Care Administration, Leadership, and Management</option>
-                                <option value="Hospice and Palliative Medicine">└──
- Hospice and Palliative Medicine</option>
-                                <option value="Neurocritical Care">└── Neurocritical Care</option>
-                                <option value="Pain Medicine">└── Pain Medicine</option>
-                                <option value="Pediatric Anesthesiology">└── Pediatric Anesthesiology</option>
-                                <option value="Sleep Medicine">└── Sleep Medicine</option>
+                            <!-- Emergency Medicine -->
+                            <option value="Emergency Medicine">Emergency Medicine</option>
+                            <option value="Anesthesiology Critical Care Medicine">└── Anesthesiology Critical Care
+                                Medicine</option>
+                            <option value="Emergency Medical Services">└── Emergency Medical Services</option>
+                            <option value="Health Care Administration, Leadership, and Management">└── Health Care
+                                Administration, Leadership, and Management</option>
+                            <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
+                            <option value="Internal Medicine–Critical Care Medicine">└── Internal Medicine–Critical Care
+                                Medicine</option>
+                            <option value="Medical Toxicology">└── Medical Toxicology</option>
+                            <option value="Neurocritical Care">└── Neurocritical Care</option>
+                            <option value="Pain Medicine">└── Pain Medicine</option>
+                            <option value="Pediatric Emergency Medicine">└── Pediatric Emergency Medicine</option>
+                            <option value="Sports Medicine">└── Sports Medicine</option>
+                            <option value="Undersea and Hyperbaric Medicine">└── Undersea and Hyperbaric Medicine
+                            </option>
 
-                            
-                                <!-- Dermatology -->
-                                <option value="Dermatology">Dermatology</option>
-                                <option value="Dermatopathology">└── Dermatopathology</option>
-                                <option value="Micrographic Dermatologic Surgery">└── Micrographic Dermatologic Surgery</option>
-                                <option value="Pediatric Dermatology">└── Pediatric Dermatology</option>
+                            <!-- Family Medicine -->
+                            <option value="Family Medicine">Family Medicine</option>
+                            <option value="Adolescent Medicine">└── Adolescent Medicine</option>
+                            <option value="Geriatric Medicine">└── Geriatric Medicine</option>
+                            <option value="Health Care Administration, Leadership, and Management">└── Health Care
+                                Administration, Leadership, and Management</option>
+                            <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
+                            <option value="Pain Medicine">└── Pain Medicine</option>
+                            <option value="Sleep Medicine">└── Sleep Medicine</option>
+                            <option value="Sports Medicine">└── Sports Medicine</option>
 
-                                <!-- Emergency Medicine -->
-                                <option value="Emergency Medicine">Emergency Medicine</option>
-                                <option value="Anesthesiology Critical Care Medicine">└── Anesthesiology Critical Care Medicine</option>
-                                <option value="Emergency Medical Services">└── Emergency Medical Services</option>
-                                <option value="Health Care Administration, Leadership, and Management">└── Health Care Administration, Leadership, and Management</option>
-                                <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
-                                <option value="Internal Medicine–Critical Care Medicine">└── Internal Medicine–Critical Care Medicine</option>
-                                <option value="Medical Toxicology">└── Medical Toxicology</option>
-                                <option value="Neurocritical Care">└── Neurocritical Care</option>
-                                <option value="Pain Medicine">└── Pain Medicine</option>
-                                <option value="Pediatric Emergency Medicine">└── Pediatric Emergency Medicine</option>
-                                <option value="Sports Medicine">└── Sports Medicine</option>
-                                <option value="Undersea and Hyperbaric Medicine">└── Undersea and Hyperbaric Medicine</option>
+                            <!-- Internal Medicine -->
+                            <option value="Internal Medicine">Internal Medicine</option>
+                            <option value="Adolescent Medicine">└── Adolescent Medicine</option>
+                            <option value="Adult Congenital Heart Disease">└── Adult Congenital Heart Disease</option>
+                            <option value="Advanced Heart Failure and Transplant Cardiology">└── Advanced Heart Failure
+                                and Transplant Cardiology</option>
+                            <option value="Cardiovascular Disease">└── Cardiovascular Disease</option>
+                            <option value="Clinical Cardiac Electrophysiology">└── Clinical Cardiac Electrophysiology
+                            </option>
+                            <option value="Critical Care Medicine">└── Critical Care Medicine</option>
+                            <option value="Endocrinology, Diabetes and Metabolism">└── Endocrinology, Diabetes and
+                                Metabolism</option>
+                            <option value="Gastroenterology">└── Gastroenterology</option>
+                            <option value="Geriatric Medicine">└── Geriatric Medicine</option>
+                            <option value="Hematology">└── Hematology</option>
+                            <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
+                            <option value="Infectious Disease">└── Infectious Disease</option>
+                            <option value="Interventional Cardiology">└── Interventional Cardiology</option>
+                            <option value="Medical Oncology">└── Medical Oncology</option>
+                            <option value="Nephrology">└── Nephrology</option>
+                            <option value="Neurocritical Care">└── Neurocritical Care</option>
+                            <option value="Pulmonary Disease">└── Pulmonary Disease</option>
+                            <option value="Rheumatology">└── Rheumatology</option>
+                            <option value="Sleep Medicine">└── Sleep Medicine</option>
+                            <option value="Transplant Hepatology">└── Transplant Hepatology</option>
 
-                                <!-- Family Medicine -->
-                                <option value="Family Medicine">Family Medicine</option>
-                                <option value="Adolescent Medicine">└── Adolescent Medicine</option>
-                                <option value="Geriatric Medicine">└── Geriatric Medicine</option>
-                                <option value="Health Care Administration, Leadership, and Management">└── Health Care Administration, Leadership, and Management</option>
-                                <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
-                                <option value="Pain Medicine">└── Pain Medicine</option>
-                                <option value="Sleep Medicine">└── Sleep Medicine</option>
-                                <option value="Sports Medicine">└── Sports Medicine</option>
+                            <!-- Medical Genetics and Genomics -->
+                            <option value="Medical Genetics and Genomics">Medical Genetics and Genomics</option>
+                            <option value="Medical Biochemical Genetics">└── Medical Biochemical Genetics</option>
+                            <option value="Molecular Genetic Pathology">└── Molecular Genetic Pathology</option>
 
-                                <!-- Internal Medicine -->
-                                <option value="Internal Medicine">Internal Medicine</option>
-                                <option value="Adolescent Medicine">└── Adolescent Medicine</option>
-                                <option value="Adult Congenital Heart Disease">└── Adult Congenital Heart Disease</option>
-                                <option value="Advanced Heart Failure and Transplant Cardiology">└── Advanced Heart Failure and Transplant Cardiology</option>
-                                <option value="Cardiovascular Disease">└── Cardiovascular Disease</option>
-                                <option value="Clinical Cardiac Electrophysiology">└── Clinical Cardiac Electrophysiology</option>
-                                <option value="Critical Care Medicine">└── Critical Care Medicine</option>
-                                <option value="Endocrinology, Diabetes and Metabolism">└── Endocrinology, Diabetes and Metabolism</option>
-                                <option value="Gastroenterology">└── Gastroenterology</option>
-                                <option value="Geriatric Medicine">└── Geriatric Medicine</option>
-                                <option value="Hematology">└── Hematology</option>
-                                <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
-                                <option value="Infectious Disease">└── Infectious Disease</option>
-                                <option value="Interventional Cardiology">└── Interventional Cardiology</option>
-                                <option value="Medical Oncology">└── Medical Oncology</option>
-                                <option value="Nephrology">└── Nephrology</option>
-                                <option value="Neurocritical Care">└── Neurocritical Care</option>
-                                <option value="Pulmonary Disease">└── Pulmonary Disease</option>
-                                <option value="Rheumatology">└── Rheumatology</option>
-                                <option value="Sleep Medicine">└── Sleep Medicine</option>
-                                <option value="Transplant Hepatology">└── Transplant Hepatology</option>
+                            <!-- Neurological Surgery -->
+                            <option value="Neurological Surgery">Neurological Surgery</option>
+                            <option value="Neurocritical Care">└── Neurocritical Care</option>
 
-                                <!-- Medical Genetics and Genomics -->
-                                <option value="Medical Genetics and Genomics">Medical Genetics and Genomics</option>
-                                <option value="Medical Biochemical Genetics">└── Medical Biochemical Genetics</option>
-                                <option value="Molecular Genetic Pathology">└── Molecular Genetic Pathology</option>
+                            <!-- Obstetrics and Gynecology -->
+                            <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+                            <option value="Complex Family Planning">└── Complex Family Planning</option>
+                            <option value="Critical Care Medicine">└── Critical Care Medicine</option>
+                            <option value="Gynecologic Oncology">└── Gynecologic Oncology</option>
+                            <option value="Maternal–Fetal Medicine">└── Maternal–Fetal Medicine</option>
+                            <option value="Reproductive Endocrinology and Infertility">└── Reproductive Endocrinology
+                                and Infertility</option>
+                            <option value="Urogynecology and Reconstructive Pelvic Surgery">└── Urogynecology and
+                                Reconstructive Pelvic Surgery</option>
 
-                                <!-- Neurological Surgery -->
-                                <option value="Neurological Surgery">Neurological Surgery</option>
-                                <option value="Neurocritical Care">└── Neurocritical Care</option>
+                            <!-- Orthopaedic Surgery -->
+                            <option value="Orthopaedic Surgery">Orthopaedic Surgery</option>
+                            <option value="Orthopaedic Sports Medicine">└── Orthopaedic Sports Medicine</option>
+                            <option value="Surgery of the Hand">└── Surgery of the Hand</option>
 
-                                <!-- Obstetrics and Gynecology -->
-                                <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
-                                <option value="Complex Family Planning">└── Complex Family Planning</option>
-                                <option value="Critical Care Medicine">└── Critical Care Medicine</option>
-                                <option value="Gynecologic Oncology">└── Gynecologic Oncology</option>
-                                <option value="Maternal–Fetal Medicine">└── Maternal–Fetal Medicine</option>
-                                <option value="Reproductive Endocrinology and Infertility">└── Reproductive Endocrinology and Infertility</option>
-                                <option value="Urogynecology and Reconstructive Pelvic Surgery">└── Urogynecology and Reconstructive Pelvic Surgery</option>
+                            <!-- Otolaryngology–Head and Neck Surgery -->
+                            <option value="Otolaryngology–Head and Neck Surgery">Otolaryngology–Head and Neck Surgery
+                            </option>
+                            <option value="Complex Pediatric Otolaryngology">└── Complex Pediatric Otolaryngology
+                            </option>
+                            <option value="Neurotology">└── Neurotology</option>
+                            <option value="Plastic Surgery within the Head and Neck">└── Plastic Surgery within the Head
+                                and Neck</option>
+                            <option value="Sleep Medicine">└── Sleep Medicine</option>
 
-                                <!-- Orthopaedic Surgery -->
-                                <option value="Orthopaedic Surgery">Orthopaedic Surgery</option>
-                                <option value="Orthopaedic Sports Medicine">└── Orthopaedic Sports Medicine</option>
-                                <option value="Surgery of the Hand">└── Surgery of the Hand</option>
+                            <!-- Pathology -->
+                            <option value="Pathology">Pathology</option>
+                            <option value="Blood Banking/Transfusion Medicine">└── Blood Banking/Transfusion Medicine
+                            </option>
+                            <option value="Clinical Informatics">└── Clinical Informatics</option>
+                            <option value="Cytopathology">└── Cytopathology</option>
+                            <option value="Dermatopathology">└── Dermatopathology</option>
+                            <option value="Hematopathology">└── Hematopathology</option>
+                            <option value="Neuropathology">└── Neuropathology</option>
+                            <option value="Pathology–Chemical">└── Pathology–Chemical</option>
+                            <option value="Pathology–Forensic">└── Pathology–Forensic</option>
+                            <option value="Pathology–Medical Microbiology">└── Pathology–Medical Microbiology</option>
+                            <option value="Pathology–Molecular Genetic">└── Pathology–Molecular Genetic</option>
+                            <option value="Pathology–Pediatric">└── Pathology–Pediatric</option>
 
-                                <!-- Otolaryngology–Head and Neck Surgery -->
-                                <option value="Otolaryngology–Head and Neck Surgery">Otolaryngology–Head and Neck Surgery</option>
-                                <option value="Complex Pediatric Otolaryngology">└── Complex Pediatric Otolaryngology</option>
-                                <option value="Neurotology">└── Neurotology</option>
-                                <option value="Plastic Surgery within the Head and Neck">└── Plastic Surgery within the Head and Neck</option>
-                                <option value="Sleep Medicine">└── Sleep Medicine</option>
+                            <!-- Pediatrics -->
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Adolescent Medicine">└── Adolescent Medicine</option>
+                            <option value="Child Abuse Pediatrics">└── Child Abuse Pediatrics</option>
+                            <option value="Developmental–Behavioral Pediatrics">└── Developmental–Behavioral Pediatrics
+                            </option>
+                            <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
+                            <option value="Medical Toxicology">└── Medical Toxicology</option>
+                            <option value="Neonatal–Perinatal Medicine">└── Neonatal–Perinatal Medicine</option>
+                            <option value="Pediatric Cardiology">└── Pediatric Cardiology</option>
+                            <option value="Pediatric Critical Care Medicine">└── Pediatric Critical Care Medicine
+                            </option>
+                            <option value="Pediatric Emergency Medicine">└── Pediatric Emergency Medicine</option>
+                            <option value="Pediatric Endocrinology">└── Pediatric Endocrinology</option>
+                            <option value="Pediatric Gastroenterology">└── Pediatric Gastroenterology</option>
+                            <option value="Pediatric Hematology–Oncology">└── Pediatric Hematology–Oncology</option>
+                            <option value="Pediatric Hospital Medicine">└── Pediatric Hospital Medicine</option>
+                            <option value="Pediatric Infectious Diseases">└── Pediatric Infectious Diseases</option>
+                            <option value="Pediatric Nephrology">└── Pediatric Nephrology</option>
+                            <option value="Pediatric Pulmonology">└── Pediatric Pulmonology</option>
+                            <option value="Pediatric Rheumatology">└── Pediatric Rheumatology</option>
+                            <option value="Pediatric Transplant Hepatology">└── Pediatric Transplant Hepatology</option>
+                            <option value="Sleep Medicine">└── Sleep Medicine</option>
+                            <option value="Sports Medicine">└── Sports Medicine</option>
 
-                                <!-- Pathology -->
-                                <option value="Pathology">Pathology</option>
-                                <option value="Blood Banking/Transfusion Medicine">└── Blood Banking/Transfusion Medicine</option>
-                                <option value="Clinical Informatics">└── Clinical Informatics</option>
-                                <option value="Cytopathology">└── Cytopathology</option>
-                                <option value="Dermatopathology">└── Dermatopathology</option>
-                                <option value="Hematopathology">└── Hematopathology</option>
-                                <option value="Neuropathology">└── Neuropathology</option>
-                                <option value="Pathology–Chemical">└── Pathology–Chemical</option>
-                                <option value="Pathology–Forensic">└── Pathology–Forensic</option>
-                                <option value="Pathology–Medical Microbiology">└── Pathology–Medical Microbiology</option>
-                                <option value="Pathology–Molecular Genetic">└── Pathology–Molecular Genetic</option>
-                                <option value="Pathology–Pediatric">└── Pathology–Pediatric</option>
+                            <!-- Physical Medicine and Rehabilitation -->
+                            <option value="Physical Medicine and Rehabilitation">Physical Medicine and Rehabilitation
+                            </option>
+                            <option value="Brain Injury Medicine">└── Brain Injury Medicine</option>
+                            <option value="Neuromuscular Medicine">└── Neuromuscular Medicine</option>
+                            <option value="Pain Medicine">└── Pain Medicine</option>
+                            <option value="Pediatric Rehabilitation Medicine">└── Pediatric Rehabilitation Medicine
+                            </option>
+                            <option value="Spinal Cord Injury Medicine">└── Spinal Cord Injury Medicine</option>
+                            <option value="Sports Medicine">└── Sports Medicine</option>
 
-                                <!-- Pediatrics -->
-                                <option value="Pediatrics">Pediatrics</option>
-                                <option value="Adolescent Medicine">└── Adolescent Medicine</option>
-                                <option value="Child Abuse Pediatrics">└── Child Abuse Pediatrics</option>
-                                <option value="Developmental–Behavioral Pediatrics">└── Developmental–Behavioral Pediatrics</option>
-                                <option value="Hospice and Palliative Medicine">└── Hospice and Palliative Medicine</option>
-                                <option value="Medical Toxicology">└── Medical Toxicology</option>
-                                <option value="Neonatal–Perinatal Medicine">└── Neonatal–Perinatal Medicine</option>
-                                <option value="Pediatric Cardiology">└── Pediatric Cardiology</option>
-                                <option value="Pediatric Critical Care Medicine">└── Pediatric Critical Care Medicine</option>
-                                <option value="Pediatric Emergency Medicine">└── Pediatric Emergency Medicine</option>
-                                <option value="Pediatric Endocrinology">└── Pediatric Endocrinology</option>
-                                <option value="Pediatric Gastroenterology">└── Pediatric Gastroenterology</option>
-                                <option value="Pediatric Hematology–Oncology">└── Pediatric Hematology–Oncology</option>
-                                <option value="Pediatric Hospital Medicine">└── Pediatric Hospital Medicine</option>
-                                <option value="Pediatric Infectious Diseases">└── Pediatric Infectious Diseases</option>
-                                <option value="Pediatric Nephrology">└── Pediatric Nephrology</option>
-                                <option value="Pediatric Pulmonology">└── Pediatric Pulmonology</option>
-                                <option value="Pediatric Rheumatology">└── Pediatric Rheumatology</option>
-                                <option value="Pediatric Transplant Hepatology">└── Pediatric Transplant Hepatology</option>
-                                <option value="Sleep Medicine">└── Sleep Medicine</option>
-                                <option value="Sports Medicine">└── Sports Medicine</option>
+                            <!-- Plastic Surgery -->
+                            <option value="Plastic Surgery">Plastic Surgery</option>
+                            <option value="Plastic Surgery within the Head and Neck">└── Plastic Surgery within the Head
+                                and Neck</option>
+                            <option value="Surgery of the Hand">└── Surgery of the Hand</option>
 
-                                <!-- Physical Medicine and Rehabilitation -->
-                                <option value="Physical Medicine and Rehabilitation">Physical Medicine and Rehabilitation</option>
-                                <option value="Brain Injury Medicine">└── Brain Injury Medicine</option>
-                                <option value="Neuromuscular Medicine">└── Neuromuscular Medicine</option>
-                                <option value="Pain Medicine">└── Pain Medicine</option>
-                                <option value="Pediatric Rehabilitation Medicine">└── Pediatric Rehabilitation Medicine</option>
-                                <option value="Spinal Cord Injury Medicine">└── Spinal Cord Injury Medicine</option>
-                                <option value="Sports Medicine">└── Sports Medicine</option>
+                            <!-- Preventive Medicine -->
+                            <option value="Preventive Medicine">Preventive Medicine</option>
+                            <option value="Addiction Medicine">└── Addiction Medicine</option>
+                            <option value="Clinical Informatics">└── Clinical Informatics</option>
+                            <option value="Health Care Administration, Leadership, and Management">└── Health Care
+                                Administration, Leadership, and Management</option>
+                            <option value="Medical Toxicology">└── Medical Toxicology</option>
+                            <option value="Undersea and Hyperbaric Medicine">└── Undersea and Hyperbaric Medicine
+                            </option>
 
-                                <!-- Plastic Surgery -->
-                                <option value="Plastic Surgery">Plastic Surgery</option>
-                                <option value="Plastic Surgery within the Head and Neck">└── Plastic Surgery within the Head and Neck</option>
-                                <option value="Surgery of the Hand">└── Surgery of the Hand</option>
+                            <!-- Psychiatry and Neurology -->
+                            <option value="Psychiatry and Neurology">Psychiatry and Neurology</option>
+                            <option value="Addiction Psychiatry">└── Addiction Psychiatry</option>
+                            <option value="Brain Injury Medicine">└── Brain Injury Medicine</option>
+                            <option value="Child and Adolescent Psychiatry">└── Child and Adolescent Psychiatry</option>
+                            <option value="Clinical Neurophysiology">└── Clinical Neurophysiology</option>
+                            <option value="Consultation–Liaison Psychiatry">└── Consultation–Liaison Psychiatry</option>
+                            <option value="Epilepsy">└── Epilepsy</option>
+                            <option value="Forensic Psychiatry">└── Forensic Psychiatry</option>
+                            <option value="Geriatric Psychiatry">└── Geriatric Psychiatry</option>
+                            <option value="Neurocritical Care">└── Neurocritical Care</option>
+                            <option value="Neurodevelopmental Disabilities">└── Neurodevelopmental Disabilities</option>
+                            <option value="Neuromuscular Medicine">└── Neuromuscular Medicine</option>
+                            <option value="Pain Medicine">└── Pain Medicine</option>
+                            <option value="Sleep Medicine">└── Sleep Medicine</option>
+                            <option value="Vascular Neurology">└── Vascular Neurology</option>
 
-                                <!-- Preventive Medicine -->
-                                <option value="Preventive Medicine">Preventive Medicine</option>
-                                <option value="Addiction Medicine">└── Addiction Medicine</option>
-                                <option value="Clinical Informatics">└── Clinical Informatics</option>
-                                <option value="Health Care Administration, Leadership, and Management">└── Health Care Administration, Leadership, and Management</option>
-                                <option value="Medical Toxicology">└── Medical Toxicology</option>
-                                <option value="Undersea and Hyperbaric Medicine">└── Undersea and Hyperbaric Medicine</option>
+                            <!-- Radiology -->
+                            <option value="Radiology">Radiology</option>
+                            <option value="Neuroradiology">└── Neuroradiology</option>
+                            <option value="Nuclear Radiology">└── Nuclear Radiology</option>
+                            <option value="Pain Medicine">└── Pain Medicine</option>
+                            <option value="Pediatric Radiology">└── Pediatric Radiology</option>
 
-                                <!-- Psychiatry and Neurology -->
-                                <option value="Psychiatry and Neurology">Psychiatry and Neurology</option>
-                                <option value="Addiction Psychiatry">└── Addiction Psychiatry</option>
-                                <option value="Brain Injury Medicine">└── Brain Injury Medicine</option>
-                                <option value="Child and Adolescent Psychiatry">└── Child and Adolescent Psychiatry</option>
-                                <option value="Clinical Neurophysiology">└── Clinical Neurophysiology</option>
-                                <option value="Consultation–Liaison Psychiatry">└── Consultation–Liaison Psychiatry</option>
-                                <option value="Epilepsy">└── Epilepsy</option>
-                                <option value="Forensic Psychiatry">└── Forensic Psychiatry</option>
-                                <option value="Geriatric Psychiatry">└── Geriatric Psychiatry</option>
-                                <option value="Neurocritical Care">└── Neurocritical Care</option>
-                                <option value="Neurodevelopmental Disabilities">└── Neurodevelopmental Disabilities</option>
-                                <option value="Neuromuscular Medicine">└── Neuromuscular Medicine</option>
-                                <option value="Pain Medicine">└── Pain Medicine</option>
-                                <option value="Sleep Medicine">└── Sleep Medicine</option>
-                                <option value="Vascular Neurology">└── Vascular Neurology</option>
+                            <!-- Surgery -->
+                            <option value="Surgery">Surgery</option>
+                            <option value="Complex General Surgical Oncology">└── Complex General Surgical Oncology
+                            </option>
+                            <option value="Pediatric Surgery">└── Pediatric Surgery</option>
+                            <option value="Surgery of the Hand">└── Surgery of the Hand</option>
+                            <option value="Surgical Critical Care">└── Surgical Critical Care</option>
 
-                                <!-- Radiology -->
-                                <option value="Radiology">Radiology</option>
-                                <option value="Neuroradiology">└── Neuroradiology</option>
-                                <option value="Nuclear Radiology">└── Nuclear Radiology</option>
-                                <option value="Pain Medicine">└── Pain Medicine</option>
-                                <option value="Pediatric Radiology">└── Pediatric Radiology</option>
+                            <!-- Thoracic Surgery -->
+                            <option value="Thoracic Surgery">Thoracic Surgery</option>
+                            <option value="Congenital Cardiac Surgery">└── Congenital Cardiac Surgery</option>
 
-                                <!-- Surgery -->
-                                <option value="Surgery">Surgery</option>
-                                <option value="Complex General Surgical Oncology">└── Complex General Surgical Oncology</option>
-                                <option value="Pediatric Surgery">└── Pediatric Surgery</option>
-                                <option value="Surgery of the Hand">└── Surgery of the Hand</option>
-                                <option value="Surgical Critical Care">└── Surgical Critical Care</option>
-
-                                <!-- Thoracic Surgery -->
-                                <option value="Thoracic Surgery">Thoracic Surgery</option>
-                                <option value="Congenital Cardiac Surgery">└── Congenital Cardiac Surgery</option>
-
-                                <!-- Urology -->
-                                <option value="Urology">Urology</option>
-                                <option value="Pediatric Urology">└── Pediatric Urology</option>
-                                <option value="Urogynecology and Reconstructive Pelvic Surgery">└── Urogynecology and Reconstructive Pelvic Surgery</option>
+                            <!-- Urology -->
+                            <option value="Urology">Urology</option>
+                            <option value="Pediatric Urology">└── Pediatric Urology</option>
+                            <option value="Urogynecology and Reconstructive Pelvic Surgery">└── Urogynecology and
+                                Reconstructive Pelvic Surgery</option>
                         </select>
                     </td>
                 </tr>
-                
+
                 <tr id="practice-context-row" style="display: none;">
                     <td><label for="practice-context">Context</label></td>
                     <td>
@@ -375,19 +402,25 @@
                         </select>
                     </td>
                 </tr>
-            </table>
-            <tr>
+                <tr>
                 <td>
-                    <label style="display: flex; align-items: center; gap: 0.5rem;">
-                        <input type="checkbox" name="accept_terms" id="accept_terms" required>
-                        I have read and agree to the <a href="{{ url_for('terms_of_service') }}" target="_blank">terms and conditions of
+
+                    <label>
+                        
+                        I have read and agree to the <a href="{{ url_for('terms_of_service') }}" target="_blank">terms
+                            and conditions of
                             participation</a>
                     </label>
+                
+                </td>
+                <td>
+                <input type="checkbox" name="accept_terms" id="accept_terms" required>    
                 </td>
             </tr>
+            </table>
 
             <div style="text-align: center; margin-top: 1.5rem;">
-                <button type="submit" class="btn btn-primary full-width">   Submit   </button>
+                <button type="submit" class="btn btn-primary full-width"> Submit </button>
             </div>
         </form>
 </section>

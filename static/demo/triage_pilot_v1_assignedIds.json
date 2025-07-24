@@ -1,0 +1,3302 @@
+[
+  {
+    "version": "1.0.0",
+    "identifier": "f6a404e4e3e3e18d562472db360b942612c4ed32dbd8bca447c8572d0f05e26f",
+    "text": "Patient 1:\nAge: 77, Sex: Female, Status: Healthy\n\nPatient 2:\nAge: 55, Sex: Male, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b927bb2c677a052d52d03e4241d53e6d55fdb213741455d6483ec28d5881ebac",
+    "text": "Patient 1:\nAge: 69, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 59, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "86816a0776e4aa200ed7073f3b49d88347989e4863f6386f838d5743962c52cc",
+    "text": "Patient 1:\nAge: 57, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 37, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "6f128b9e373c185f23b1425510919275e04bb57f617555920c848434da79100b",
+    "text": "Patient 1:\nAge: 47, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 43, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "7eb141a6429b8554670009b394f8c3900287cb9f0ab390c47228fdc3132df6d5",
+    "text": "Patient 1:\nAge: 38, Sex: Female, Status: Healthy\n\nPatient 2:\nAge: 41, Sex: Female, Status: Healthy",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ac487b81c7dd84c9235863dfe5139b03d6354d25b1e82af27a11b241dc342274",
+    "text": "Patient 1:\nAge: 63, Sex: Male, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure\n\nPatient 2:\nAge: 49, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ce27aa8f8f2af90ff84a6ae89b28bddc1c6c62c437e9c7a2ed944fe156e92e91",
+    "text": "Patient 1:\nAge: 53, Sex: Female, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure\n\nPatient 2:\nAge: 65, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "9b38811dace977c1cdb751136cdd66d6ea50e32c7ba9a3699cfe80a9e0c43247",
+    "text": "Patient 1:\nAge: 51, Sex: Female, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure\n\nPatient 2:\nAge: 66, Sex: Male, Chief complaint: Difficulty urinating, Bone pain, Erectile dysfunction, Suspected primary diagnosis: Prostate Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "5aded5bf8d55f9f2101f80bf46988fe8858b6d53d7bbf8b1350d71ad47241500",
+    "text": "Patient 1:\nAge: 48, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer\n\nPatient 2:\nAge: 62, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "9107652a8dd03ef37a1d7550cdb8adab8855379d225b70258517b6ae06343cb3",
+    "text": "Patient 1:\nAge: 61, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer\n\nPatient 2:\nAge: 42, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "901895d87ad4f49e29c4d9fbefbd95c20fd9b8c9147710fb6b06a9d04ea618a1",
+    "text": "Patient 1:\nAge: 50, Sex: Female, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure\n\nPatient 2:\nAge: 61, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "f50298abe9f8d7ccf0515949e0265adcf8a85304e94eb5b48263fd698e172122",
+    "text": "Patient 1:\nAge: 57, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 25, Sex: Male, Chief complaint: Pustules, Suspected primary diagnosis: Facial Acne",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "115480151ac35acd0588fa8a08c8d6c67a61fc89e888fabeadcde5f2a8c4d9b9",
+    "text": "Patient 1:\nAge: 40, Sex: Female, Chief complaint: Fatigue, Joint pain, Butterfly rash, Suspected primary diagnosis: Systemic Lupus Erythematosus\n\nPatient 2:\nAge: 28, Sex: Female, Chief complaint: Cough, Headache, Suspected primary diagnosis: Upper Respiratory Infection",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "1df266ee0b534236825c892776c67131427ec742b0afebde2eb4ba479c3b6596",
+    "text": "Patient 1:\nAge: 36, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 34, Sex: Female, Chief complaint: Pelvic pain, Menstrual cramps, Infertility, Suspected primary diagnosis: Endometriosis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "a418f1da92f3b1fc1ed4a769dea81e8287f75e6296debfe3b63df302f0bbd8ab",
+    "text": "Patient 1:\nAge: 31, Sex: Female, Chief complaint: Irregular periods, Excess androgens, Polycystic ovaries, Suspected primary diagnosis: Polycystic Ovary Syndrome\n\nPatient 2:\nAge: 34, Sex: Male, Chief complaint: Heartburn, Acid reflux, Suspected primary diagnosis: Gastroesophageal Reflux Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "7172a664b9d278f2b0f05cca1162ae07b61acdff4a47ac2570618a7b76d2bd2c",
+    "text": "Patient 1:\nAge: 28, Sex: Male, Chief complaint: Cough, Headache, Suspected primary diagnosis: Upper Respiratory Infection\n\nPatient 2:\nAge: 48, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "604368f9757a1fce3d027b8e65838edfd6e3b3f1e0ab53dc4a81ea18464f28dd",
+    "text": "Patient 1:\nAge: 28, Sex: Male, Chief complaint: Fever of 100.4F, Ear pain, Suspected primary diagnosis: Otitis Media\n\nPatient 2:\nAge: 38, Sex: Male, Chief complaint: Heartburn, Acid reflux, Suspected primary diagnosis: Gastroesophageal Reflux Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b91528fe7cc01e295c87d7649b663f78e686946b963f3b2226c8d09e2f6ccc09",
+    "text": "Patient 1:\nAge: 63, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 36, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "074701555edab072b8224d0ef7eb53be2de23bbf9836d3eb6b0b58921114b358",
+    "text": "Patient 1:\nAge: 53, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 81, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "20a7a2941e444c0266c7046c8f033e3a6f2a00a1be4adb504d44d2685e8852a5",
+    "text": "Patient 1:\nAge: 20, Sex: Male, Chief complaint: Cough, Headache, Suspected primary diagnosis: Upper Respiratory Infection\n\nPatient 2:\nAge: 38, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "8d965fc99aea349a7264670c6b854ef479e4c1356ec0f515c9f4143cc50cbd44",
+    "text": "Patient 1:\nAge: 28, Sex: Male, Chief complaint: Fever of 100.4F, Ear pain, Suspected primary diagnosis: Otitis Media\n\nPatient 2:\nAge: 55, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "a7af1bd5dd49fd16372648fe47c7cef5e70052a351ba71d0ac670ba7888a8e76",
+    "text": "Patient 1:\nAge: 60, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease\n\nPatient 2:\nAge: 63, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "995f4b9150a33b0c1f03dd2a7e4cf67b06cd0120573ec6dd3786b5be08cc658b",
+    "text": "Patient 1:\nAge: 34, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 42, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ea01d3b958964e0a634e8baf73c90f41f34c9135bedb7133af551133e9476d3e",
+    "text": "Patient 1:\nAge: 41, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 39, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "2df306a9069688296d8d1666e278ef049b0dbf6e12cec1964bf59c7080d001b9",
+    "text": "Patient 1:\nAge: 33, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 68, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "9e0af292d641049c2ef5fbcfc5dcb6a16c3d6d16467ec509a8307f6e293a1813",
+    "text": "Patient 1:\nAge: 40, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 69, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "2cab5dabadf22603b60cc70e270274c385795a59d8b8bae17800cd6436dfe383",
+    "text": "Patient 1:\nAge: 36, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 52, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b75b0cbd3cace63f3694fe89cbeee6c166d77b778f31124f382b1cc36af4f794",
+    "text": "Patient 1:\nAge: 64, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 40, Sex: Male, Chief complaint: Heartburn, Acid reflux, Suspected primary diagnosis: Gastroesophageal Reflux Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "cd0b3be92bfb23477ed40e532cd97b1ecc11d4728577a0b7939066c12dd1b19f",
+    "text": "Patient 1:\nAge: 53, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 27, Sex: Female, Chief complaint: Pustules, Suspected primary diagnosis: Facial Acne",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ea8f0151c01a1ce694cf3d42f3494cefd7fad9b53e72222f43b66332f0ca05c3",
+    "text": "Patient 1:\nAge: 53, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 17, Sex: Male, Chief complaint: Red eyes, Eye discharge, Suspected primary diagnosis: Conjunctivitis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "62459c3e2c3a4c544042ecb3b046064918f0f9ed2d3ad052fa4fde45e9468d00",
+    "text": "Patient 1:\nAge: 57, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 78, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "37cdf462e1eef4ce07ba12927819584934a5fd50d251cb72dc5be9c7a2ecb0db",
+    "text": "Patient 1:\nAge: 39, Sex: Male, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 46, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "8a916f7bd385dbc6ff63d87a5413c06c142942ed23245ce3125b8dbc0bcb2984",
+    "text": "Patient 1:\nAge: 50, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 61, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ee1393e79151fac5bc2da95cae0f6f2f853af47aff2bf0f7f8d70ddcd93a6b42",
+    "text": "Patient 1:\nAge: 81, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 46, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "bd228c660db4a8c45f0dd047d5858cd6ce8df87e9ce47d9b7c1ee2bce31f7e97",
+    "text": "Patient 1:\nAge: 30, Sex: Male, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 53, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "5b54bbfa791e6395c0effb80c7f587eb06e9885996f9e7c80da55097826e3850",
+    "text": "Patient 1:\nAge: 45, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 62, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "941d567beb21fb4bfd38c340fb08ac4247f13dd6f02b34c36ce3583cd56c1656",
+    "text": "Patient 1:\nAge: 54, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 59, Sex: Male, Chief complaint: Difficulty urinating, Bone pain, Erectile dysfunction, Suspected primary diagnosis: Prostate Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "5b797d6c9b3d622388e4167515184d7fe78aae40628d470ee59fe8547fa13c64",
+    "text": "Patient 1:\nAge: 54, Sex: Female, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 55, Sex: Male, Chief complaint: Difficulty urinating, Bone pain, Erectile dysfunction, Suspected primary diagnosis: Prostate Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ab96ec02bdcb6e73a2c99be9ba7481a815c27eb7b750e0ede73057c8b107ce34",
+    "text": "Patient 1:\nAge: 51, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 59, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "36002801019719dc0b57f228229e807817dd4db679d5306be73cd3cfa513c536",
+    "text": "Patient 1:\nAge: 51, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 59, Sex: Male, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "7094b237b54b1eca30f2f1c96c57a15f8a81ef175b29d47bb017bf94462da0a4",
+    "text": "Patient 1:\nAge: 51, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 58, Sex: Male, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "0e9f33d5b85e2624a69456abb8a830d94b59329affc9f8e8cf1454d92949ff96",
+    "text": "Patient 1:\nAge: 50, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 52, Sex: Male, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "707b94eb2818bb476316bb0d15b371066d686f2db8fd4d567e66cd1c99ebfb2b",
+    "text": "Patient 1:\nAge: 50, Sex: Female, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 42, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "bebd395ebac679956e5031108c5f5bbcb8193670af97b64146bf741a3b955e08",
+    "text": "Patient 1:\nAge: 62, Sex: Male, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure\n\nPatient 2:\nAge: 59, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "71f757fd5db5206e5d589a183cebc3287d9224960d470b187ab235d9feb9166d",
+    "text": "Patient 1:\nAge: 24, Sex: Female, Chief complaint: Cough, Headache, Suspected primary diagnosis: Upper Respiratory Infection\n\nPatient 2:\nAge: 13, Sex: Male, Chief complaint: Red eyes, Eye discharge, Suspected primary diagnosis: Conjunctivitis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b035419bb20532e82770dba5dbf0d3727d83ad8165694e554bcca0f0f09e1ea9",
+    "text": "Patient 1:\nAge: 45, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 28, Sex: Female, Chief complaint: Fatigue, Joint pain, Butterfly rash, Suspected primary diagnosis: Systemic Lupus Erythematosus",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ae10bbff051216727eb2a79afa593e059e8be870e9742f108c8cd4fb5255a5a4",
+    "text": "Patient 1:\nAge: 31, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 19, Sex: Female, Chief complaint: Irregular periods, Excess androgens, Polycystic ovaries, Suspected primary diagnosis: Polycystic Ovary Syndrome",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "37b36983455a2fdf2e5fc7b47904a15a65809c1ee72d48aa4735cc7ede161e0e",
+    "text": "Patient 1:\nAge: 41, Sex: Male, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 60, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "e44e84f83fb337bdeaaf4c93e429a3647f265d69b2adc37e6322fbfffe2a0411",
+    "text": "Patient 1:\nAge: 53, Sex: Female, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure\n\nPatient 2:\nAge: 44, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "27592385329390d01ab8c36cc764b36b18404451074255c2f9e6d66193debd90",
+    "text": "Patient 1:\nAge: 76, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 52, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "39fa7076c66cbb9b17a230eb3efe7e13371659f535eb9d163af75d584dfecfe3",
+    "text": "Patient 1:\nAge: 84, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 44, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "adf046c4a3bc7bd82833acc56ba80ea5a8ff1b1801c6f12149086a9ae0a23b3c",
+    "text": "Patient 1:\nAge: 57, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 52, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "2b23b72294c748684117e0da58be5a2580745a521f596a551b72aad3bc756b46",
+    "text": "Patient 1:\nAge: 39, Sex: Male, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 42, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "4230d71c3363c5735fc23260e978d6a5cb389080ae8586256ffec0cfd830cb1a",
+    "text": "Patient 1:\nAge: 46, Sex: Male, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 52, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "099297508b59149c3652329f45261dc18816c2b75b393ac487a58e20586eb6c8",
+    "text": "Patient 1:\nAge: 59, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 35, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "613374fedb432e028d7a71d5cfc15105801594adfa1f6ef1b1a5b719e12b2941",
+    "text": "Patient 1:\nAge: 44, Sex: Male, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 33, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b2705fe14b369dfc7a3f7231971f99b782a74ce01523db0f47ad3f5425e6deca",
+    "text": "Patient 1:\nAge: 40, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 38, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "95f47f940a8d67471acbeb819c7bc9270f5f145279756ef8e13f8e83e87f4bc8",
+    "text": "Patient 1:\nAge: 72, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 23, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "a01f39310ca2cdf76804682305d3d637aeecae83001acaebe224a20e5dfea065",
+    "text": "Patient 1:\nAge: 54, Sex: Male, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 39, Sex: Female, Chief complaint: Pelvic pain, Menstrual cramps, Infertility, Suspected primary diagnosis: Endometriosis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ea40313006f8e42caf848ad35290efa7eac2711f0e0f1d94046538a0734be110",
+    "text": "Patient 1:\nAge: 40, Sex: Female, Chief complaint: Pelvic pain, Menstrual cramps, Infertility, Suspected primary diagnosis: Endometriosis\n\nPatient 2:\nAge: 49, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "89c7e012c6603024dc549511d254839998a9a8aa1cc9a8d93b5a3ec88316280e",
+    "text": "Patient 1:\nAge: 51, Sex: Female, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 51, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "50be6bfacdcba09d51c546ec406759ce63c3d69c7cf15cffe045389889e62bdb",
+    "text": "Patient 1:\nAge: 46, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 53, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "52754a44f8c49ee69e3af2eafdaa734a4522774012866a6399a2005bd910b769",
+    "text": "Patient 1:\nAge: 90, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease\n\nPatient 2:\nAge: 47, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "13785c8e03134053487827b78544cd4c939b1e3eacd0ba195603e9eb3c2d4569",
+    "text": "Patient 1:\nAge: 34, Sex: Female, Chief complaint: Irregular periods, Excess androgens, Polycystic ovaries, Suspected primary diagnosis: Polycystic Ovary Syndrome\n\nPatient 2:\nAge: 57, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "9637bd944d9232f7150e832d0474f2b6694b4cf1752f06f978e9995c4fcb5eac",
+    "text": "Patient 1:\nAge: 38, Sex: Male, Chief complaint: Heartburn, Acid reflux, Suspected primary diagnosis: Gastroesophageal Reflux Disease\n\nPatient 2:\nAge: 66, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "22984878f895099d5b4e5db0f4f684aa5d7540d99819d56ba7d1a5ecb734e4ec",
+    "text": "Patient 1:\nAge: 28, Sex: Male, Chief complaint: Heartburn, Acid reflux, Suspected primary diagnosis: Gastroesophageal Reflux Disease\n\nPatient 2:\nAge: 66, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "1ae709c71863f56ae9003d6b0600c2fb4c19440b5847e88a76225a6392a0efbe",
+    "text": "Patient 1:\nAge: 21, Sex: Female, Chief complaint: Pustules, Suspected primary diagnosis: Facial Acne\n\nPatient 2:\nAge: 75, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b235f5c5fcbb494848d75dc6d5e4445b660b92f623c8b6c57be465f5c37d369b",
+    "text": "Patient 1:\nAge: 61, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 52, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "d0d66f7d8f80fae2ce2b3f790d64f00c3cc62c66ffc901ada1c92dde3bceffd9",
+    "text": "Patient 1:\nAge: 45, Sex: Male, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 52, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b4691045c9b09a410a9ac386a294a3f47bf6c61c8551d53a8b77b2f022c29b00",
+    "text": "Patient 1:\nAge: 66, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer\n\nPatient 2:\nAge: 53, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ee4f2bf95d8528e665e3cdbbc3d206e6077e192f7463f538bcfc5dc0b428e2be",
+    "text": "Patient 1:\nAge: 72, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease\n\nPatient 2:\nAge: 49, Sex: Male, Chief complaint: Difficulty urinating, Bone pain, Erectile dysfunction, Suspected primary diagnosis: Prostate Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "8af5d790122efde8ffd046db3ef9186a9d54440bea67b98db4277f4b5ed118a4",
+    "text": "Patient 1:\nAge: 49, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease\n\nPatient 2:\nAge: 59, Sex: Male, Chief complaint: Difficulty urinating, Bone pain, Erectile dysfunction, Suspected primary diagnosis: Prostate Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "2d9f912ae1c042ea07a3cc1b121bae76db5649c4acc6c68518b7f85b1d31cd58",
+    "text": "Patient 1:\nAge: 41, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease\n\nPatient 2:\nAge: 41, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "6152a186a09a62ce59818c8ab39cc5e17a07ff71835f155b1a8fd3c00f0f2da9",
+    "text": "Patient 1:\nAge: 45, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer\n\nPatient 2:\nAge: 44, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "0372286a72fe1167f24734e1de5f464e2af6db6a8e1d8e6a925be8d9fe9a8045",
+    "text": "Patient 1:\nAge: 28, Sex: Male, Chief complaint: Fever of 100.4F, Ear pain, Suspected primary diagnosis: Otitis Media\n\nPatient 2:\nAge: 64, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "4017369bca819711c7bfffda53a90d0db367a8283892f3e599c351e00d7793d0",
+    "text": "Patient 1:\nAge: 71, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 39, Sex: Female, Chief complaint: Fatigue, Joint pain, Butterfly rash, Suspected primary diagnosis: Systemic Lupus Erythematosus",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "f2cd63f8bd5a9167c9c08854c78aac6596b6e8da59673aa4b3ae8ef0b7469350",
+    "text": "Patient 1:\nAge: 58, Sex: Female, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 22, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "034797622dc302afc7c19305298fa526541bd27395e946e46397f9749dbe3e2c",
+    "text": "Patient 1:\nAge: 51, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 35, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "663ebb4cbd0f3c48b5e7caa9170bd94528b166f9b31e4d14a9c387c4e42f5fbb",
+    "text": "Patient 1:\nAge: 67, Sex: Female, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 31, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b82cd599b155330e0fc0f406d6a34efe007a13383dbaca7f091df87bf6bbd7b9",
+    "text": "Patient 1:\nAge: 27, Sex: Male, Chief complaint: Cough, Headache, Suspected primary diagnosis: Upper Respiratory Infection\n\nPatient 2:\nAge: 42, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "752e52dedf0815ef07399e2e9d874c333ca6cdcee9a20156d0ac55cc6c0f39cc",
+    "text": "Patient 1:\nAge: 46, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 69, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "bac51d7dde30cac19439e15c65ae70ac753537fe06f3aff1da8d9156f4ec81ff",
+    "text": "Patient 1:\nAge: 59, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 60, Sex: Male, Chief complaint: Chronic cough, Breathlessness, Frequent respiratory infections, Suspected primary diagnosis: Chronic Obstructive Pulmonary Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "d36f2bcb58f4083d8dac743d7ffedc675e13dcc28a62e08fdcb07edc0fb00875",
+    "text": "Patient 1:\nAge: 47, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer\n\nPatient 2:\nAge: 52, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "9d6c62509e900a62e256cf658b395beeab7fce393e03d27ea6264f01a2b1a97b",
+    "text": "Patient 1:\nAge: 61, Sex: Female, Chief complaint: Confusion, Headache, Suspected primary diagnosis: Seizure\n\nPatient 2:\nAge: 41, Sex: Female, Chief complaint: Joint pain, Swelling, Morning stiffness, Suspected primary diagnosis: Rheumatoid Arthritis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "0a0a59c4190577e276d589b049cb153a09a0f07a16df09a9c1c0f57a066f893c",
+    "text": "Patient 1:\nAge: 78, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 46, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "7be0e4a41e470e3e223870e3a7c8153524588ff029817dbafbc83491c87108b3",
+    "text": "Patient 1:\nAge: 66, Sex: Female, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 61, Sex: Male, Chief complaint: Memory loss, Confusion, Changes in personality, Suspected primary diagnosis: Alzheimer's Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "7d835632931324a959a90194b59bca317cff8c836d44bcdd235e14f3e94b36cf",
+    "text": "Patient 1:\nAge: 18, Sex: Female, Chief complaint: Fever of 100.4F, Ear pain, Suspected primary diagnosis: Otitis Media\n\nPatient 2:\nAge: 46, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "7ed8f624d284e3c34b5ea1ef1ecb26d415d36529188b3c00e21178bf3ef40471",
+    "text": "Patient 1:\nAge: 38, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 28, Sex: Male, Chief complaint: Fever of 100.4F, Ear pain, Suspected primary diagnosis: Otitis Media",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "dde9999ab447859c98050a97eb72ff2df8dec1fb7e77b5dcd01e317a90135702",
+    "text": "Patient 1:\nAge: 74, Sex: Female, Chief complaint: Confusion, Tremors, Suspected primary diagnosis: Delirium Tremens\n\nPatient 2:\nAge: 40, Sex: Female, Chief complaint: Pelvic pain, Menstrual cramps, Infertility, Suspected primary diagnosis: Endometriosis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "b914680b051cfef330a8f0f17a2ee781ab27b8fa3c87df2a2d512d2e8df653ad",
+    "text": "Patient 1:\nAge: 20, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 39, Sex: Male, Chief complaint: Abdominal pain, Bloody stool, Suspected primary diagnosis: Ulcerative Colitis",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "ac53de767ca86d6dc6fc8cb7130836764a3a7c0cab72bc46329603afab67a94d",
+    "text": "Patient 1:\nAge: 45, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer\n\nPatient 2:\nAge: 35, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "18bee1061f2482490ecbcf942e3fc848d5ce8e6464d172625892605db62dd8cd",
+    "text": "Patient 1:\nAge: 42, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer\n\nPatient 2:\nAge: 38, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "5a8abad597fa488d081418551c3e732e7de260ea1642232ec4d1d5859c314749",
+    "text": "Patient 1:\nAge: 20, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 51, Sex: Female, Chief complaint: Abdominal bloating, Pelvic pain, Urgency to urinate, Suspected primary diagnosis: Ovarian Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "4d14fb485552512d8a388252a0b4be28fb4ab4ac19a732536401a064d4bfd3e8",
+    "text": "Patient 1:\nAge: 38, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 49, Sex: Male, Chief complaint: Difficulty urinating, Bone pain, Erectile dysfunction, Suspected primary diagnosis: Prostate Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "75f9ebcb869158589653b97ff72c9f731a3fed8538d2365df9485ae12c952f97",
+    "text": "Patient 1:\nAge: 35, Sex: Male, Chief complaint: Stomach pain, Nausea, Suspected primary diagnosis: Peptic Ulcer\n\nPatient 2:\nAge: 62, Sex: Female, Chief complaint: Lump in the breast, Change in breast shape, Dimpling of the skin, Suspected primary diagnosis: Breast Cancer",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "16e78d1a0b160b05d616e6648d5d588a2ccff5a991713ad3876490e5c54d69b1",
+    "text": "Patient 1:\nAge: 71, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 29, Sex: Male, Chief complaint: Heartburn, Acid reflux, Suspected primary diagnosis: Gastroesophageal Reflux Disease",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "2d08db5fb459a41e591b5ba5150151b42f1111877cd0072e276b0b36d2336cae",
+    "text": "Patient 1:\nAge: 88, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo\n\nPatient 2:\nAge: 46, Sex: Male, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "06939c211c55fedf129ba6c10a204d48511f8614a277237628fafed530ea2492",
+    "text": "Patient 1:\nAge: 76, Sex: Female, Chief complaint: Skin spots, Suspected primary diagnosis: Lentigo\n\nPatient 2:\nAge: 30, Sex: Female, Chief complaint: Nausea, Vomiting, Suspected primary diagnosis: Vertigo",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_2",
+      "difficulty_easy"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "56e43b895517240c95169985d9d81e8baf6e3c11feff35bbde7af64b065a1313",
+    "text": "Patient 1:\nAge: 57, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 18, Sex: Male, Chief complaint: Fever of 100.4F, Ear pain, Suspected primary diagnosis: Otitis Media",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  },
+  {
+    "version": "1.0.0",
+    "identifier": "8efce25c84c320aa8af21edd4791b189575d00501da4dae5e271f094759796a5",
+    "text": "Patient 1:\nAge: 57, Sex: Male, Chief complaint: Dizziness, Low blood pressure, Suspected primary diagnosis: Syncope\n\nPatient 2:\nAge: 28, Sex: Male, Chief complaint: Fever of 100.4F, Ear pain, Suspected primary diagnosis: Otitis Media",
+    "type": "TRIAGE",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-patient",
+        "options": [
+          {
+            "text": "Patient 1",
+            "value": "1"
+          },
+          {
+            "text": "Patient 2",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "triage",
+      "pilot",
+      "zak_choice_1",
+      "difficulty_hard"
+    ],
+    "canonical_identifier": "triage-pilot-v1",
+    "publisher": "Zak Kohane",
+    "date_created": "2025-07-01T00:00:00Z",
+    "instruct_human": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**",
+    "instruct_llm": "You are a practicing clinician with one appointment slot available for tomorrow. Two patients have contacted your clinic requesting urgent evaluation.\n\nYou must decide which patient to prioritize for tomorrow's visit. The other will be scheduled for a routine follow-up within 2 weeks, or advised to go to the Emergency Department if symptoms worsen.\n\n**Please review the two cases below and indicate which patient you would choose to see.**"
+  }
+]

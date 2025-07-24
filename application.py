@@ -1,6 +1,5 @@
 from flask import Flask, flash, make_response, render_template, redirect, session, request, url_for, g, current_app
 from flask import request, redirect
-from flask_talisman import Talisman, talisman
 from werkzeug.middleware.proxy_fix import ProxyFix
 import requests, os, json
 import urllib.parse
@@ -14,8 +13,8 @@ from rich.logging import RichHandler
 from utils.auth import *
 from hvp.core.survey import Survey
 from utils.question_extension import *
-from utils.register import get_participant_registry 
-
+from utils.register import get_participant_registry
+from utils.profile import get_assigned_question_types_with_progress 
 
 
 
@@ -51,15 +50,10 @@ application.wsgi_app = ProxyFix(
     x_proto=1         # <<< trust scheme (http/https)
 )
 
-
-TOTAL_QUESTIONS = { 
-    "TRIAGE": 200,
-    "MANAGEMENT": 8
-}
-
-MINIMUM_QUESTIONS_PER_TYPE = {
-    "TRIAGE": 35,
-    "MANAGEMENT": 6
+QUESTIONS_METADATA = { 
+    "TRIAGE": {"TOTAL": 100, "MIN": 20, "MAX": 100},
+    "MANAGEMENT": {"TOTAL": 5, "MIN": 5, "MAX": 5},
+    "TRIAGEDEMO": {"TOTAL": 3, "MIN": 1, "MAX": 3},
 }
 
 
@@ -96,20 +90,6 @@ def require_profile_complete(f):
 
         return f(*args, **kwargs)
     return decorated_function
-
-
-# def enforce_https_in_production():
-#     if current_app.debug:
-#         return  # Do nothing if in debug mode (i.e., local dev)
-    
-#     if not request.is_secure:
-#         return redirect(request.url.replace("http://", "https://", 1), code=301)
-
-# @application.before_request    
-# def before_request():
-#     response = enforce_https_in_production()
-#     if response:
-#         return response
 
 
 
@@ -154,9 +134,16 @@ def format_date(value, fmt="%B %d, %Y"):
     return "Invalid date"
 
 
-@application.route('/contact')
+
+@application.route("/contact")
 def contact():
-    return render_template('about.html', user=session.get('user'))
+    return render_template("contact.html", user=session.get('user'))
+
+@application.route("/contact", methods=["POST"])
+def handle_contact():
+    
+    flash("Thanks for reaching out — we’ll respond soon.", "success")
+    return redirect(url_for("contact"))
 
 
 @application.route('/')
@@ -167,12 +154,9 @@ def index():
     participant = g.participant
 
     # Define the question types assigned to this participant
-    from utils.profile import get_assigned_question_types_with_progress 
-
     progress_arr = get_assigned_question_types_with_progress(
         participant_id=participant.identifier,
-        total_questions_dict=TOTAL_QUESTIONS,
-        threshold_for_type_dict=MINIMUM_QUESTIONS_PER_TYPE
+        questions_metadata=QUESTIONS_METADATA
     )
     
     log.debug(f"New: Participant progress: {progress_arr}")
@@ -181,9 +165,15 @@ def index():
         log.warning(f"No question types assigned for participant: {participant.identifier}")
         return render_template("study_page.html", progress=[], user=session.get('user', None), participant=participant)
 
-    # return progress_dict
     has_due_block = any(item.get("answered", 0) < item.get("minimum", 0) for item in progress_arr)
-    return render_template("study_page.html", progress=progress_arr, user=session.get('user', None), has_due_block=has_due_block, participant=participant)
+
+    return render_template(
+        "study_page.html", 
+        progress=progress_arr, 
+        user=session.get('user', None), 
+        has_due_block=has_due_block, 
+        participant=participant
+    )
 
 
 
@@ -238,9 +228,9 @@ def complete_profile():
             
             participant.persist()
             from utils.profile import assign_question_types
-            assign_question_types(participant)
-
-
+            assigned_types = assign_question_types(participant)
+            # from utils.notifications import dispatch_email_notification 
+            # dispatch_email_notification(participant, assigned_types)
             return redirect(url_for('index'))
 
         except Exception as e:
@@ -307,166 +297,21 @@ def about():
 
 
 
-@application.route('/survey/start/<question_type>/<cmode>', methods=['GET', 'POST'])
-@login_required
-@require_profile_complete
-def survey_start(question_type, cmode=None):
-
-    session['current_question_type'] = question_type
-    participant = g.participant
-
-    participant_registry = get_participant_registry(participant_id=participant.identifier)
-    
-    random_question = get_random_unanswered_question(participant_data=participant_registry, question_type=question_type)
-
-    if not random_question:
-        log.warning(f"No unanswered questions found for type '{question_type}' for participant {participant.identifier}")
-        return redirect(url_for('index'))
-
-    return redirect(url_for('answer_question', question_id=random_question.identifier, answer_set_index=0, cmode=cmode))
-
-
-
-@application.route('/survey/question/<question_id>/set/<answer_set_index>/<cmode>', methods=['GET', 'POST'])
-@login_required
-@require_profile_complete 
-def answer_question(question_id, answer_set_index, cmode=None):
-
-    participant = g.participant
-
-    if request.method == "POST":
-        form_answerset_id = request.form.get('answer_set_identifier', None)
-        form_question_id = request.form.get('question_identifier', None)
-        form_question_type = request.form.get('question_type', None)
-        form_answerset_index = int(request.form.get('answer_set_index'))
-        form_answerset_count = int(request.form.get('answer_set_count'))
-
-        selected_answer = request.form.get('selected_answer', None)
-        cmode = request.form.get('cmode')
-
-        # Save flag if submitted
-        if request.form.get("flag_question") == "on":
-            comment = request.form.get("flag_comment", "").strip()
-            save_flag_to_s3(
-                participant_id=g.participant.identifier,
-                question_type=form_question_type,
-                question_id=form_question_id,
-                answer_set_id=form_answerset_id,
-                comment=comment
-            )
-        
-        if selected_answer:
-            logging.debug(f"Saving response for participant {participant.identifier}, question {form_question_id}, answer set {form_answerset_id}, value: {selected_answer}")
-            save_response_to_s3(
-                participant_id=participant.identifier,
-                question_type=form_question_type,
-                question_id=form_question_id,
-                answer_set_id=form_answerset_id,
-                answer_value=selected_answer
-            )
-
-            answer_count = increment_question_progress(
-                    participant_id=participant.identifier,
-                    question_type=form_question_type,
-                    question_id=form_question_id
-                )
-            has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[form_question_type]
-            was_last_answer_set = form_answerset_index + 1 >= form_answerset_count
-
-            if was_last_answer_set:
-                if has_answered_minimum:
-                    if cmode == 'False':
-                        # flash(f"You have completed answering {form_question_type} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
-                        return redirect(url_for('index'))
-                    else: 
-                        if answer_count < TOTAL_QUESTIONS[form_question_type]:
-                            # flash(f"{form_question_type} Question #{answer_count+1} ", "success") 
-                            return redirect(url_for('survey_start', question_type=form_question_type, cmode=cmode))
-                        else:
-                            # flash(f"You have completed answering all {form_question_type} questions", "success") 
-                            return redirect(url_for('index'))
-            else:
-                # If not the last answer set, redirect to next one
-                return redirect(url_for('answer_question', question_id=form_question_id, answer_set_index=form_answerset_index + 1, cmode=cmode))
-            
-    
-
-
-
-
-
-    question = get_question_by_id(question_id)
-    if not question:
-        print(f"Question with ID {question_id} not found.")
-        log.error(f"Question with ID {question_id} not found.")
-        # raise ValueError(f"Question with ID {question_id} not found.")
-        return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
-    
-    answer_sets = question.answers
-    total_answer_sets = len(answer_sets)
-
-    answer_set_index = int(answer_set_index)
-
-    print(f'in answer_question, question_id={question_id}, answer_set_index={answer_set_index}, cmode={cmode}')
-
-    # --- Check if answer_set_index is valid ---
-    if answer_set_index >= total_answer_sets:
-        print(f"Invalid answer_set_index {answer_set_index} for question {question_id}. Total sets: {total_answer_sets}")
-        # raise ValueError(f"Invalid answer_set_index {answer_set_index} for question {question_id}. Total sets: {total_answer_sets}")
-        return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
-    
-    # # --- Skip already answered sets safely ---
-    while answer_set_index < total_answer_sets:
-        try: 
-            if not response_exists_in_s3(
-                    participant_id=participant.identifier,
-                    question_type=question.type,
-                    question_id=question.identifier,
-                    answer_set_id=answer_sets[answer_set_index].identifier
-            ):
-                break 
-        except Exception as e:
-            raise e 
-        answer_set_index += 1
-
-    # --- Move to next question if all sets answered ---
-    if answer_set_index >= total_answer_sets:
-        log.debug(f"All answer sets for question {question_id} answered. Redirecting to survey start.")
-        return redirect(url_for('survey_start', question_type=session.get('current_question_type', None), cmode=cmode))
-    
-    g.current_question = question 
-    current_answer_set = answer_sets[answer_set_index]  
-    
-    return render_template(
-        "question.html",
-        user=session['user'],
-        question=question,
-        current_answer_set=current_answer_set,
-        answer_set_index=answer_set_index,
-        total_answer_sets=len(answer_sets),
-        cmode=cmode
-    )
-
-
-
-
-
-
+def get_question_file_path(name):
+    from pathlib import Path
+    demo_dir  = Path(application.root_path) / "static" / "demo"
+    json_path = demo_dir / name
+    return json_path
 
 
 
 @application.route('/demo-questions', methods=['GET'])
 def demo_questions():
-    from pathlib import Path
     from flask import abort
-    # ------------------------------------------------------------------ #
-    # 1. Locate & load the JSON file
-    # ------------------------------------------------------------------ #
     file_name = request.args.get("file", "demo.json")
     q_idx     = int(request.args.get("index", 0))
-
-    demo_dir  = Path(application.root_path) / "static" / "demo"
-    json_path = demo_dir / file_name
+    json_path = get_question_file_path(file_name)
+    
 
     if not json_path.exists():
         abort(404, description=f"Demo file {file_name!r} not found in /static/demo")
@@ -565,14 +410,13 @@ def view_responses():
         selected_response = next((r for r in answer_set.options if r.value == response_value), None)
 
         rendering_text += f"<p>{i+1}. {question.type}</p>"
-        rendering_text += f"<p>Set ID: {set_id}</p>"
         rendering_text += f"<p><strong>Responded: {selected_response.text} (Value:{selected_response.value})</strong></p>"
         rendering_text += markdown(question.text, extensions=["tables"])
-        rendering_text += f"<small>Question: {question.identifier}; Set_ID: {set_id}</small>"
+        rendering_text += f"<small>Question: {question.identifier}; Answer_Set_ID: {set_id}</small>"
         rendering_text += "<hr />"
         
 
-    return render_template('response.html', text=rendering_text)
+    return render_template('response.html', text=rendering_text, user=session.get('user',  None))
 
         
 
@@ -616,8 +460,8 @@ def save_response(participant_id, question_type, question_id, answer_set_id, ans
 @login_required
 @require_profile_complete
 def next_question():
+    
     participant = g.participant
-
     form      = request.form
     args      = request.args
 
@@ -629,6 +473,7 @@ def next_question():
     end_qa_session = False 
     question = None
     
+    answer_set_index = 0
 
     # -------- 2. If POST – store answer -----------------------
     if request.method == "POST":
@@ -657,7 +502,9 @@ def next_question():
             flag_comment=form_flag_comment
         )
 
-        has_answered_minimum = int(answer_count) >= MINIMUM_QUESTIONS_PER_TYPE[form_question_type] and int(answer_count) < TOTAL_QUESTIONS[form_question_type]
+        min_q_num = QUESTIONS_METADATA[form_question_type]['MIN']
+        total_q_num = QUESTIONS_METADATA[form_question_type]['TOTAL']
+        has_answered_minimum = int(answer_count) >= min_q_num and int(answer_count) < total_q_num
         completed_question_and_answerset = form_answerset_index + 1 >= form_answerset_count
 
         if completed_question_and_answerset:
@@ -666,10 +513,12 @@ def next_question():
                     # flash(f"You have completed answering {form_question_type} questions! You may continue answering more or return to My Study to choose a new category.", "success") 
                     # redirect to main index 
                     # do not end session if 
-                    end_qa_session = False if form_assigned_question_types == 1 else True
+                    end_qa_session = True 
+                    # This toggle allows continuing if only one form_answer_question is available
+                    # end_qa_session = False if form_assigned_question_types == 1 else True
                 else:
                     # IN CONTINUE SET MODE 
-                    if answer_count < TOTAL_QUESTIONS[form_question_type]:
+                    if answer_count < total_q_num:
                         # flash(f"{form_question_type} Question #{answer_count+1} ", "success") 
                         # Begin new
                         question = None 
@@ -678,26 +527,36 @@ def next_question():
                         end_qa_session = True 
         else:
             question = get_question_by_id(form_question_id)
-            answer_set_index += 1
+            answer_set_index = form_answerset_index + 1 
 
 
     if end_qa_session:
         resp = make_response("")              # empty body
         resp.headers["HX-Redirect"] = url_for("index")
-        
         return resp
 
     if not question:
-        participant_registry = get_participant_registry(participant_id=participant.identifier)
-        print(participant_registry)
-        assigned_questions_types = participant_registry.get('assigned_question_types') 
-        
+        progress_registry = get_participant_registry(participant_id=participant.identifier)
+        assigned_questions_types = progress_registry.get('assigned_question_types') 
+        question = get_next_question(
+            participant=participant, 
+            progress_registry=progress_registry, 
+            questions_metadata=QUESTIONS_METADATA[question_type],
+            question_type=question_type
+        )
 
-        question = get_random_unanswered_question(participant_data=participant_registry, question_type=question_type)
+
+        print(question)
+        if not question: 
+            resp = make_response("")              
+            resp.headers["HX-Redirect"] = url_for("index")
+            return resp
+
         total_sets        = len(question.answers)
-        answer_set_index = 0 
-        current_set       = question.answers[0]
+        current_set       = question.answers[answer_set_index]
         total_sets        = len(question.answers)
+        current_question_number = int(progress_registry.get('progress', {}).get(question_type, 0))
+
     
     return render_template(
         "_question_partial.html",
@@ -706,7 +565,8 @@ def next_question():
         answer_set_index  = answer_set_index,
         total_answer_sets = total_sets,
         cmode             = cmode,
-        number_of_assigned_question_types = len(assigned_questions_types)
+        number_of_assigned_question_types = len(assigned_questions_types),
+        current_question_number=current_question_number+1
     )
 
 @application.route('/question/<question_type>', methods=["GET"])
@@ -728,8 +588,35 @@ def question(question_type=None):
     
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':    
+    # application.run(host='0.0.0.0', port=3000, debug=True)
+
+    # session = get_boto3_session()
+    # ses = session.client("ses", region_name="us-east-2")
+    # try:
+    #     response = ses.send_email(
+    #         Source="humanvaluesproject@hms.harvard.edu",
+    #         Destination={"ToAddresses": ["shahedajameel1@gmail.com"]},
+    #         Message={
+    #             "Subject": {"Data": "Welcome to the Clinical Decision Dynamics Study"},
+    #             "Body": {
+    #                 "Text": {
+    #                     "Data": (
+    #                         "test"
+    #                     )
+    #                 }
+    #             }
+    #         }
+    #     )
+    # except Exception as e: 
+    #     raise e 
     application.run(port=3000, debug=True)
+    
+
+
+
+    
+
 
 
   

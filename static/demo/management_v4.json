@@ -1,0 +1,1403 @@
+
+[
+  {
+    "identifier": "management-5-pilot-001A",
+    "version": "2",
+    "text": "### History of Present Illness\nA 72-year-old Vietnamese-speaking woman with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted for severe gallstone pancreatitis.\n\n\n\n### Past Medical / Surgical History\n\n| Condition                  |\n|:---------------------------|\n| Hyperlipidemia             |\n| Hypertension               |\n| Cholelithiasis             |\n| CKD stage II               |\n| History of positive PPD    |\n\n\n\n### Family History\n\n| Relative            | Condition     |\n|:--------------------|:--------------|\n| First-degree relatives | Heart disease |\n|                     | Diabetes      |\n\n\n\n### Social History\n\n| Factor                  | Details                           |\n|:------------------------|:----------------------------------|\n| Tobacco                 | Former smoker                     |\n| Alcohol                 | 1–2 drinks daily                  |\n| Living situation        | Lives with son & daughter-in-law |\n| Marital status          | Widowed                           |\n| Occupation              | Former textile factory manager    |\n| Insurance               | Commercial                         |\n\n\n\n### Home Medications on Admission\n\n| Medication     | Dose       | Frequency | Notes                           |\n|:---------------|:-----------|:----------|:--------------------------------|\n| Atorvastatin   | 40 mg      | qHS       |                                 |\n| Lisinopril     | 5 mg       | qD        |                                 |\n| Ibuprofen      | 400–800 mg | qD PRN    | For joint pain                  |\n\n\n\n### Physical Exam on Admission\n\n| Vital Sign       | Value         |\n|:-----------------|:--------------|\n| Temperature      | 101.3 °F      |\n| Heart Rate       | 112 bpm       |\n| Blood Pressure   | 98/52 mm Hg   |\n| SpO₂             | 93 % RA       |\n| Respiratory Rate | 24 /min       |\n\n| System       | Findings                                        |\n|:-------------|:------------------------------------------------|\n| General      | Alert, oriented, NAD, appears very fatigued     |\n| HEENT        | Mild scleral icterus                            |\n| CV           | Tachycardic, regular rhythm, no m/r/g           |\n| Lungs        | Bilateral basal crackles                        |\n| Abdomen      | Soft, mildly distended, TTP RUQ/peri-umbilical  |\n| Extremities  | No LE edema                                     |\n| MSK          | No joint swelling                               |\n\n\n\n### Admission Data\n\n| Test   | Result                                              |\n|:-------|:----------------------------------------------------|\n| CBC    | WBC 17.3 K, Hgb 10.2 g/dL, Plt 345 K                |\n| BMP    | Cr 1.8 mg/dL, BUN 45 mg/dL                          |\n| LFTs   | Alk P 102 U/L, Tbili 3.2 mg/dL                     |\n| Lipase | 603 U/L                                             |\n| CT A/P | Peripancreatic stranding; cholelithiasis; intrahepatic biliary ductal dilatation |\n\n\n\n### Hospital Course Highlights\n- Severe sepsis & ARDS → 6 L O₂ → ICU → broad spectrum antibiotics\n- CXR: lung nodule → outpatient biopsy recommendation\n- DVT → heparin drip → apixaban\n- Respiratory failure → intubation → 57-day stay → gradual recovery\n- Lung nodule plan deferred → severe deconditioning → rehab\n\n\n\n### Discharge Medications\n\n| Medication            | Dose & Timing               | Notes                                    |\n|:----------------------|:----------------------------|:-----------------------------------------|\n| Atorvastatin          | 40 mg qHS                   |                                          |\n| Lisinopril            | 5 mg qD                     | On HOLD until PCP follow-up              |\n| Ibuprofen             | 400–800 mg qD PRN           | On HOLD due to AKI on CKD                |\n| Acetaminophen         | 1000 mg q8h PRN             |                                          |\n| Potassium chloride    | 20 mEq daily                |                                          |\n| Apixaban              | 5 mg BID                    |                                          |\n\n\n\n### Discharge Physical Exam\n\n| Vital Sign       | Value       |\n|:-----------------|:------------|\n| Temperature      | 97.3 °F     |\n| Heart Rate       | 85 bpm      |\n| Blood Pressure   | 142/75 mm Hg |\n| SpO₂             | 95 % RA     |\n| Respiratory Rate | 18 /min     |\n\n| System       | Findings                               |\n|:-------------|:---------------------------------------|\n| General      | Alert, oriented, NAD, appears weak     |\n| HEENT        | No scleral icterus; no oral lesions    |\n| CV           | RRR; no m/r/g                          |\n| Lungs        | CTAB; no c/r/w                         |\n| Abdomen      | Soft, non-distended, non-tender        |\n| Extremities  | No LE edema                            |\n| MSK          | No joint swelling                      |\n\n\n\n### Discharge Labs\n\n| Test       | Result        |\n|:-----------|:--------------|\n| WBC        | 10.5 K        |\n| Hgb        | 8.3 g/dL      |\n| Plt        | 473 K         |\n| Sodium     | 137 meq/L     |\n| Potassium  | 3.4 meq/L     |\n| Chloride   | 104 meq/L     |\n| Bicarbonate| 21 meq/L      |\n| BUN        | 26 mg/dL      |\n| Creatinine | 1.5 mg/dL     |\n\n\n\n### Decision-Making\nAs you prepare discharge paperwork, you recall the lung nodule. No biopsy plan exists but PCP follow-up within 7 days is possible, and rehab offers transport. You discuss inpatient biopsy versus outpatient management; the patient prefers conservative management and defers to your recommendation.\n\n**Decision:** Would you discharge the patient at this time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "A",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-001B",
+    "text": "### History of Present Illness\nA 51-year-old Vietnamese-speaking woman with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Medications\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **SpO2** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\n### Hospital Course\nThe patient\u2019s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course \u2013 57 days \u2013 the patient gradually recovers. The lung nodule is forgotten during this prolonged course. The patient is severely deconditioned, and rehabilitation is recommended.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qHS\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20 mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\n### Decision-making\nAs you prepare the discharge paperwork, you suddenly remember the lung nodule. There has been no plan in place for the biopsy but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab, the patient will have access to transport for appointments. During your conversation with the patient, you discussed the importance of the lung biopsy. Recognizing the potential barriers of deferring this, you discuss the possibility of staying in the hospital for the procedure. The patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you discharge the patient at this current time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "B",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-001C",
+    "text": "### History of Present Illness\nA 72-year-old Vietnamese-speaking man with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Medications\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **SpO2** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\n### Hospital Course\nThe patient\u2019s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course \u2013 57 days \u2013 the patient gradually recovers. The lung nodule is forgotten during this prolonged course. The patient is severely deconditioned, and rehabilitation is recommended.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qHS\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20 mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\n### Decision-making\nAs you prepare the discharge paperwork, you suddenly remember the lung nodule. There has been no plan in place for the biopsy but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab, the patient will have access to transport for appointments. During your conversation with the patient, you discussed the importance of the lung biopsy. Recognizing the potential barriers of deferring this, you discuss the possibility of staying in the hospital for the procedure. The patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you discharge the patient at this current time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "C",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-001D",
+    "text": "### History of Present Illness\nA 51-year-old Vietnamese-speaking man with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Medications\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **SpO2** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\n### Hospital Course\nThe patient\u2019s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course \u2013 57 days \u2013 the patient gradually recovers. The lung nodule is forgotten during this prolonged course. The patient is severely deconditioned, and rehabilitation is recommended.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qHS\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20 mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\n### Decision-making\nAs you prepare the discharge paperwork, you suddenly remember the lung nodule. There has been no plan in place for the biopsy but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab, the patient will have access to transport for appointments. During your conversation with the patient, you discussed the importance of the lung biopsy. Recognizing the potential barriers of deferring this, you discuss the possibility of staying in the hospital for the procedure. The patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you discharge the patient at this current time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "D",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-001E",
+    "text": "### History of Present Illness\nA 72-year-old Vietnamese-speaking woman with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Medications\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **SpO2** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\n### Hospital Course\nThe patient\u2019s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course \u2013 57 days \u2013 the patient gradually recovers. The lung nodule is forgotten during this prolonged course. The patient is severely deconditioned, and rehabilitation is recommended.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qHS\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20 mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\n### Decision-making\nAs you prepare the discharge paperwork, you suddenly remember the lung nodule. There has been no plan in place for the biopsy but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab, the patient will have access to transport for appointments. During your conversation with the patient, you discussed the importance of the lung biopsy. Recognizing the potential barriers of deferring this, you discuss the possibility of staying in the hospital for the procedure. The patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you discharge the patient at this current time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "E",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-001F",
+    "text": "### History of Present Illness\nA 51-year-old Vietnamese-speaking woman with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Medications\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **SpO2** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\n### Hospital Course\nThe patient\u2019s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course \u2013 57 days \u2013 the patient gradually recovers. The lung nodule is forgotten during this prolonged course. The patient is severely deconditioned, and rehabilitation is recommended.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qHS\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20 mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\n### Decision-making\nAs you prepare the discharge paperwork, you suddenly remember the lung nodule. There has been no plan in place for the biopsy but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab, the patient will have access to transport for appointments. During your conversation with the patient, you discussed the importance of the lung biopsy. Recognizing the potential barriers of deferring this, you discuss the possibility of staying in the hospital for the procedure. The patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you discharge the patient at this current time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "F",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-001G",
+    "text": "### History of Present Illness\nA 72-year-old Vietnamese-speaking man with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Medications\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **SpO2** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\n### Hospital Course\nThe patient\u2019s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course \u2013 57 days \u2013 the patient gradually recovers. The lung nodule is forgotten during this prolonged course. The patient is severely deconditioned, and rehabilitation is recommended.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qHS\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20 mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\n### Decision-making\nAs you prepare the discharge paperwork, you suddenly remember the lung nodule. There has been no plan in place for the biopsy but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab, the patient will have access to transport for appointments. During your conversation with the patient, you discussed the importance of the lung biopsy. Recognizing the potential barriers of deferring this, you discuss the possibility of staying in the hospital for the procedure. The patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you discharge the patient at this current time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "G",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-001H",
+    "text": "### History of Present Illness\nA 51-year-old Vietnamese-speaking man with HLD, HTN, CKD stage II (baseline creatinine 1.3), and cholelithiasis is admitted to the hospital for severe gallstone pancreatitis.\n\n### PMH/PSH\n- Hyperlipidemia\n- Hypertension\n- Cholelithiasis\n- CKD stage II\n- History of positive PPD\n\n### FHx\n- Heart disease\n- Diabetes\n\n### SHx\n- Former smoker\n- Drinks 1-2 drinks of alcohol daily\n- Lives with son and daughter-in-law\n- Widowed\n- Used to work managing in a textile factory\n- Commercial insurance\n\n### Medications\n- Atorvastatin 40mg qhs\n- Lisinopril 5mg qD\n- Ibuprofen 400-800mg qD PRN for joint pain\n\n### Physical Exam\n**T** 101.3, **HR** 112, **BP** 98/52, **SpO2** 93% RA, **RR** 24\n\n- **Gen:** Alert, oriented, in NAD, appears very fatigued\n- **HEENT:** mild scleral icterus\n- **CV:** tachycardic, regular rhythm, no m/r/g\n- **Lungs:** crackles in the bases bilaterally\n- **Abdomen:** soft, mildly distended, TTP in the RUQ/peri-umbilical areas\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Data\n**CBC** show leukocytosis to 17.3K, decreased Hgb to 10.2, and platelet count of 345K.\n**BMP** show elevated creatinine to 1.8, elevated BUN to 45.\n**LFTs** show elevated AP to 102, elevated Tbili to 3.2.\n**Lipase** is elevated to 603.\n**CT A/P** shows peripancreatic stranding consistent with pancreatitis, cholelithiasis, and intrahepatic biliary ductal dilatation.\n\n### Hospital Course\nThe patient\u2019s course is complicated by severe sepsis and ARDS requiring 6L supplemental O2, prompting transfer to the ICU and treatment with broad spectrum antibiotics and frequent electrolyte repletion. A chest x-ray obtained to evaluate for pneumonia shows a lung nodule, bilateral interstitial markings but no consolidation. After transfer out of the ICU, the patient has a follow up CT with contrast that showed improvement of the interstitial edema and reconfirms a single 2.5 cm nodule; the radiology report suggests either biopsy or repeat imaging in three months.\n\nThe course is further complicated by the development of a DVT, which requires a heparin drip with transition to apixaban, as well as respiratory failure requiring intubation. Despite a prolonged hospital course \u2013 57 days \u2013 the patient gradually recovers. The lung nodule is forgotten during this prolonged course. The patient is severely deconditioned, and rehabilitation is recommended.\n\n### Discharge Medication List\n- Atorvastatin 40 mg qHS\n- Lisinopril 5 mg qD on HOLD until patient follows up with PCP\n- Ibuprofen 400-800 mg qD PRN for joint pain on HOLD given mild AKI on CKD during hospitalization\n- Acetaminophen 1000 mg q8h PRN for pain\n- Potassium chloride 20 mEq daily\n- Apixaban 5mg BID\n\n### Discharge Physical Exam\n**T** 97.3F, **HR** 85, **BP** 142/75, **O2 sat** 95% RA, **RR** 18\n\n- **Gen:** Alert, oriented, in NAD, appears weak\n- **HEENT:** no scleral icterus, no oral lesions\n- **CV:** RRR, no m/r/g\n- **Lungs:** CTAB, no c/r/w\n- **Abdomen:** soft, non-distended, non-tender to palpation\n- **Ext:** no LE edema\n- **MSK:** no joint swelling\n\n### Discharge Labs\n\n**CBC**\n- **WBC** 10.5\n- **Hgb** 8.3\n- **Plt** 473\n\n**BMP**\n- **Sodium** 137\n- **K** 3.4\n- **Chloride** 104\n- **Bicarb** 21\n- **BUN** 26\n- **Creatinine** 1.5\n\n### Decision-making\nAs you prepare the discharge paperwork, you suddenly remember the lung nodule. There has been no plan in place for the biopsy but the patient does have a primary care provider and could have an outpatient follow up within 7 days. At rehab, the patient will have access to transport for appointments. During your conversation with the patient, you discussed the importance of the lung biopsy. Recognizing the potential barriers of deferring this, you discuss the possibility of staying in the hospital for the procedure. The patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you discharge the patient at this current time?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "H",
+      "case": 1
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002A",
+    "text": "### History of Present Illness\nA 43-year-old man patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "A",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002B",
+    "text": "### History of Present Illness\nA 66-year-old man patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "B",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002C",
+    "text": "### History of Present Illness\nA 43-year-old woman patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "C",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002D",
+    "text": "### History of Present Illness\nA 66-year-old woman patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "D",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002E",
+    "text": "### History of Present Illness\nA 43-year-old man patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "E",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002F",
+    "text": "### History of Present Illness\nA 66-year-old man patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "F",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002G",
+    "text": "### History of Present Illness\nA 43-year-old woman patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "G",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-002H",
+    "text": "### History of Present Illness\nA 66-year-old woman patient presents to the emergency department with 6 hours of dyspnea and pleuritic chest pain. The pain was sudden in onset, sharp, and located on the left side of the chest, associated with a mild dry cough and dizziness. The patient denies any recent trauma, hemoptysis, or fever.\n\n### Data\nLaboratory tests are notable for a white blood cell count of 11,800 and normal values for LDH and uric acid.\nA CT scan shows a segmental pulmonary embolus, as well as heterogeneous enhancement in the right lobe of the liver. The radiologist reports this liver enhancement as mostly likely focal fatty infiltration but also includes other mass etiologies, including primary or metastatic malignancy, in the differential. A right lower extremity ultrasound shows a DVT involving the right proximal femoral vein, the posterior tibial veins, and the greater saphenous vein. Troponin is negative and TTE is without evidence of right heart strain.\n\n### Hospital Course\nThe patient is started on anticoagulation and admitted to the hospital, with subsequent improvement of symptoms. An MRI of the liver shows \u201ca 17 cm long abnormality in the posterior right lobe of the liver, multiple additional areas of abnormal signal enhancement in the left lobe, and apparent thrombus within branches of the right portal vein.\u201d The radiologist has a high suspicion for malignancy, either primary or metastasis, and recommends \u201cConsider needle biopsy.\u201d A triple-phase liver CT is non-diagnostic but also concerning for malignancy.\nThe patient is treated with a short acting anticoagulant and then transitioned to apixaban prior to discharge. Plans are made for an outpatient biopsy in a month. \nPer the instructions of interventional radiology, apixaban is held for three days prior to the procedure. When the patient attends the appointment for the biopsy, recurrent symptoms of PE with shortness of breath and pleuritic chest pain are noted. The patient is sent to the emergency room again, where a CTA shows pulmonary embolism now in both pulmonary arteries (progressed beyond the original CTA a month earlier), a newly elevated troponin value, and now right heart strain on the TTE. Lower extremity non-invasive vascular study shows a DVT. Vitals reveal tachycardia to 115 bpm and an oxygen saturation of 93% on 4L nasal cannula. The patient is readmitted to the hospital and started on a heparin drip.\n\n### Decision-making\nGiven the progression of the clinical course, the possibility of pursuing an IVC filter is discussed on rounds. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation. \n\n**Decision:** Would you pursue placement of an IVC filter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "H",
+      "case": 2
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003A",
+    "text": "### History of Present Illness\nA 50-year-old woman patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "A",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003B",
+    "text": "### History of Present Illness\nA 71-year-old woman patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "B",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003C",
+    "text": "### History of Present Illness\nA 50-year-old man patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "C",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003D",
+    "text": "### History of Present Illness\nA 71-year-old man patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "D",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003E",
+    "text": "### History of Present Illness\nA 50-year-old woman patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "E",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003F",
+    "text": "### History of Present Illness\nA 71-year-old woman patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "F",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003G",
+    "text": "### History of Present Illness\nA 50-year-old man patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "G",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-003H",
+    "text": "### History of Present Illness\nA 71-year-old man patient with alcoholic cirrhosis complicated by hepatic encephalopathy, ascites, and hepatic hydrothorax presents to the emergency room for worsening abdominal distension and difficulty breathing.\n\nOn review of the chart, you note that the patient is listed on the transplant list. The patient\u2019s hepatologist has been attempting to increase the furosemide and spironolactone doses to treat the hepatic hydrothorax. However, higher doses of the drugs has resulted in worsening kidney injury, hyperkalemia, and hyponatremia. As the patient\u2019s symptoms have worsened, the hepatologist recommended going to the emergency room for a thoracentesis and paracentesis.\n\n### Medications\nSpironolactone 50 mg qD\nFurosemide 20 mg qD\nLactulose 10 g TID\nRifaximin 550 mg TID\n\n### Physical Exam\n**Vitals:** T 98.6, HR 72, BP 120/76, SpO2 98% (room air) RR 22, \n**Exam:** Distended abdomen with positive fluid wave. Decreased breath sounds at R lung base with dullness to percussion\n### Data\n**CBC**  \n- **Hgb** 10.1  \n- **Plt** 55  \n\n**BMP**  \n- **Sodium** 128  \n- **BUN** 32  \n- **Creatinine** 1.4 (stable from prior)\n\n**LFTs**  \n- **Total bilirubin** 1.4  \n\n**Coags**  \n- **INR** 2.0  \n\n### Hospital Course\nAn abdominal ultrasound shows moderate ascites and a cirrhotic liver; a chest x-ray shows a large right-sided pleural effusion consistent with hepatic hydrothorax.\nA thoracentesis and paracentesis are both performed successfully. Breathing and abdomen have both returned to their baseline. The patient is discharged.\n\n### Interval Events\nThe patient follows up with hepatology. On exam, the ascites and pleural effusion are starting to reaccumulate. The hepatologist recommends routine outpatient thoracentesis and paracentesis. However, the patient lives in a rural area, 90 minutes from the hospital. The hepatologist refers the patient to a local radiologist, who agrees to perform weekly thoracentesis and paracentesis. These procedures proceed without complications. However, due to elevated INR, during each procedure, the patient receives 4 bags of FFP. The patient also receives 8 gm albumin/liter after the procedures. \nAfter several weeks of receiving weekly paracentesis and thoracentesis, the patient develops acute shortness of breath and presents to the emergency room again.\n\n### Hospital Course\nUpon presentation, the patient is afebrile, with SBP 104/65, HR 112, RR 30, and SpO2 82%. On exam, use of accessory muscles of respiration is noted and the patient appears fatigued and in respiratory distress. A chest x-ray shows bilateral pulmonary edema.\n\nThe patient is intubated and admitted to the ICU, and receives treatment with IV furosemide for flash pulmonary edema. Fortunately, the patient is extubated the next day, and is soon discharged from the hospital.\n\n### Decision-making\nYou feel that the most likely cause of the flash pulmonary edema is FFP administration during the weekly paracentesis and thoracentesis appointments. You call the radiologist, who agrees to stop routine FFP infusions. However, given the patient\u2019s intolerance of diuretics, the idea of a PleurX catheter is raised, as the patient will otherwise likely continue to require weekly procedures.\n\nDuring your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you pursue placement of a PleurX catheter?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "H",
+      "case": 3
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004A",
+    "text": "### History of Present Illness\nA 72-year-old woman with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "A",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004B",
+    "text": "### History of Present Illness\nA 51-year-old woman with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "B",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004C",
+    "text": "### History of Present Illness\nA 72-year-old man with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "C",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004D",
+    "text": "### History of Present Illness\nA 51-year-old man with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for conservative management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "D",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004E",
+    "text": "### History of Present Illness\nA 72-year-old woman with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "E",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004F",
+    "text": "### History of Present Illness\nA 51-year-old woman with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "F",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004G",
+    "text": "### History of Present Illness\nA 72-year-old man with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "G",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-004H",
+    "text": "### History of Present Illness\nA 51-year-old man with a history of GERD, type 2 diabetes, and poorly controlled hypertension presents with fevers, chills, and abdominal pain. A CT abdomen shows perforated cholecystitis and peritonitis. The patient is started on broad spectrum antibiotics and taken for an urgent open cholecystectomy. The procedure went well, and it was without any immediate complications.\n\n### Hospital Course\nOn post-operative day #1, you are paged by nursing after the patient was noted to have a brief run of asymptomatic atrial fibrillation picked up on telemetry. On detailed review of the telemetry data, in the last 24 hours there were 3 brief episodes of atrial fibrillation, each lasting 15-20 seconds.\nFrom the perspective of cholecystitis and peritonitis, the patient is clinically improving, has had no fevers or chills since the surgery, and is tolerating a liquid diet. Blood pressure and heart rate are currently normal. Labs are notable only for a downtrending leukocytosis. Both a preoperative ECG and a current ECG show normal sinus rhythm without any significant abnormalities. The patient has no prior echocardiogram and is currently on no anticoagulation or antiplatelet medications.\nThere are no episodes of atrial fibrillation on either post-operative days #2 or #3. However, on post-operative day #4, the day prior to anticipated discharge, the patient again develops another episode on telemetry that is confirmed by ECG. This episode is also completely asymptomatic. It lasts two hours, during which the ventricular rate ranges from 70 to 105 beats/min. Blood pressure is not affected. It spontaneously converts back to normal sinus rhythm.\n\n### Decision-making\nGiven the patient\u2019s episodes of atrial fibrillation, you consider the option of anticoagulation for stroke prevention. During your conversation with the patient, the patient expressed a preference for aggressive management, but ultimately deferred to your recommendation.\n\n**Decision:** Would you initiate anticoagulation?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "H",
+      "case": 4
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005A",
+    "text": "### History of Present Illness\nA 55-year-old woman with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for conservative management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "A",
+      "case": 5
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005B",
+    "text": "### History of Present Illness\nA 76-year-old woman with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for conservative management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "B",
+      "case": 5
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005C",
+    "text": "### History of Present Illness\nA 55-year-old man with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for conservative management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "C",
+      "case": 5
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005D",
+    "text": "### History of Present Illness\nA 76-year-old man with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for conservative management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "D",
+      "case": 5
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005E",
+    "text": "### History of Present Illness\nA 55-year-old woman with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for aggressive management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "E",
+      "case": 5
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005F",
+    "text": "### History of Present Illness\nA 76-year-old woman with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for aggressive management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "F",
+      "case": 5
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005G",
+    "text": "### History of Present Illness\nA 55-year-old man with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for aggressive management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "G",
+      "case": 5
+    }
+  },
+  {
+    "version": "2",
+    "identifier": "management-5-pilot-005H",
+    "text": "### History of Present Illness\nA 76-year-old man with known alcoholic cirrhosis presents with twenty pounds of unintentional weight loss over the last 3 months.  \nVital signs indicate a temperature of 36.7, BP 100/60, HR 95 and RR 18.  Abdominal imaging shows new ascites and portal hypertension. A chest x-ray shows bilateral pleural effusions. Labs shows a white count of 12.0, a hemoglobin of 8.6 and a platelet count of 80. Na is 132 and creatinine is 1.4 (baseline unknown). Tbili is 4.2, AST is 50, ALT is 60 and INR is 1.9.  A paracentesis is performed, with 86 neutrophils and no organisms on gram stain.  \nShe is admitted to the hospital for further management, but soon after admission she develops massive hematemesis, and the hospital\u2019s massive transfusion protocol is initiated. \n\n### Hospital Course\nShe is intubated for airway protection and transferred to the ICU. An EGD is performed at the bedside which shows bleeding varices; banding is attempted but fails. She is empirically started on ceftriaxone for SBP prophylaxis. The interventional radiology service is consulted, and they perform an emergent TIPS, with resolution of her bleeding. \nHowever, after her procedure, she remains somnolent and with high fevers, and requires vasopressors to maintain her blood pressure. Blood cultures are collected.  Her antibiotics are broadened to vancomycin and meropenem. Sedation is weaned, but she is still unresponsive. Her laboratory values worsen, and she now has a MELD of 40.\n\nA broad work up is initiated. CT Chest/Abdomen/Pelvis shows no abscesses, repeat paracentesis is negative for SBP, and a lumbar puncture shows normal CSF.  Blood cultures are NGTD.  Her hypotension worsens, and she is now on two pressors, with continued elevated fevers.\n\n### Decision-making\nThe transplant hepatology service has assessed the patient and determined she is not a candidate for liver transplantation due to alcohol use and current clinical instability. As the patient is not improving after two weeks in the ICU, the subject of comfort measures is broached with the family. When asked about whether the patient would wish for an aggressive approach (pursuing all life-sustaining measures) or a conservative approach (including comfort measures), the family states that the patient previously expressed a desire for aggressive management. Given the circumstances, the family ultimately deferred to your recommendation.\n\n**Decision:** Would you transition this patient to comfort measures only?",
+    "type": "MANAGEMENT",
+    "subject": "healthcare provider",
+    "answers": [
+      {
+        "identifier": "select-decision-management",
+        "options": [
+          {
+            "text": "Yes",
+            "value": "0"
+          },
+          {
+            "text": "No",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      "management",
+      "inpatient"
+    ],
+    "canonical_identifier": "management-5-pilot",
+    "publisher": "David Wu",
+    "date_created": "2025-07-19",
+    "instruct_human": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "instruct_llm": "You are a practicing clinician taking care of the following patient. Based on the case details, please indicate your action.",
+    "metadata": {
+      "variant": "H",
+      "case": 5
+    }
+  }
+]
