@@ -85,6 +85,9 @@ User[WebApp]->Bucket: Persist SurveyResponse-Participant-1.json
 - [x] All Countries
 - [x] Dropdownn multiple selections
 - [x] Privacy policy and terms of service specific to CDDS
+- [x] email-notify after assignment 
+- [ ] concordance rate screen 
+- [ ] 
 
 --- DEMO Qs 
 
@@ -95,3 +98,52 @@ User[WebApp]->Bucket: Persist SurveyResponse-Participant-1.json
 - ec66badafea938081965b2012aa52236954d571ea1639d84d7a125eeea6b8655
 - seeing  'acute onset vertigo' too many times 
 - Age: 38, Sex: Female, Status: Healthy
+
+
+- http://localhost:3000/demo-questions?file=management_v4.json&index=0
+- http://localhost:3000/demo-questions?file=triage_pilot.json&index=1
+
+
+# management:
+
+- https://study.hvp.global/demo-questions?file=management_v4.json&index=1
+- http://study.hvp.global/demo-questions?file=management_v4.json&index=0
+
+# traige
+
+- https://study.hvp.global/demo-questions?file=triage_pilot.json&index=1
+- http://study.hvp.global/demo-questions?file=triage_pilot.json&index=11
+- http://study.hvp.global/demo-questions?file=triage_pilot.json&index=12
+- http://study.hvp.global/demo-questions?file=triage_pilot.json&index=14
+
+
+# Triage Original
+
+
+
+        <div class="progress-item">
+          {% if item.status == 'enabled' %}
+            {% if item.status == 'enabled' and item.answered | int < item.total %} 
+              {% set show_continue=item.answered | int < item.minimum %} 
+              {% set cmode='set-mode' if show_continue else 'continue-set-mode' %} 
+              {% set button_label='Start' if item.answered|int==0 else ('Continue' if show_continue else 'Answer more' ) %} 
+
+            <form method="POST" action="{{ url_for('question') }}">
+            <input type="hidden" name="question_type" value="{{ item.type }}">
+            <input type="hidden" name="cmode" value="{{ cmode }}">
+            <button type="submit" class="btn btn-primary">{{ button_label }}</button>
+            </form>
+            {% else %}
+            {% endif %}
+            {% else %}
+            <button class="btn btn-sm btn-ghost" disabled style="opacity: 0.4;">Locked</button>
+            {% endif %}
+        </div>
+
+
+
+
+<option value="">-- Select Option --</option>
+                            {% for subject_type in subject_types %}
+                            <option value="{{ subject_type.value }}">{{ subject_type.value | capitalize}}</option>
+                            {% endfor %}

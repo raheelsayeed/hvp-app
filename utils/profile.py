@@ -15,6 +15,10 @@ def assign_question_types(participant: AppParticipant):
 
     if participant.identifier == "raheelsayeedhms@gmail.com":
         types.append("TRIAGEDEMO")
+        types.append("MANAGEMENT")
+
+    if participant.identifier == "davidwumdphd@gmail.com":
+        types.append("MANAGEMENT")
 
     if  participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
         types.append("TRIAGE")

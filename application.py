@@ -16,8 +16,6 @@ from utils.question_extension import *
 from utils.register import get_participant_registry
 from utils.profile import get_assigned_question_types_with_progress 
 
-
-
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s [%(levelname)s] %(message)s',
