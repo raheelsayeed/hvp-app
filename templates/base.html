@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T9CF5PPQ');</script>
+<!-- End Google Tag Manager -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -13,6 +20,10 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9CF5PPQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <!-- Loading Spinner -->
   <div id="spinner" class="loading">
     <div class="loading-card">
@@ -38,6 +49,8 @@
       <div class="nav-wrapper">
         <nav class="primary-nav">
           <a href="{{ url_for('about') }}" class="nav-link">About</a>
+          <a href="{{ url_for('news_page') }}" class="nav-link">News</a>
+
           <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
           {% if user %}
           <a href="{{ url_for('index') }}" class="nav-link nav-link-active">My Study</a>
@@ -68,6 +81,7 @@
     <nav class="mobile-nav" id="mobile-nav">
       <div class="mobile-nav-links">
         <a href="{{ url_for('about') }}" class="nav-link">About</a>
+        <a href="{{ url_for('news_page') }}" class="nav-link">News</a>
         <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
         {% if user %}
         <a href="{{ url_for('index') }}" class="nav-link">My Study</a>

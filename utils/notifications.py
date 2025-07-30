@@ -8,7 +8,7 @@ Thank you for enrolling in the Clinical Decision Dynamics Study, part of the Hum
 Please begin your survey here:
 https://study.hvp.global
 
-We appreciate your contribution to this important research. If you have any questions, feel free to reply to this email.
+We appreciate your contribution to this important research. If you have any questions, please email us at humanvaluesproject@hms.harvard.edu or visit https://study.hvp.global/contact.
 
 The Clinical Decision Dynamics Study Team
 Department of Biomedical Informatics
@@ -31,13 +31,17 @@ Harvard Medical School
 # ----- SES ------- 
 def dispatch_email_notification(participant: Participant, assigned_types):
 
+    source_arn_dbmi = 'arn:aws:ses:us-east-1:634525385963:identity/dbmi.hms.harvard.edu'
     message = f'Dear {participant.first_name},' + (email_assigned if len(assigned_types) > 0 else email_not_assigned)
     session = get_boto3_session()
-    ses = session.client("ses", region_name="us-east-2")
+    ses = session.client("ses", region_name="us-east-1")
     try:
         response = ses.send_email(
-            Source="humanvaluesproject@hms.harvard.edu",
+            Source="humanvaluesproject@dbmi.hms.harvard.edu",
+            SourceArn=source_arn_dbmi,
+            ReturnPathArn=source_arn_dbmi,
             Destination={"ToAddresses": [participant.identifier]},
+            ReplyToAddresses=["no-reply@dbmi.hms.harvard.edu"],
             Message={
                 "Subject": {"Data": "Welcome to the Clinical Decision Dynamics Study"},
                 "Body": {

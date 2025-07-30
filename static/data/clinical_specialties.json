@@ -1,0 +1,177 @@
+
+
+{
+    "Anesthesiology": [
+        "Adult Cardiac Anesthesiology",
+        "Critical Care Medicine",
+        "Health Care Administration, Leadership, and Management",
+        "Hospice and Palliative Medicine",
+        "Neurocritical Care",
+        "Pain Medicine",
+        "Pediatric Anesthesiology",
+        "Sleep Medicine"
+    ],
+    "Dermatology": [
+        "Dermatopathology",
+        "Micrographic Dermatologic Surgery",
+        "Pediatric Dermatology"
+    ],
+    "Emergency Medicine": [
+        "Anesthesiology Critical Care Medicine",
+        "Emergency Medical Services",
+        "Health Care Administration, Leadership, and Management",
+        "Hospice and Palliative Medicine",
+        "Internal Medicine–Critical Care Medicine",
+        "Medical Toxicology",
+        "Neurocritical Care",
+        "Pain Medicine",
+        "Pediatric Emergency Medicine",
+        "Sports Medicine",
+        "Undersea and Hyperbaric Medicine"
+    ],
+    "Family Medicine": [
+        "Adolescent Medicine",
+        "Geriatric Medicine",
+        "Health Care Administration, Leadership, and Management",
+        "Hospice and Palliative Medicine",
+        "Pain Medicine",
+        "Sleep Medicine",
+        "Sports Medicine"
+    ],
+    "Internal Medicine": [
+        "Adolescent Medicine",
+        "Adult Congenital Heart Disease",
+        "Advanced Heart Failure and Transplant Cardiology",
+        "Cardiovascular Disease",
+        "Clinical Cardiac Electrophysiology",
+        "Critical Care Medicine",
+        "Endocrinology, Diabetes and Metabolism",
+        "Gastroenterology",
+        "Geriatric Medicine",
+        "Hematology",
+        "Hospice and Palliative Medicine",
+        "Infectious Disease",
+        "Interventional Cardiology",
+        "Medical Oncology",
+        "Nephrology",
+        "Neurocritical Care",
+        "Pulmonary Disease",
+        "Rheumatology",
+        "Sleep Medicine",
+        "Transplant Hepatology"
+    ],
+    "Medical Genetics and Genomics": [
+        "Medical Biochemical Genetics",
+        "Molecular Genetic Pathology"
+    ],
+    "Neurological Surgery": [
+        "Neurocritical Care"
+    ],
+    "Obstetrics and Gynecology": [
+        "Complex Family Planning",
+        "Critical Care Medicine",
+        "Gynecologic Oncology",
+        "Maternal–Fetal Medicine",
+        "Reproductive Endocrinology and Infertility",
+        "Urogynecology and Reconstructive Pelvic Surgery"
+    ],
+    "Orthopaedic Surgery": [
+        "Orthopaedic Sports Medicine",
+        "Surgery of the Hand"
+    ],
+    "Otolaryngology–Head and Neck Surgery": [
+        "Complex Pediatric Otolaryngology",
+        "Neurotology",
+        "Plastic Surgery within the Head and Neck",
+        "Sleep Medicine"
+    ],
+    "Pathology": [
+        "Blood Banking/Transfusion Medicine",
+        "Clinical Informatics",
+        "Cytopathology",
+        "Dermatopathology",
+        "Hematopathology",
+        "Neuropathology",
+        "Pathology–Chemical",
+        "Pathology–Forensic",
+        "Pathology–Medical Microbiology",
+        "Pathology–Molecular Genetic",
+        "Pathology–Pediatric"
+    ],
+    "Pediatrics": [
+        "Adolescent Medicine",
+        "Child Abuse Pediatrics",
+        "Developmental–Behavioral Pediatrics",
+        "Hospice and Palliative Medicine",
+        "Medical Toxicology",
+        "Neonatal–Perinatal Medicine",
+        "Pediatric Cardiology",
+        "Pediatric Critical Care Medicine",
+        "Pediatric Emergency Medicine",
+        "Pediatric Endocrinology",
+        "Pediatric Gastroenterology",
+        "Pediatric Hematology–Oncology",
+        "Pediatric Hospital Medicine",
+        "Pediatric Infectious Diseases",
+        "Pediatric Nephrology",
+        "Pediatric Pulmonology",
+        "Pediatric Rheumatology",
+        "Pediatric Transplant Hepatology",
+        "Sleep Medicine",
+        "Sports Medicine"
+    ],
+    "Physical Medicine and Rehabilitation": [
+        "Brain Injury Medicine",
+        "Neuromuscular Medicine",
+        "Pain Medicine",
+        "Pediatric Rehabilitation Medicine",
+        "Spinal Cord Injury Medicine",
+        "Sports Medicine"
+    ],
+    "Plastic Surgery": [
+        "Plastic Surgery within the Head and Neck",
+        "Surgery of the Hand"
+    ],
+    "Preventive Medicine": [
+        "Addiction Medicine",
+        "Clinical Informatics",
+        "Health Care Administration, Leadership, and Management",
+        "Medical Toxicology",
+        "Undersea and Hyperbaric Medicine"
+    ],
+    "Psychiatry and Neurology": [
+        "Addiction Psychiatry",
+        "Brain Injury Medicine",
+        "Child and Adolescent Psychiatry",
+        "Clinical Neurophysiology",
+        "Consultation–Liaison Psychiatry",
+        "Epilepsy",
+        "Forensic Psychiatry",
+        "Geriatric Psychiatry",
+        "Neurocritical Care",
+        "Neurodevelopmental Disabilities",
+        "Neuromuscular Medicine",
+        "Pain Medicine",
+        "Sleep Medicine",
+        "Vascular Neurology"
+    ],
+    "Radiology": [
+        "Neuroradiology",
+        "Nuclear Radiology",
+        "Pain Medicine",
+        "Pediatric Radiology"
+    ],
+    "Surgery": [
+        "Complex General Surgical Oncology",
+        "Pediatric Surgery",
+        "Surgery of the Hand",
+        "Surgical Critical Care"
+    ],
+    "Thoracic Surgery": [
+        "Congenital Cardiac Surgery"
+    ],
+    "Urology": [
+        "Pediatric Urology",
+        "Urogynecology and Reconstructive Pelvic Surgery"
+    ]
+}

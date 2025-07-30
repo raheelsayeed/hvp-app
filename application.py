@@ -165,6 +165,7 @@ def index():
 
     has_due_block = any(item.get("answered", 0) < item.get("minimum", 0) for item in progress_arr)
 
+
     return render_template(
         "study_page.html", 
         progress=progress_arr, 
@@ -180,9 +181,14 @@ def index():
 def complete_profile():
 
     if request.method == 'POST':
-        from hvp.core.enums import SubjectType, ProviderTypeEnum, GeoContext 
 
+        print(request.form)
+        
+
+        from hvp.core.enums import SubjectType, ProviderTypeEnum, GeoContext 
         participant_id = session.get('user', {}).get('email', None)
+
+
         if not participant_id:
             return "Participant not found in session", 400
 
@@ -211,18 +217,36 @@ def complete_profile():
             subject_type_value = request.form.get('subject_type', None)
             provider_type_value = request.form.get('provider_type', None)
             clinical_field_values = request.form.getlist('clinical-field') or None
+            if clinical_field_values:
+                clinical_field_values = clinical_field_values = list({
+                                                part
+                                                for val in clinical_field_values
+                                                for part in val.split('___')
+                                            })
             geo_context_value = request.form.get('practice-context', None)
 
             participant.subject_type = SubjectType(subject_type_value)
 
             if participant.subject_type == SubjectType.HEALTHCARE_PROVIDER:
                 if provider_type_value:
-                    participant.provider_type = ProviderTypeEnum(provider_type_value)
+                    selected_provider_type = ProviderTypeEnum(provider_type_value)
+                    participant.provider_type = selected_provider_type 
+                    if selected_provider_type == ProviderTypeEnum.PHYSICIAN:
+                        
+                        participant.academic_teaching_affiliation = True if request.form.get('affiliation', None) == 'yes' else None
+                        participant.career_stage = request.form.get('career_stage') or None
+                        participant.graduation_year = int(request.form.get('graduation_year')) if request.form.get('graduation_year', None) else None 
+                        participant.practice_setting = request.form.get('practice_setting') or None
+
                 if clinical_field_values:
                     participant.clinical_field = clinical_field_values
                 if geo_context_value:
                     participant.geo_context = GeoContext(geo_context_value)
 
+                
+
+            p(request.form)
+            p(participant)
             
             participant.persist()
             from utils.profile import assign_question_types
@@ -243,11 +267,17 @@ def complete_profile():
     us = next(c for c in countries if c.alpha_2 == "US")
     countries_sorted = [us] + countries_sorted
 
+    from pathlib import Path
+    cs_path  = Path(application.root_path) / "static" / "data" / "clinical_specialties.json"
+    with open(cs_path, encoding='utf-8') as f: 
+        clinical_fields = json.load(f)
 
     from hvp.core.enums import ProviderTypeEnum, GeoContext, SubjectType
+
     return render_template(
         "profile.html",
         user=session.get('user'),
+        clinical_fields=clinical_fields,
         country_options=countries_sorted,
         subject_types=SubjectType,
         provider_type_options=ProviderTypeEnum,
@@ -294,6 +324,7 @@ def about():
     return render_template('about.html', user=session.get('user'))
 
 
+    
 
 def get_question_file_path(name):
     from pathlib import Path
@@ -356,6 +387,12 @@ def demo_questions():
 def view_responses(): 
 
     participant = g.participant 
+    if participant.identifier not in ['kohane@gmail.com', 
+                                      'payal.chandak@gmail.com', 
+                                      'raheel.sayeed@gmail.com']:
+        return redirect(url_for('index'))
+
+
     #1. List every response object participant stored in S3 
     from utils.s3 import list_response_keys 
     s3_prefix = f"responses/{participant.identifier}/" 
@@ -402,17 +439,18 @@ def view_responses():
         q_id = response.get('question_id') 
         set_id = response.get('answer_set_id') 
         response_value = response.get('answer_value')
+        response_timestamp = response.get('timestamp')
+
         question = questions.get(q_id) 
         answer_set = next(
                 (a for a in question.answers if a.identifier == set_id),None)
         selected_response = next((r for r in answer_set.options if r.value == response_value), None)
 
-        rendering_text += f"<p>{i+1}. {question.type}</p>"
+        rendering_text += f"<p>{i+1}. {question.type} <small>({response_timestamp})</small></p>"
         rendering_text += f"<p><strong>Responded: {selected_response.text} (Value:{selected_response.value})</strong></p>"
         rendering_text += markdown(question.text, extensions=["tables"])
         rendering_text += f"<small>Question: {question.identifier}; Answer_Set_ID: {set_id}</small>"
         rendering_text += "<hr />"
-        
 
     return render_template('response.html', text=rendering_text, user=session.get('user',  None))
 
@@ -582,32 +620,50 @@ def question(question_type=None):
         if not question_type:
             raise ValueError('Missing question_type in POST')
         return render_template('question_shell.html', question_type=question_type, cmode=cmode, user=session['user'])
+    
+@application.route('/news', methods=["GET"])
+def news_page(): 
+    news_items = [
+        {
+            'title': 'July 2025: Triage Module Now Live',
+            'body': "We’re excited to announce the launch of our pilot study featuring Triage scenarios! If you’re a healthcare provider, please log-in and participate in the Clinical Decision Dynamics Study and help ensure that our human values guide the future of AI-augmented patient care."
+        }
+    ]
+
+    
+    return render_template('news.html', news_items=news_items, user=session.get('user', None))
+
+@application.route('/email-notification-test', methods=["GET"])
+def test_email_notification():
+    source_arn_dbmi = 'arn:aws:ses:us-east-1:634525385963:identity/dbmi.hms.harvard.edu'
+    message = 'This is a test email'
+    session = get_boto3_session()
+    ses = session.client("ses", region_name="us-east-1")
+    try:
+        response = ses.send_email(
+            Source="humanvaluesproject@dbmi.hms.harvard.edu",
+            SourceArn=source_arn_dbmi,
+            Destination={"ToAddresses": ["b32147@gmail.com"]},
+            ReplyToAddresses=["humanvaluesproject@hms.harvard.edu"],
+            Message={
+                "Subject": {"Data": "TEST CDDS"},
+                "Body": {
+                    "Text": {
+                        "Data": (
+                            message
+                        )
+                    }
+                }
+            }
+        )
+        return f'success {response}'
+    except Exception as e:
+        return f'failed: {e}'
 
     
 
 
 if __name__ == '__main__':    
-    # application.run(host='0.0.0.0', port=3000, debug=True)
-
-    # session = get_boto3_session()
-    # ses = session.client("ses", region_name="us-east-2")
-    # try:
-    #     response = ses.send_email(
-    #         Source="humanvaluesproject@hms.harvard.edu",
-    #         Destination={"ToAddresses": ["shahedajameel1@gmail.com"]},
-    #         Message={
-    #             "Subject": {"Data": "Welcome to the Clinical Decision Dynamics Study"},
-    #             "Body": {
-    #                 "Text": {
-    #                     "Data": (
-    #                         "test"
-    #                     )
-    #                 }
-    #             }
-    #         }
-    #     )
-    # except Exception as e: 
-    #     raise e 
     application.run(port=3000, debug=True)
     
 

@@ -123,7 +123,7 @@ def _next_triage(
     questions_metadata: dict,
     answered_question_ids: Optional[List[str]]
 ) -> Optional[Question]:
-    filter_expression = Attr('type').eq('TRIAGE') & Attr('version').eq('1.0.0') 
+    filter_expression = Attr('type').eq('TRIAGE') & Attr('version').eq('2') 
     if answered_question_ids and len(answered_question_ids) > 0:
         filter_expression = filter_expression & ~Attr("identifier").is_in(answered_question_ids)
     response = QUESTIONS_TABLE.scan(
@@ -142,7 +142,7 @@ def _next_triage(
 
 
 @register_next_handler("TRIAGEDEMO")
-def _next_triage(
+def _next_triage2(
     participant: Participant,
     progress_registry: dict,
     questions_metadata: dict,

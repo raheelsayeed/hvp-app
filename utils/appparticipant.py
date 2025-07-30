@@ -1,6 +1,7 @@
 from typing import Optional, List
 from hvp.core.participant import Participant, ParticipantType
 from hvp.core.survey import Survey
+from pydantic import Field
 from utils.s3 import * 
 import logging 
 from datetime import timezone, datetime 
@@ -15,6 +16,10 @@ class AppParticipant(Participant):
     provider_type: Optional[ProviderTypeEnum] = None
     geo_context: Optional[GeoContext] = None
     clinical_field: Optional[List[str]] = None
+    career_stage: Optional[str] = None 
+    academic_teaching_affiliation: Optional[bool] = None
+    graduation_year: Optional[int] = None 
+    practice_setting: Optional[str] = None 
 
     @staticmethod
     def initial_entry(email, fn, ln):
@@ -60,6 +65,12 @@ class AppParticipant(Participant):
                     "subject_type": self.subject_type.value if self.subject_type else None,
                     "provider_type": self.provider_type.value if self.provider_type else None,
                     "clinical_field": self.clinical_field,
+
+                    "career_stage": self.career_stage,
+                    "academic_teaching_affiliation": self.academic_teaching_affiliation,
+                    "graduation_year": self.graduation_year,
+                    "practice_setting": self.practice_setting, 
+                    
                     "status": self.status.value,
                     "lat": getattr(self, "lat", None),
                     "long": getattr(self, "long", None),
@@ -88,6 +99,12 @@ class AppParticipant(Participant):
             self.country = data.get("country", None)
             self.lat = data.get("lat", None)
             self.long = data.get("long", None)
+            
+            self.career_stage = data.get('career_stage', None) 
+            self.academic_teaching_affiliation = data.get('academic_teaching_affiliation', None)
+            self.graduation_year = data.get('graduation_year', None) 
+            self.practice_setting = data.get('practice_setting', None)
+
     
     def populate_from_dynamo(self):
         data = get_participant_demographics(self.identifier)
@@ -114,73 +131,3 @@ class AppParticipant(Participant):
         except Exception as e:
             log.error(f"[DynamoDB] Error loading participant {participant_id}: {e}")
         return None
-     
-
-    # def get_due_surveys(self):
-        
-        # all_survey_metadata = get_survey_metadata_for_participant(self.identifier)
-        # log.debug(f'survey_metadata={all_survey_metadata}') 
-
-        # due_surveys = []
-
-        # for metadata in all_survey_metadata:
-        #     key = metadata.get("filename")
-        #     survey_data = download_survey(key)
-        #     if survey_data:
-        #         survey_obj = Survey(**survey_data)
-        #         survey_item = SurveyItem(survey=survey_obj, metadata=metadata)
-        #         due_surveys.append(survey_item)
-        #     else:
-        #         raise ValueError(f"Survey data not found; key={key}")
-        
-        # # if no due surveys found, create a  new one
-        # if len(all_survey_metadata) == 0:
-        #     new_survey = self.create_new_survey()
-        #     survey_id = new_survey.identifier
-        #     key = f"surveys/{self.identifier}/{survey_id}.json"
-        #     upload_survey(data=new_survey.model_dump_json(), key=key)
-        #     dispatch_email_notification(self.email, f"https://study.hvp.global")
-        #     s_metadata = register_survey_metadata(
-        #         participant_id=self.identifier,
-        #         survey_id=survey_id,
-        #         filename=key
-        #     )
-        #     log.debug(f'New Survey Registered={s_metadata}')
-        #     survey_item = SurveyItem(survey=new_survey, metadata=s_metadata)
-        #     due_surveys.append(survey_item)
-
-        # return due_surveys
-    
-
-    # from utils.question_extension import get_unanswered_questions 
-   
-   
-
-
-
-    # def create_new_survey(self, num_questions: int = 12) -> Survey:
-
-    #     # get 10 ananswered questions
-    #     from utils.question_extension import get_unanswered_questions
-
-    #     # make sure they are new/unanswered 
-    #     # make sure they belong to the right type
-    #     questions = get_unanswered_questions(
-    #         participant_id=self.identifier,
-    #         question_type='TRIAGE',
-    #         number_of_questions=num_questions
-    #     )
-
-    #     if questions is None or len(questions) == 0:
-    #         raise ValueError("No unanswered questions available for the participant.")
-
-    #     # create a Survey with these questions 
-    #     survey = Survey(
-    #         metadata={"question_type": "TRIAGE"},
-    #         questions=questions,
-    #         participant=self
-    #     )
-
-    #     # return the Survey object
-    #     return survey
-        

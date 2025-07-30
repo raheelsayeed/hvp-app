@@ -22,7 +22,8 @@ def upload_questions(filepath: str, output_path: str):
     with open(filepath, "r") as f:
         questions = json.load(f)
 
-    for question in questions:
+    
+    for i, question in enumerate(questions):
 
         q = Question(**question)
 
@@ -45,12 +46,12 @@ def upload_questions(filepath: str, output_path: str):
                 Item=question,
                 ConditionExpression="attribute_not_exists(identifier)"
             )
-            print(f"✅ Uploaded: {question_id}")
+            print(f"✅ {i+1} Uploaded: {question_id}")
         except ClientError as e:
             if e.response['Error']['Code'] == 'ConditionalCheckFailedException':
-                print(f"⚠️ Duplicate skipped: {question_id}")
+                print(f"⚠️ {i+1} Duplicate skipped: {question_id}")
             else:
-                print(f"❌ Error uploading {question_id}: {e}")
+                print(f"❌ {i+1} Error uploading {question_id}: {e}")
 
     with open(output_path, "w") as outf:
         json.dump(questions, outf, indent=2)
