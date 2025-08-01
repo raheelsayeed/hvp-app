@@ -13,19 +13,22 @@
       <p class="feature-description" style="font-size: var(--text-base); ">
         Thank you for participating in the Human Values Project.
       </p>
-      <div class="callout"
-              style="background:var(--primary-50); border:1px solid var(--primary-100); padding:var(--space-4); border-radius:var(--radius-md); margin-bottom: var(--space-6);">
-              {{essential_completed}}Track our results, events and updates <a href="https://study.hvp.global/news" target="_blank" rel="noopener"
-                style="color:var(--primary-600); text-decoration:underline;">here</a>
-            </div>
+
+
 
       {% if progress %}
       <div class="section-title">Your Progress</div>
 
       <div class="feature-grid" style="grid-template-columns: 1fr;">
 
-        {% set essential_completed = True %}
+        {% set ns = namespace(show_callout=True) %}
+
         {% for item in progress %}
+
+            {% if item.status != 'enabled' or (item.answered|int < item.minimum) %}
+                {% set ns.show_callout = False %}
+            {% endif %}
+
             {% if item.status == 'enabled' %}
                 {% if item.answered | int >= item.minimum and item.answered | int < item.total %} 
                   <!-- Minimum Completed! -->
@@ -42,7 +45,6 @@
                   
                 {% elif item.answered | int < item.minimum %} 
                 <!-- Questions are pending -->
-                    {% set essential_completed = 'asdf' %}
                     {% set cmode='set-mode' %}
                     {% set button_label= ' Continue ' if item.answered|int > 0 else ' Start ' %}
                     {% set note_color=' var(--danger-600)' %}
@@ -87,12 +89,16 @@
             </div>
             <!-- Add Section for concordance here with Zak kohane-->
             {% endfor %}
-
-
-
-
-            
       </div>
+
+      {% if ns.show_callout %}
+      <div class="callout"
+              style="background:var(--primary-50); border:1px solid var(--primary-100); padding:var(--space-4); border-radius:var(--radius-md); margin-bottom: var(--space-6);">
+              Track our results, events and updates <a href="{{ url_for('news_page') }}" target="_blank" rel="noopener"
+                style="color:var(--primary-600); text-decoration:underline;">here</a>
+      </div>
+      {% endif %}
+
 
       {% else %}
       <div class="feature-item"
@@ -222,7 +228,7 @@
         <div class="feature-item">
           <!-- <div class="feature-icon">📍</div> -->
           <div class="feature-content">
-            <div class="feature-title">Practice Context</div>
+            <div class="feature-title">Practice Location Context</div>
             <div class="feature-description">{{ participant.geo_context.value | capitalize }}</div>
           </div>
         </div>
@@ -237,21 +243,18 @@
               Career Stage: {{ participant.career_stage | capitalize }}<br/> 
             {% endif %}
             {% if participant.academic_teaching_affiliation is not none %}
-              Teaching Affiliation: 
+              Academic/Teaching hospital affiliation: 
               {{ 'Yes' if participant.academic_teaching_affiliation else 'No' }}<br/>
             {% endif %}
             {% if participant.graduation_year %}
-              Graduation Year: {{ participant.graduation_year }}<br/>
+              Year of graduation: {{ participant.graduation_year }}<br/>
             {% endif %}
             {% if participant.practice_setting %}
-              Practice Setting: {{ participant.practice_setting | capitalize }}
+              Practice setting: {{ participant.practice_setting | capitalize }}
             {% endif %}
           </div>
         </div>
       </div>
-
-
-
         {% endif %}
       </div>
     </div>
